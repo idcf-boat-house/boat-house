@@ -1,0 +1,2 @@
+rootfs/etc/consul.d/ssl/.gitkeep
+rootfs/etc/container.d/conf-services.d/.gitkeep

@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+if [ ! -z "${CONSUL_ADDR}" ]; then
+    options=""
+    consul_addr="http://${CONSUL_ADDR}"
+
+    if [ ! -z "${CONSUL_TLS}" ] && [ "${CONSUL_TLS}" -eq 1 ]; then
+        consul_addr="https://${CONSUL_ADDR}"
+
+        if [ ! -z "${CONSUL_TLSCAFILE}" ]; then
+            options="${options} --cacert ${CONSUL_TLSCAFILE}"
+        elif [ ! -z "${CONSUL_TLSCAPATH}" ]; then
+            options="${options} --capath ${CONSUL_TLSCAPATH}"
+        fi
+
+        if [ ! -z "${CONSUL_TLSCERTFILE}" ]; then
+            options="${options} --cert ${CONSUL_TLSCERTFILE}"
+        fi
+
+        if [ ! -z "${CONSUL_TLSKEYFILE}" ]; then
+            options="${options} --key ${CONSUL_TLSKEYFILE}"
+        fi
+
+        if [ -z "${CONSUL_TLSVERIFY}" ] || [ "${CONSUL_TLSVERIFY}" -ne 1 ]; then
+            options="${options} --insecure"
+        fi
+    fi
+
+    if [ ! -z "${CONSUL_TOKEN}" ]; then
+        options="${options} --header X-Consul-Token:${CONSUL_TOKEN}"
+    fi
+
+    while true; do
+        [ $(curl -s -w '%{http_code}' --out /dev/null ${options} "${consul_addr}/v1/agent/self") == "200" ] && break
+
+        sleep 5
+    done
+
+    if [ ! -z "${CONSUL_WAITFOR_SERVICENAME}" ]; then
+        url="${consul_addr}/v1/health/service/${CONSUL_WAITFOR_SERVICENAME}"
+        url_data="passing=true"
+
+        if [ ! -z "${CONSUL_WAITFOR_SERVICETAG}" ]; then
+            url="${url}?tag=${CONSUL_WAITFOR_SERVICETAG}"
+        fi
+
+        while true; do
+            health=$(curl -s ${options} -X GET "${url}" -G --data-urlencode "${url_data}") && \
+                count=$(echo "$health"|jq -r 'length') && [ "$count" -gt "0" ] && break
+
+            sleep 5
+        done
+    fi
+
+    status=0
+
+    if [ -f /var/run/container/service.json ]; then
+        [ $(curl -s -w '%{http_code}' --out /dev/null ${options} \
+            -X PUT -d "@/var/run/container/service.json" "${consul_addr}/v1/agent/service/register") == "200" ] || \
+            status=1
+    fi
+
+    if [ -f /var/run/container/check.json ]; then
+        [ $(curl -s -w '%{http_code}' --out /dev/null ${options} \
+            -X PUT -d "@/var/run/container/check.json" "${consul_addr}/v1/agent/check/register") == "200" ] || \
+            status=1
+    fi
+
+    exit $status
+fi

@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+links=$(ip -o link show|wc -l)
+if [ "${links}" -gt 1 ]; then
+    if [ -z "${CONTAINER_NAME}" ]; then
+        CONTAINER_NAME=$(cat /etc/hostname)
+    fi
+
+    if [ -z "${CONTAINER_NAME}" ]; then
+        exit 1
+    fi
+
+    if [ -z "${CONTAINER_RESOLVER}" ]; then
+        CONTAINER_RESOLVER=route
+    fi
+
+    case "${CONTAINER_RESOLVER}" in
+        interface)
+            if [ -z "${CONTAINER_RESOLVER_INTERFACENAME}" ]; then
+                CONTAINER_RESOLVER_INTERFACENAME=eth0
+            fi
+
+            if [ -z "${CONTAINER_RESOLVER_INTERFACETYPE}" ]; then
+                CONTAINER_RESOLVER_INTERFACETYPE=inet
+            fi
+
+            CONTAINER_IP=$(ip -o addr show "${CONTAINER_RESOLVER_INTERFACENAME}"|grep "${CONTAINER_RESOLVER_INTERFACETYPE} "|awk '{ print $4; }'|sed -e 's/\/.*$//')
+
+            if [ -z "${CONTAINER_IP}" ]; then
+                exit 2
+            fi
+            ;;
+
+        route)
+            CONTAINER_IP=$(ip route get 1|awk '{ print $NF; exit; }')
+
+            if [ -z "${CONTAINER_IP}" ]; then
+                exit 2
+            fi
+            ;;
+    esac
+
+    export CONTAINER_NAME
+    printf "%s" "${CONTAINER_NAME}" > /var/run/s6/container_environment/CONTAINER_NAME
+
+    export CONTAINER_IP
+    printf "%s" "${CONTAINER_IP}" > /var/run/s6/container_environment/CONTAINER_IP
+fi
+
+if [ ! -z "${CONTAINER_WAITFOR_HOST}" ] && [ ! -z "${CONTAINER_WAITFOR_PORT}" ]; then
+    while true; do
+        nc -z "${CONTAINER_WAITFOR_HOST}" "${CONTAINER_WAITFOR_PORT}" > /dev/null 2>&1 && break
+
+        sleep 5
+    done
+fi
+
+if [ ! -z "${CONSUL_SERVICENAME}" ]; then
+    if [ -z "${CONSUL_RESOLVER}" ]; then
+        CONSUL_RESOLVER=container
+    fi
+
+    case ${CONSUL_RESOLVER} in
+        container)
+            CONSUL_SERVICEADDR=${CONTAINER_IP}
+            ;;
+
+        interface)
+            if [ -z "${CONTAINER_RESOLVER_INTERFACENAME}" ]; then
+                CONSUL_RESOLVER_INTERFACENAME=eth0
+            fi
+
+            if [ -z "${CONTAINER_RESOLVER_INTERFACETYPE}" ]; then
+                CONSUL_RESOLVER_INTERFACETYPE=inet
+            fi
+
+            CONSUL_SERVICEADDR=$(ip -o addr show ${CONSUL_RESOLVER_INTERFACENAME}|grep "${CONSUL_RESOLVER_INTERFACETYPE} "|awk '{ print $4; }'|sed -e 's/\/.*$//')
+            ;;
+
+        route)
+            CONSUL_SERVICEADDR=$(ip route get 1|awk '{ print $NF; exit; }')
+            ;;
+    esac
+
+    if [ -z "${CONSUL_SERVICEADDR}" ]; then
+        exit 1
+    fi
+
+    export CONSUL_SERVICEADDR
+    printf "%s" "${CONSUL_SERVICEADDR}" > /run/s6/container_environment/CONSUL_SERVICEADDR
+
+    if [ -z "${CONSUL_WAITFOR_SERVICENAME}" ]; then
+        export CONSUL_WAITFOR_SERVICENAME=consul
+        printf "%s" "${CONSUL_WAITFOR_SERVICENAME}" > /var/run/s6/container_environment/CONSUL_WAITFOR_SERVICENAME
+    fi
+
+    if [ -z "${CONSUL_WAITFOR_SERVICETAG}" ]; then
+        export CONSUL_WAITFOR_SERVICETAG=""
+        printf "%s" "${CONSUL_WAITFOR_SERVICETAG}" > /var/run/s6/container_environment/CONSUL_WAITFOR_SERVICETAG
+    fi
+fi
+
+if ls -A /etc/container.d/conf-init.d/*.hcl > /dev/null 2>&1; then
+    if ! consul-template -config /etc/container.d/conf-init.d/ -once ${CONSULTEMPLATE_OPTIONS}; then
+        exit 1
+    fi
+fi

@@ -1,0 +1,59 @@
+{{- $consul_addr := env "CONSUL_ADDR" -}}
+{{- $consul_token := env "CONSUL_TOKEN" -}}
+{{- $consul_tls := env "CONSUL_TLS" -}}
+{{- $consul_tls_ca_path := env "CONSUL_TLSCAPATH" -}}
+{{- $consul_tls_ca_file := env "CONSUL_TLSCAFILE" -}}
+{{- $consul_tls_cert_file := env "CONSUL_TLSCERTFILE" -}}
+{{- $consul_tls_key_file := env "CONSUL_TLSKEYFILE" -}}
+{{- $consul_tls_verify := env "CONSUL_TLSVERIFY" -}}
+{{- $consul_tls_server_name := env "CONSUL_TLSSERVERNAME" -}}
+{{- $vault_addr := env "VAULT_ADDR" -}}
+{{- $vault_token := env "VAULT_TOKEN" -}}
+{{- $vault_tls := env "VAULT_TLS" -}}
+{{- $vault_tls_ca_path := env "VAULT_TLSCAPATH" -}}
+{{- $vault_tls_ca_file := env "VAULT_TLSCAFILE" -}}
+{{- $vault_tls_cert_file := env "VAULT_TLSCERTFILE" -}}
+{{- $vault_tls_key_file := env "VAULT_TLSKEYFILE" -}}
+{{- $vault_tls_verify := env "VAULT_TLSVERIFY" -}}
+{{- $vault_tls_server_name := env "VAULT_TLSSERVERNAME" -}}
+kill_signal = "SIGTERM"
+
+{{ if $consul_addr }}
+consul {
+  address = "{{ $consul_addr }}"
+  token = "{{ $consul_token }}"
+
+  {{ if eq $consul_tls "1" }}
+  ssl {
+    enabled = true
+    {{ if $consul_tls_ca_path }}ca_path = "{{ $consul_tls_ca_path }}"{{ end }}
+    {{ if $consul_tls_ca_file }}ca_cert = "{{ $consul_tls_ca_file }}"{{ end }}
+    {{ if $consul_tls_cert_file }}cert = "{{ $consul_tls_cert_file }}"{{ end }}
+    {{ if $consul_tls_key_file }}key = "{{ $consul_tls_key_file }}"{{ end }}
+    verify = {{ if eq $consul_tls_verify "1" }}true{{ else }}false{{ end }}
+    {{ if $consul_tls_server_name}}server_name = "{{ $consul_tls_server_name }}"{{ end }}
+  }
+  {{ end }}
+}
+{{ end }}
+
+{{ if $vault_addr }}
+vault {
+  address = "{{ $vault_addr }}"
+  token = "{{ $vault_token }}"
+  renew_token = false
+  unwrap_token = false
+
+  {{ if eq $vault_tls "1" }}
+  ssl {
+    enabled = true
+    {{ if $vault_tls_ca_path }}ca_path = "{{ $vault_tls_ca_path }}"{{ end }}
+    {{ if $vault_tls_ca_file }}ca_cert = "{{ $vault_tls_ca_file }}"{{ end }}
+    {{ if $vault_tls_cert_file }}cert = "{{ $vault_tls_cert_file }}"{{ end }}
+    {{ if $vault_tls_key_file }}key = "{{ $vault_tls_key_file }}"{{ end }}
+    verify = {{ if eq $vault_tls_verify "1" }}true{{ else }}false{{ end }}
+    {{ if $vault_tls_server_name }}server_name = "{{ $vault_tls_server_name }}"{{ end }}
+  }
+  {{ end }}
+}
+{{ end }}

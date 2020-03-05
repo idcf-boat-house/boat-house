@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if ls -A /etc/container.d/conf-services.d/*.hcl > /dev/null 2>&1; then
+    if ! consul-template -config /etc/container.d/conf-services.d/ -once ${CONSULTEMPLATE_OPTIONS}; then
+        exit 1
+    fi
+fi

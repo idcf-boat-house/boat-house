@@ -1,0 +1,35 @@
+{
+    "apiVersion": "vlabs",
+    "location": "chinanorth2",
+    "properties": {
+      "orchestratorProfile": {
+        "orchestratorType": "Kubernetes"
+      },
+      "masterProfile": {
+        "count": 1,
+        "dnsPrefix": "%{dnsPrefix}%",
+        "vmSize": "Standard_B2ms"
+      },
+      "agentPoolProfiles": [
+        {
+          "name": "agentpool1",
+          "count": 1,
+          "vmSize": "Standard_B2ms"
+        }
+      ],
+      "linuxProfile": {
+        "adminUsername": "localadmin",
+        "ssh": {
+          "publicKeys": [
+            {
+              "keyData": "%{sshRSAPublicKey}%"
+            }
+          ]
+        }
+      },
+      "servicePrincipalProfile": {
+        "clientId": "%{destApplicationId}%",
+        "secret": "%{destApplicationKey}%"
+      }
+    }
+  }

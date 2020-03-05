@@ -1,0 +1,17 @@
+{{- $name := env "CONTAINER_NAME" -}}
+{{- $ip := env "CONTAINER_IP" -}}
+{{- $service_name := env "CONSUL_SERVICENAME" -}}
+{{- $service_tags := env "CONSUL_SERVICETAGS" -}}
+{{- $service_addr := env "CONSUL_SERVICEADDR" -}}
+{{- $service_port := env "CONSUL_SERVICEPORT" -}}
+{{- if and $name $ip $service_name $service_addr $service_port -}}
+{
+    "ID": "{{ print $service_name "-" $name }}",
+    "Name": "{{ $service_name }}",
+    {{ if $service_tags -}}
+    "Tags": [ {{ range $index, $tag := $service_tags | split "," }}{{ if gt $index 0 }}, {{ end }}"{{ $tag }}"{{ end }} ],
+    {{- end }}
+    "Address": "{{ $service_addr }}",
+    "Port": {{ $service_port }}
+}
+{{- end -}}
