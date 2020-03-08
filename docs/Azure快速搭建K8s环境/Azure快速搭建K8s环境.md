@@ -58,18 +58,18 @@ PS脚本将使用Azure Service Principal 授权的方式来访问 Azure 服务�
     | $AzureSPApplicationId| 配置Azure 章节中记录的 Service Principal 的 Application ID![image.png](images/k8s-setup-05.png)|
     | $AzureSPApplicationKey| 配置Azure 章节中记录的 Service Principal 的密钥![image.png](images/k8s-setup-07.png)|
 1. 在此具体介绍以下 Power Shell 脚本中代码的原理：
-    - k8s文件夹下的 'acs-engin' 文件夹包含 Azure Container Service Engine 工具，此工具可以基于特定格式的 Json 脚本文件生成部署Azure资源所使用的ARM 模版：
+    - k8s文件夹下的 'aks-engine' 文件夹包含 Azure Kubernetes Services engine 工具，此工具可以基于特定格式的 Json 脚本文件生成部署Azure资源所使用的ARM 模版：
     ![image.png](images/k8s-setup-16.png)
-    关于ACS-Engine和ARM模版的具体细节，大家可以参考：
-    [ACS-Engine](https://codecov.io/gh/Azure/acs-engine)
+    关于AKS-Engine和ARM模版的具体细节，大家可以参考：
+    [AKS-Engine](https://github.com/Azure/aks-engine)
     [ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
-    - k8s文件夹下的 'template-tool-config.json' 是生成 K8s arm 模版的配置文件，即上面所说的‘ACS-Engine’使用的配置文件。
+    - k8s文件夹下的 'kubernetes.json' 是生成 K8s arm 模版的配置文件，即上面所说的‘AKS-Engine’使用的配置文件。
     此文件描述了所需要生成的K8s环境的详细信息：
     ![image.png](images/k8s-setup-17.png)
-    - Power Shell 脚本运行时首先替换掉 'template-tool-config.json' 文件中的以下四个环境变量
+    - Power Shell 脚本运行时首先替换掉 'kubernetes.json' 文件中的以下四个环境变量
     ![image.png](images/k8s-setup-18.png)
     其中 ssh 的密钥是通过 git 安装目录下的 ssh-keygen.exe 生成的一对公钥和私钥，**大家要注意保存好生成的私钥也就是 ’k8s/temp/ssh/id_rsa‘ 文件，k8s环境创建完毕后，需要使用此私钥链接结点**。
-    - 然后使用 'ACS-Engine' 生成 K8s的 ARM模版. (Temp文件夹中的内容将会在运行PS脚本文件时生成)
+    - 然后使用 'AKS-Engine' 生成 K8s的 ARM模版. (Temp文件夹中的内容将会在运行PS脚本文件时生成)
     ![image.png](images/k8s-setup-19.png)
     - 最后使用 'AZ CLI' 工具登陆 Azure China，并创建指定名称的Resource Group，在此 Resource Group 中基于 ARM 模版部署 K8s的集群环境。
     ![image.png](images/k8s-setup-20.png)
