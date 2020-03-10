@@ -91,7 +91,17 @@ Apollo在创建项目的时候，都会默认创建一个“application”的Nam
 
 #### 添加@EnableApolloConfig 注解
 
-![image-20200309234635161](C:\Users\Wenxfu\AppData\Roaming\Typora\typora-user-images\image-20200309234635161.png)
+```
+//这个是最简单的配置形式，一般应用用这种形式就可以了，用来指示Apollo注入application namespace的配置到Spring环境中
+@Configuration
+@EnableApolloConfig
+public class AppConfig {
+  @Bean
+  public TestJavaConfigBean javaConfigBean() {
+    return new TestJavaConfigBean();
+  }
+}
+```
 
 #### **配置application.yml** 或application.properties **添加** AppId，Namespace和Apollo Meta Server配置 
 
