@@ -18,3 +18,18 @@
 [Azure快速搭建K8s环境](docs/Azure快速搭建K8s环境/Azure快速搭建K8s环境.md)
 
 [Apollo介绍与docker部署](docs/Apollo介绍与docker部署.md)
+
+Contribute Guide：
+
+### 提交规范？
+
+ - 格式：所有文档均需要使用Markdown的方式编写。
+
+ - 存放：所有文档均需要在docs目录下创建一个文件夹用于存放图片以及文档，参考如下：
+
+```csharp
+docs
+	- 技术主题 (文件夹)
+		- images (文件夹)
+		- Readme.md (技术主题文档)
+```
