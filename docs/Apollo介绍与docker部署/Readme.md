@@ -213,7 +213,7 @@ Configservice:
 
 ​	-Deureka.instance.ip-address=13.76.97.141
 
-![image-20200309235300092](images/image-20200309235300092.png)
+![image-20200309235300092](../images/image-20200309235300092.png)
 
 ​	zip -u apollo- configservice -1.5.1-github.zip tmp/scripts/startup.sh
 
@@ -225,7 +225,7 @@ Adminservice:
 
 ​	-Deureka.instance.ip-address=13.76.97.141
 
-![image-20200309235309006](images/image-20200309235300092.png)
+![image-20200309235309006](../images/image-20200309235300092.png)
 
 ​	zip -u apollo- adminservice -1.5.1-github.zip tmp/scripts/startup.sh
 
@@ -257,6 +257,6 @@ Jenkins server:
 
 网页：http://52.187.110.104:8070/ 默认账户&密码：apollo & admin
 
-![image-20200309235332638](images/image-20200309235332638.png)
+![image-20200309235332638](../images/image-20200309235332638.png)
 
  

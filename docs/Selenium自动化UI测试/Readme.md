@@ -1,6 +1,6 @@
 # Selenium Grid本地实现自动化UI测试
 
-![image.png](images/2020-02-16_17-32-35.png)
+![image.png](../images/2020-02-16_17-32-35.png)
 
 
 ## Selenium Grid工作原理
@@ -40,9 +40,9 @@ services:
 ```bash
  docker-compose up -d --scale chrome=2 --scale firefox=2
 ```
-![image.png](images/2020-02-16_18-08-17.png)
+![image.png](../images/2020-02-16_18-08-17.png)
 
-![image.png](images/2020-02-16_18-09-33.png)
+![image.png](../images/2020-02-16_18-09-33.png)
 
 ## 运行本地测试用例
 
@@ -96,4 +96,4 @@ public void AddFoodCategory()
 
 *测试结果*
 
-![image.png](images/2020-02-16_18-15-00.png)
+![image.png](../images/2020-02-16_18-15-00.png)
