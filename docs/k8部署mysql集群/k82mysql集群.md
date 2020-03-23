@@ -102,3 +102,4 @@ kubectl create -f mariadb-ss.yml -n mariadb
 
  ![](../images/k8-mysql11.png)
  
+ 
