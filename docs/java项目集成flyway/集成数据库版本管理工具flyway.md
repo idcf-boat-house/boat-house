@@ -21,13 +21,15 @@ Flyway自动引入的文件名有固定的格式要求：V+版本号 +双下划�
 
     <version>5.2.4</version>
 
-</dependency> <plugin>
+</dependency> 
 
-<groupId>org.flywaydb</groupId>
+<plugin>
 
-<artifactId>flyway-maven-plugin</artifactId>
+    <groupId>org.flywaydb</groupId>
 
-<version>5.0.3</version>
+    <artifactId>flyway-maven-plugin</artifactId>
+
+    <version>5.0.3</version>
 
 </plugin>
 ```
