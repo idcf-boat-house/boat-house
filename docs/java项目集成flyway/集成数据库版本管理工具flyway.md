@@ -12,7 +12,25 @@ Flyway自动引入的文件名有固定的格式要求：V+版本号 +双下划�
 
 1. 在pom.xml文件里引入两个包
 
-![](../images/flyway3.png)
+``` 
+<dependency>
+
+    <groupId>org.flywaydb</groupId>
+
+    <artifactId>flyway-core</artifactId>
+
+    <version>5.2.4</version>
+
+</dependency> <plugin>
+
+<groupId>org.flywaydb</groupId>
+
+<artifactId>flyway-maven-plugin</artifactId>
+
+<version>5.0.3</version>
+
+</plugin>
+```
 
 1. 在application.properties引用flyway进行数据库链接
 
