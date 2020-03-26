@@ -12,17 +12,7 @@ Flyway自动引入的文件名有固定的格式要求：V+版本号 +双下划�
 
 1. 在pom.xml文件里引入两个包
 
-\&lt; **dependency** \&gt;
-    \&lt; **groupId** \&gt;org.flywaydb\&lt;/ **groupId** \&gt;
-    \&lt; **artifactId** \&gt;flyway-core\&lt;/ **artifactId** \&gt;
-    \&lt; **version** \&gt;5.2.4\&lt;/ **version** \&gt;
-\&lt;/ **dependency** \&gt;
-
-\&lt; **plugin** \&gt;
-\&lt; **groupId** \&gt;org.flywaydb\&lt;/ **groupId** \&gt;
-\&lt; **artifactId** \&gt;flyway-maven-plugin\&lt;/ **artifactId** \&gt;
-\&lt; **version** \&gt;5.0.3\&lt;/ **version** \&gt;
-\&lt;/ **plugin** \&gt;
+![](../images/flyway3.png)
 
 1. 在application.properties引用flyway进行数据库链接
 
