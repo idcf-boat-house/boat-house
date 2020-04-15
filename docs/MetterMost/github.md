@@ -28,9 +28,13 @@
     ![mattermost_1](../images/mattermost_github_07.png)
 
     点击 “Authorize ******”
+    
     ![mattermost_1](../images/mattermost_github_08.png)
+    
     /github me 显示当前账号的信息
+    
     /git todo 待完成工作列表
+    
      ![mattermost_1](../images/mattermost_github_09.png)
 
 参考：https://github.com/mattermost/mattermost-plugin-github
