@@ -1,0 +1,8 @@
+.gitignore
+*/.gitignore
+*/.gitkeep
+.git-ftp-ignore
+.git-ftp-include
+.gitlab-ci.yml
+.git/*
+.github/*
