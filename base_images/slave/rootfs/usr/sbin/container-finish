@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-rm -f /var/run/s6/container_environment/CONTAINER_NAME /var/run/s6/container_environment/CONTAINER_IP
