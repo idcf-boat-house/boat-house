@@ -14,7 +14,7 @@ jobs:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@boat-house-main
+    - uses: actions/checkout@master
       with:
         fetch-depth: 2
     - name: FTP-Deploy-Action
