@@ -1,0 +1,25 @@
+name: boat-house-docs-deploy
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ boat-house-main ]
+  #pull_request:
+  #  branches: [ master ]
+
+# Use FTP deploy action to publish markdown into https://idcf.org.cn/boat-house
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@boat-house-main
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      with:
+        ftp-server: ${{ secrets.PUBLISH_URL }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
