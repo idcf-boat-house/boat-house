@@ -10,7 +10,7 @@
 * [技术支持](docs/quick-start/operation/tech-support.md)
 
 
-**Contributing**
+### Contributing
 
 * [项目协作流程](docs/quick-start/operation/contributing-flow.md)
 * [团队上手指南](docs/quick-start/operation/team-quick-start.md)
@@ -20,7 +20,6 @@
 * [验收标准（AC）](docs/quick-start/operation/ac.md)
 * [完成标准（DoD）](docs/quick-start/operation/dod.md)
 * [团队代码合并指南](docs/quick-start/operation/code-merge.md)
-
 * [github clone 加速，解决国内慢的问题](docs/quick-start/operation/github-access-proxy-for-cn.md)
 
 ## IDCF 相关存储库介绍
@@ -66,14 +65,14 @@
 * [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
 * [Apollo介绍与docker部署](docs/quick-start/guide/apollo-config-center/Readme.md)
-* [MetterMost OpsChat 配置](docs/quick-start/guide/MetterMost/readme.md)
-* [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/MetterMost/jenkins.md)
-* [MetterMost OpsChat github 集成](docs/quick-start/guide/MetterMost/github.md)
+* [MetterMost OpsChat 配置](docs/quick-start/guide/chat-ops-metter-most/readme.md)
+* [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/chat-ops-metter-most/jenkins.md)
+* [MetterMost OpsChat github 集成](docs/quick-start/guide/chat-ops-metter-most/github.md)
 * [JMeter测试用例编写手册](docs/quick-start/guide/JMeter/Readme.md)
 * [Jenkins集成Jmeter](docs/quick-start/guide/JMeter/jmeter--for-jenkins.md)
 * [RESTful及RESTful API设计规范简介](docs/quick-start/guide/spec/restfull-api-design-spec.md)
 * [k82mysql集群](docs/quick-start/guide/mysql-k8s-deploy/Readme.md)
-* [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm/Readme.md)
+* [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
 * [使用 Flyway 进行数据库持续交付](docs/quick-start/guide/java-flyway-db-pipeline/Readme.md)
 * [Idea 快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
 
