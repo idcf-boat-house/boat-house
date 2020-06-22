@@ -50,6 +50,10 @@
 
 [部署脚本](https://github.com/idcf-boat-house/boat-house/actions?query=workflow%3Aboat-house-docs-deploy)
 
+### 基础设施库
+
+[IDCF Boat House 基础设施库，包括vm环境创建脚本，devops相关工具部署脚本](https://github.com/idcf-boat-house/boat-house-infrastructure)
+
 ### 单体架构相关代码库
 
 - [boathouse-frontend: 前端代码库，包括前台和后台的Web前端页面代码](https://github.com/idcf-boat-house/boat-house-frontend)
