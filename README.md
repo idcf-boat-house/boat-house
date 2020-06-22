@@ -43,6 +43,12 @@
 ##### 主库文档查看地址
 
  http://idcf.org.cn/boat-house
+ 
+##### 文档库部署
+
+采用 Github Action, 使用 FTP的方式 将此库的MD文件部署至Azure China AppService
+
+[部署脚本](https://github.com/idcf-boat-house/boat-house/actions?query=workflow%3Aboat-house-docs-deploy)
 
 ### 单体架构相关代码库
 
