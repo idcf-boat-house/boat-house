@@ -52,13 +52,15 @@
 
 ### 单体架构相关代码库
 
-- [boathouse-frontend: 前端代码库]()
-- [boathouse-mobile-android: 客户端代码库]()
-- [boathouse-backend：后台代码库]()
+- [boathouse-frontend: 前端代码库，包括前台和后台的Web前端页面代码](https://github.com/idcf-boat-house/boat-house-frontend)
+- [boathouse-mobile-android: Android客户端代码库](https://github.com/idcf-boat-house/boat-house-mobile-android)
+- [boathouse-backend：后台代码库](https://github.com/idcf-boat-house/boat-house-backend)
 
 ### 微服务架构相关代码库
 
 复用用单体架构仓库，分开打包。
+
+TODO: 结构描述
 
 ## 工具指导文档
 
