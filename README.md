@@ -62,7 +62,7 @@
 
 船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
 
-![](/images/boathouse-structure.png )
+![](images/boathouse-structure.png)
 
 - 微服务架构和单体架构都采用相同的代码库：
 	- [boathouse-frontend: 前端代码库，包括前台和后台的Web前端页面代码](https://github.com/idcf-boat-house/boat-house-frontend)
@@ -92,7 +92,7 @@
 
 目前 boathouse-backend后台代码库 是使用spring boot按照微服务架构方式组织，如下图
 
-![](/images/boathouse-structure-product02.png )
+![](images/boathouse-structure-product02.png)
 
 ## 工具指导文档
 
