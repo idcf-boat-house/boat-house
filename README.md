@@ -56,14 +56,14 @@
 
 ### boat-house 相关代码库
 
+- boat-house 应用结构及功能
+船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
+![](/images/boathouse-structure.png )
+
 - 微服务架构和单体架构都采用相同的代码库：
 	- [boathouse-frontend: 前端代码库，包括前台和后台的Web前端页面代码](https://github.com/idcf-boat-house/boat-house-frontend)
 	- [boathouse-mobile-android: Android客户端代码库](https://github.com/idcf-boat-house/boat-house-mobile-android)
 	- [boathouse-backend：后台代码库](https://github.com/idcf-boat-house/boat-house-backend)
-
-- boat-house 应用结构及功能
- 船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
-  ![](/images/boathouse-structure.png )
 
 - 代码库及技术架构说明： 
 
