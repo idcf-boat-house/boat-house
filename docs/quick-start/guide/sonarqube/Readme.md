@@ -340,7 +340,7 @@ sudo sysctl -a|grep vm.max_map_count
 
 可参考这个PR的文件变更：
 
-https://github.com/idcf-boat-house/boat-house/pull/76/files
+https://github.com/idcf-boat-house/boat-house-frontend/pull/76/files
 
 
 
