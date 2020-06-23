@@ -1,5 +1,8 @@
 # IDCF 社区共创文档库
 
+- 官网： https://boat-house.cn/    
+- 文档库查看地址： http://idcf.org.cn/boat-house
+
 ## IDCF 社区共创介绍
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
@@ -31,22 +34,19 @@
 **IDCF boat-house 主库目录结构**
 
 - docs
-	- quick-start
+	- quick-start，目前存放一期的团队上手文档和工具实践文档
 	- lean
 	- agile-team
 	- agile-scaled
-	- devops-e2e-5p
-	- devops-hackathon
+	- devops-e2e-5p，工具实践文档
+	- devops-hackathon，黑客马拉松活动实践文档
 		-workshop
-	- devops-case-studies
+	- devops-case-studies，案例研究文档
 
-##### 主库文档查看地址
-
- http://idcf.org.cn/boat-house
  
 ##### 文档库部署
 
-采用 Github Action, 使用 FTP的方式 将此库的MD文件部署至Azure China AppService
+采用 Github Action, 使用 FTP的方式 将此库的MD文件部署至Azure China AppService,访问地址： http://idcf.org.cn/boat-house
 
 [部署脚本](https://github.com/idcf-boat-house/boat-house/actions?query=workflow%3Aboat-house-docs-deploy)
 
