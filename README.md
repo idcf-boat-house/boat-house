@@ -62,11 +62,10 @@
 	- [boathouse-backend：后台代码库](https://github.com/idcf-boat-house/boat-house-backend)
 
 - boat-house 应用结构及功能
-船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
-![markdown](/images/boathouse-structure.png "markdown")
+ 船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
+  ![](/images/boathouse-structure.png )
 
 - 代码库及技术架构说明： 
-
 | 仓库  | 文件夹  | 服务说明 | 技术架构 |
 | ----- | ------------ | ------------ |------------ |
 | [boathouse-frontend: 前端代码库](https://github.com/idcf-boat-house/boat-house-frontend) | src/client  | 客户端，船屋餐饮官方网站  | Boatstrap 4 (模版：AppStrap [参考链接](http://demos.themelize.me/appstrap3.3.3/theme/intro.html "参考链接"))  <br> Vue + Nodejs|
@@ -80,13 +79,15 @@
 
 #### 单体架构(主要是后端api)
 
+在打包时打成一个包或是docker 容器运行在一个容器中时运行多个微服务 这两种方式来实现单体架构（TODO）。
 
+注意： 为了boat-house维护简单，所以采用了一套代码库，在真实环境中不建议这样做。除非有特殊的运行场景需要。
 
 #### 微服务架构(主要是后端api)
 
+目前 boathouse-backend后台代码库 是使用spring boot按照微服务架构方式组织，如下图
 
-
-TODO: 结构描述
+![](/images/boathouse-structure-product02.png )
 
 ## 工具指导文档
 
