@@ -52,12 +52,16 @@
 
 ### 基础设施库
 
-[IDCF Boat House 基础设施库，包括vm环境创建脚本，devops相关工具部署脚本](https://github.com/idcf-boat-house/boat-house-infrastructure)
+[IDCF Boat House 基础设施库](https://github.com/idcf-boat-house/boat-house-infrastructure)
+
+包括vm环境创建脚本，devops相关工具部署脚本
 
 ### boat-house 相关代码库
 
 - boat-house 应用结构及功能
+
 船屋餐饮系统采用微服务架构设计，包含五条业务条线（统计服务、商品服务、账户服务、订单服务、支付服务），每一个业务条线可以独立的开发以及部署。
+
 ![](/images/boathouse-structure.png )
 
 - 微服务架构和单体架构都采用相同的代码库：
