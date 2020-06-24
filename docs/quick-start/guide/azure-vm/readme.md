@@ -2,7 +2,7 @@
 
 # 创建订阅
 https://my.visualstudio.com/
-![](./images/subscription.png)
+![](images/subscription.png)
 
 # 创建虚拟机
 ## 选择镜像
