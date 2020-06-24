@@ -17,6 +17,8 @@
 
 [团队环境配置](team-env-config.md)
 
+[在Azure上创建boathouse 运行所需的 K8s环境](../guide/k8s-azure/Readme.md)
+
 ###### 1.3 团队流水线配置
 [团队流水线配置](team-pipeline-config.md)
 
@@ -25,7 +27,7 @@
 
 ###### 1.5 团队 K8s 环境（Test & Prod）部署
 
-[团队K8S环境部署](team-k8s-env-config.md)
+[团队 boathouse 部署至k8s](team-k8s-env-config.md)
 
 ## 2. 团队协作
 
