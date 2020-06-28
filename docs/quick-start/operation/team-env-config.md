@@ -22,7 +22,6 @@ sudo systemctl restart docker
 ```
 # docker
 docker --version
-Docker version 18.09.7, build 2d0083d
 
 # docker-compose
 docker-compose --version
