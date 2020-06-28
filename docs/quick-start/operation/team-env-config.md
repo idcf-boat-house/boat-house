@@ -16,6 +16,10 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
+
+sudo groupadd docker #添加docker用户组
+sudo gpasswd -a $USER docker #将登陆用户加入到docker用户组中
+newgrp docker #更新用户组
 ```
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 
@@ -31,18 +35,16 @@ docker-compose --version
 使用以下命令完成Jenkins的安装
 
 ```
-sudo mkdir ~/jenkins_home
+sudo mkdir ~/jenkins_home 
 sudo chown -R 1000:1000 ~/jenkins_home
-docker run -d -p 8080:8080 -p 50000:50000 -v ~/jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+sudo docker run -d -p 8080:8080 -p 50000:50000 -v ~/jenkins_home:/var/jenkins_home -u 0 jenkins/jenkins:lts
 docker ps
 ```
 ![image.png](images/teamguide-env-05.png)
 
 ##### 获取管理员账号密码
 ``` 
-cd jenkins_home/secrets
-cat initialAdminPassword
-
+sudo cat jenkins_home/secrets/initialAdminPassword
 # 也可以通过日志查看密码
 docker logs <jenkins containerID>
 ```
@@ -83,12 +85,12 @@ java -version
 ##### 代理机添加localadmin（当前登陆账号）至Sudoers
 1. 添加localadmin至sudo组：
     ```
-    usermod -aG sudo localadmin
+    sudo usermod -aG sudo localadmin
     ```
 1. 添加localadmin至sudoers文件：
-    ```
-    /etc/sudoers文件最末尾添加下面代码：
-    localadmin ALL=(ALL) NOPASSWD:ALL
+    ```    
+    sudo vim /etc/sudoers
+    # /etc/sudoers文件最末尾添加下面代码：localadmin ALL=(ALL) NOPASSWD:ALL
     ```
 
 ##### 代理机创建Jenkins工作目录, 并创建文件确保目录在非sudo下可写
@@ -183,6 +185,8 @@ docker run -d -p 8081:8081 -p:2020:2020 --name nexus -v ~/nexus-data:/nexus-data
 ```
 ![image.png](images/teamguide-env-00.png)
 Nexus容器启动后，进入nexus-data文件夹查看admin.password文件中的初始密码
+
+sudo cat ~/nexus-data/admin.password
 ![image.png](images/teamguide-env-01.png)
 浏览器打开对应的8081端口，点击 Sign in 登陆：
 ![image.png](images/teamguide-env-02.png)
