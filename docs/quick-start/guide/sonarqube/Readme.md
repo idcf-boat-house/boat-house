@@ -22,6 +22,14 @@
 ![image.png](../.attachments/20200217153130.png)
 
 ## 安装和配置
+> sona 需要的最大虚拟内存为 262144
+```
+# 查看最大虚拟内存
+sysctl -a|grep vm.max_map_count
+# 如果小于 262144，请执行如下命令
+sysctl -w vm.max_map_count=262144
+```
+![image.png](images/sona-max_map_count.png)
 
 - 将以下yml脚本复制保存为文件：`docker-compose-sonarqube.yml`
 
@@ -36,6 +44,11 @@ services:
     networks:
       - sonarnet
     environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+      - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
       - sonarqube_conf:/opt/sonarqube/conf
