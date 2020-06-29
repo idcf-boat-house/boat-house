@@ -21,11 +21,20 @@
     ```
     ![image.png](images/k8s-01.png)
 1. 创建 test & prod 命名空间
+
+    - 用于Jenkins流水线部署的命令空间：
     ```
     kubectl create namespace boathouse-test
     kubectl create namespace boathouse-prod
     ```
+    - 用于Github Action 流水线部署的命令空间：
+    ```
+    kubectl create namespace boathouse-test-github
+    kubectl create namespace boathouse-prod-github
+    ```    
     ![image.png](images/k8s-02.png)
+    
+   
 1. 为命名空间创建 docker-registry-secrets
     ```
     kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
