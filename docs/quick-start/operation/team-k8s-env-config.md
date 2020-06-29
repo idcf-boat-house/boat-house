@@ -10,6 +10,7 @@
 ![image.png](images/k8s-22.png)
 
 1. 我们需要使用分配给团队的K8s Config 登陆集群，即修改步骤1中 .kube 文件夹下的 Config 文件为团队的 K8s Config，打开团队 K8s Config文件我们可以看到如下内容：
+
 ![image.png](images/k8s-21.png)
 
 使用替换文件或修改文件内容的方式修改.kube下的config。
