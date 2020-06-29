@@ -13,6 +13,7 @@
 |---------|---------|---------|---------|
 | Virtual Machines | B2s（linux、2 vCPU，4 GiB RAM，8 GiB 临时存储空间，最大磁盘数 4，IOPS 1280） | 1 | ¥297.00 |
 | 	|| Total | 	¥297.6 | 
+
 ![image.png](images/azure-plan-b2s_1.png)
 
 ### 订阅2
@@ -22,6 +23,7 @@
 |---------|---------|---------|---------|
 | Virtual Machines | D2s_v3（linux、2 vCPU，8 GiB RAM，16 GiB 临时存储空间，最大磁盘数 4，IOPS 3200）  | 1 || ¥534.94 |
 | 	|| Total | 	¥534.94 | 
+
 ![image.png](images/azure-plan-d2v3.png)
 
 ### 订阅3
@@ -31,4 +33,5 @@
 |----|---------|---------|---------|
 | Virtual Machines | B2s（linux、2 vCPU，4 GiB RAM，8 GiB 临时存储空间，最大磁盘数 4，IOPS 1280） |  2 | ¥297.6 |
 | 	|| Total | 	¥595.2 | 
+
 ![image.png](images/azure-plan-b2s_2.png)
