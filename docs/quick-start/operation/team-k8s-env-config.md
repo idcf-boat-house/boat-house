@@ -50,7 +50,7 @@
     ```
     注意：此 secret 是 k8s 连接 github package 上传镜像所使用的密钥，因此 --docker-password 参数应该使用赋予了 read:package 的权限的用户的PAT。
     ![image.png](images/k8s-03.png)
-1. Jenkins 添加 Kubeconfig 凭据
+1. Jenkins 添加 Kubeconfig 凭据，找到kube config文件（在temp/kubeconfig/kubeconfig.chinanorth2.json），将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
 1. 至此，Jenkins 和 K8s 的集群配置就完毕了。
