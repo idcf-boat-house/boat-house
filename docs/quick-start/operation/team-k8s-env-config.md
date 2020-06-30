@@ -2,7 +2,9 @@
 
 
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boat House 的 Dev 环境。
-接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境：
+接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
+
+>在开始前先找到kube config文件，下面需要, 使用boathouse基础设施库中的k8s环境创建脚本执行成功后，此文件存放地址为： 在temp/kubeconfig/kubeconfig.chinanorth2.json
 
 #### 配置 K8s 集群 & Jenkins 凭据
 前提条件：安装Kubectl工具：https://kubernetes.io/docs/tasks/tools/install-kubectl/
