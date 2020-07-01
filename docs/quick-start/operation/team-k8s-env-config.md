@@ -2,7 +2,9 @@
 
 
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boat House 的 Dev 环境。
-接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境：
+接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
+
+>在开始前先找到kube config文件，下面需要, 使用boathouse基础设施库中的k8s环境创建脚本执行成功后，此文件存放地址为： 在temp/kubeconfig/kubeconfig.chinanorth2.json
 
 #### 配置 K8s 集群 & Jenkins 凭据
 前提条件：安装Kubectl工具：https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -50,7 +52,7 @@
     ```
     注意：此 secret 是 k8s 连接 github package 上传镜像所使用的密钥，因此 --docker-password 参数应该使用赋予了 read:package 的权限的用户的PAT。
     ![image.png](images/k8s-03.png)
-1. Jenkins 添加 Kubeconfig 凭据
+1. Jenkins 添加 Kubeconfig 凭据，找到kube config文件（在temp/kubeconfig/kubeconfig.chinanorth2.json），将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
 1. 至此，Jenkins 和 K8s 的集群配置就完毕了。
