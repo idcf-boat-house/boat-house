@@ -22,6 +22,14 @@
 ![image.png](../.attachments/20200217153130.png)
 
 ## 安装和配置
+> sona 需要的最大虚拟内存为 262144
+```
+# 查看最大虚拟内存
+sysctl -a|grep vm.max_map_count
+# 如果小于 262144，请执行如下命令
+sysctl -w vm.max_map_count=262144
+```
+![image.png](images/sona-max_map_count.png)
 
 - 将以下yml脚本复制保存为文件：`docker-compose-sonarqube.yml`
 
@@ -36,6 +44,11 @@ services:
     networks:
       - sonarnet
     environment:
+      - sonar.jdbc.username=sonar
+      - sonar.jdbc.password=sonar
+      - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
     volumes:
       - sonarqube_conf:/opt/sonarqube/conf
@@ -73,11 +86,11 @@ volumes:
 ![image.png](../.attachments/image-e183fea0-cf59-4c6e-a21c-28954e8003aa.png)
 - 命令运行成功后，运行`docker ps`查看容器，确保容器处于运行状态
 ![image.png](../.attachments/image-d048b288-65f9-4bba-8323-1f8da79a107b.png)
-- 使用浏览器打开地址：`http://localhost:9000/`,访问SonarQube站点
+- 使用浏览器打开地址：`http://IP:9000/`,访问SonarQube站点
 
 - 使用`admin/admin`登陆
 ![image.png](../.attachments/image-574155f1-4b3a-4439-8918-67dc86ff25c9.png)
-- 添加中文语言支持
+- 添加中文语言支持，安装完成后请点击重新服务
 ![image.png](../.attachments/image-e1edc96c-0842-4fdb-addd-460f6af4b50a.png)
 - 创建分析项目（以Java为示例）
 ![image.png](../.attachments/image-18ef31cf-a484-46d3-94a8-584670a95984.png)
