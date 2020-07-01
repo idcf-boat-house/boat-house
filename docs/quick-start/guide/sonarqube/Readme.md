@@ -27,7 +27,7 @@
 # 查看最大虚拟内存
 sysctl -a|grep vm.max_map_count
 # 如果小于 262144，请执行如下命令
-sysctl -w vm.max_map_count=262144
+sudo sysctl -w vm.max_map_count=262144 
 ```
 ![image.png](images/sona-max_map_count.png)
 
