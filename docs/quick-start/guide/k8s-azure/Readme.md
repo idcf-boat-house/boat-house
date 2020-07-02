@@ -112,3 +112,4 @@ PS脚本将使用Azure Service Principal 授权的方式来访问 Azure 服务�
     - 安装及使用参考：https://blog.csdn.net/myy1066883508/article/details/106897015
 
 ### 恭喜你，部署成功！
+![image.png](/images/idcf-future.png)
