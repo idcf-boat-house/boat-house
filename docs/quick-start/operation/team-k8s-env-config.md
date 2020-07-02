@@ -49,8 +49,8 @@
     
  - 用于Github Action 流水线   
     ```
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
+    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test-github
+    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod-github
     ```
     注意：此 secret 是 k8s 连接 github package 上传镜像所使用的密钥，因此 --docker-password 参数应该使用赋予了 read:package 的权限的用户的PAT。
     ![image.png](images/k8s-03.png)
