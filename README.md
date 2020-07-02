@@ -56,7 +56,7 @@
 
 包括vm环境创建脚本，devops相关工具部署脚本
 
-[私有库，存放机密文件，仅限于维护团队，不对外开放(https://github.com/idcf-boat-house/secret-files)
+[私有库，存放机密文件，仅限于维护团队，不对外开放](https://github.com/idcf-boat-house/secret-files)
 
 如ssh key、k8s kubeconfig 等文件存放此库。
 
