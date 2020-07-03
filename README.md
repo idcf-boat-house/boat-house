@@ -6,10 +6,12 @@
 ## IDCF 社区共创介绍
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
+
+**boathouse 一期共创**
 * [项目组成员](docs/quick-start/operation/team-member.md)
 * [迭代计划](docs/quick-start/operation/sprint-plan.md)
 * [会议摘要](docs/quick-start/operation/session-note.md)
-* [项目直播](docs/quick-start/operation/proj-live-cast.md)
+* [项目直播:boathouse 一期直播回放](docs/quick-start/operation/proj-live-cast.md)
 * [技术支持](docs/quick-start/operation/tech-support.md)
 
 
@@ -104,6 +106,7 @@
 * [Nexus使用指南](docs/quick-start/guide/nexus-guide/Readme.md)
 * [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
+* [基于Kubernetes的容器化集群部署](docs/quick-start/guide/k8s-common-training/k8s-deploy-traing.md)
 * [Apollo介绍与docker部署](docs/quick-start/guide/apollo-config-center/Readme.md)
 * [MetterMost OpsChat 配置](docs/quick-start/guide/chat-ops-metter-most/readme.md)
 * [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/chat-ops-metter-most/jenkins.md)
