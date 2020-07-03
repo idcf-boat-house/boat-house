@@ -5,8 +5,10 @@
 接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
 
 >在开始前先找到kube config文件，下面需要, 使用boathouse基础设施库中的k8s环境创建脚本执行成功后，此文件存放地址为： 在temp/kubeconfig/kubeconfig.chinanorth2.json
+如果是boathouse维护团队成员请从此私有库获取： https://github.com/idcf-boat-house/secret-files/tree/master/k8s/kubeconfig
 
 #### 配置 K8s 集群 & Jenkins 凭据
+
 前提条件：安装Kubectl工具：https://kubernetes.io/docs/tasks/tools/install-kubectl/
 1. 进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
 ![image.png](images/k8s-22.png)
@@ -47,8 +49,7 @@
     
  - 用于Github Action 流水线   
     ```
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
+    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test-github   
     ```
     注意：此 secret 是 k8s 连接 github package 上传镜像所使用的密钥，因此 --docker-password 参数应该使用赋予了 read:package 的权限的用户的PAT。
     ![image.png](images/k8s-03.png)

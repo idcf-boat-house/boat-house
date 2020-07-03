@@ -17,6 +17,16 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
+
+sudo groupadd docker #添加docker用户组
+sudo gpasswd -a $USER docker #将登陆用户加入到docker用户组中
+newgrp docker #更新用户组
+```
+
+运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
+```
+docker --version #docker
+docker-compose --version #docker-compose
 ```
 
 #### Jenkins添加Docker VM的连接密钥

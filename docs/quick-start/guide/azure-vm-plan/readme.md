@@ -7,7 +7,9 @@
 一共需要3个订阅
 
 ### 订阅1
-> agent 代理服务器 & Dev环境		
+> Dev环境		
+
+//TODO 表格增加一列，标记名称。删掉Service type
 
 | Service type | Description | Count | Estimated monthly cost | 
 |---------|---------|---------|---------|
@@ -17,7 +19,7 @@
 ![image.png](images/azure-plan-b2s_1.png)
 
 ### 订阅2
-> 工具服务器 jenkins & sona & nexus & jira		
+> Jenkins服务器	
 		
 | Service type | Description | Count | Estimated monthly cost |
 |---------|---------|---------|---------|

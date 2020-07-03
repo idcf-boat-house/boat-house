@@ -2,8 +2,19 @@
 **Jira安装部署说明文档**
 
 部署
+docker 安装（如已安装，请跳过）
 ```
-docker pull cptactionhank/atlassian-jira-software:8.1.0
+sudo apt-get update
+sudo apt install docker.io
+sudo usermod -a -G docker {localadmin}
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo systemctl daemon-reload
+sudo systemctl restart docker 
+```
+
+docker 容器
+```
 docker run -d  -p 7081:8080 --name jira-software -v /etc/localtime:/etc/localtime:ro cptactionhank/atlassian-jira-software:8.1.0 
 ```
 官方镜像地址：https://hub.docker.com/r/cptactionhank/atlassian-jira-software/tags

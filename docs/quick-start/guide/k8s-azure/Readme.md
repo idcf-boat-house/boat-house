@@ -96,7 +96,10 @@ PS脚本将使用Azure Service Principal 授权的方式来访问 Azure 服务�
 1. 执行完毕后，进入Azure China Portal 查看新创建的 Resource Group 以及部署在此 Resource Group 中的 K8s环境
    ![image.png](images/k8s-setup-23.png)
 1. 在本地管理k8s集群
+   前提条件：安装Kubectl工具：https://kubernetes.io/docs/tasks/tools/install-kubectl/ 。
    在生成的文件中(`temp\kubeconfig`)找到kube config文件(`kubeconfig.chinanorth2.json`)，将此文件内容复制到kube默认的配置文件中(`C:\Users\[当前登陆用户]]\.kube\config`)，通常在当前用户目录下的.kube目录中。然后运行 `kubectl get namespace`  看到如下所示时表明成功连接k8s集群：
+   
+   >如果是boathouse维护团队成员请从此私有库获取： https://github.com/idcf-boat-house/secret-files/tree/master/k8s/kubeconfig
 
     ```
     C:\Users\liminany\.kube
@@ -112,3 +115,4 @@ PS脚本将使用Azure Service Principal 授权的方式来访问 Azure 服务�
     - 安装及使用参考：https://blog.csdn.net/myy1066883508/article/details/106897015
 
 ### 恭喜你，部署成功！
+![image.png](/images/idcf-future.png)

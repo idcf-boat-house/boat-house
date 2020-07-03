@@ -163,15 +163,15 @@ java -version
 
 ##### Jenkins安装插件
 
-1. 打开Jenkins控制面板首页，在左侧菜单中选择 **管理Jenkins** ，进入管理页面后，点击 **管理插件**
+1. 打开Jenkins控制面板首页，在左侧菜单中选择 **管理Jenkins** ，进入管理页面后，点击 **管理插件**，安装插件： Cobertura、Kubernetes Continuous Deploy、SSH Pipeline、Blue Ocean
 ![image.png](.attachments/image-8a08c02b-a942-47b1-9bfd-54cdb2429495.png)
 1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **cobertura** 找到cobertura插件，选择安装
 ![image.png](images/teamguide-ci-03.png)
-1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **kubernetes con** 找到k8s CD 插件，选择安装
+1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **Kubernetes Continuous Deploy** 找到k8s CD 插件，选择安装
 ![image.png](images/teamguide-ci-04.png)
-1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **ssh pipeline** 找到SSH Pipeline Steps插件，选择安装
+1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **SSH Pipeline** 找到SSH Pipeline Steps插件，选择安装
 ![image.png](images/teamguide-ci-05.png)
-1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **blue ocean** 找到blueocean插件，选择安装
+1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **Blue Ocean** 找到blueocean插件，选择安装
 ![image.png](.attachments/image-339b4bef-042b-41fd-b375-fced13429eab.png)
 
 至此，团队环境中的Jenkins设置完毕。
