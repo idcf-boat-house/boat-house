@@ -7,12 +7,19 @@
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
 
+**boathouse 二期共创**
+目前筹备中。。。
+
 **boathouse 一期共创**
 * [项目组成员](docs/quick-start/operation/team-member.md)
 * [迭代计划](docs/quick-start/operation/sprint-plan.md)
 * [会议摘要](docs/quick-start/operation/session-note.md)
 * [项目直播:boathouse 一期直播回放](docs/quick-start/operation/proj-live-cast.md)
 * [技术支持](docs/quick-start/operation/tech-support.md)
+
+
+	>注，由于我们重新梳理了boathouse相关的github 仓库，一期产生的文档已经迁移到了此库，如果需查找之前Issue及文档请在去[这个仓库](https://github.com/idcf-boat-house/boat-house-frontend)中查找。
+
 
 
 ### Contributing
