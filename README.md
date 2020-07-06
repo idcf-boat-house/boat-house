@@ -116,7 +116,7 @@
 * [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/chat-ops-metter-most/jenkins.md)
 * [MetterMost OpsChat github 集成](docs/quick-start/guide/chat-ops-metter-most/github.md)
 * [JMeter测试用例编写手册](docs/quick-start/guide/jmeter-testing/Readme.md)
-* [Jenkins集成Jmeter](docs/quick-start/guide/jmeter-testing/jmeter--for-jenkins.md)
+* [Jenkins集成Jmeter](docs/quick-start/guide/jmeter-testing/jmeter-for-jenkins.md)
 * [RESTful及RESTful API设计规范简介](docs/quick-start/guide/spec/restfull-api-design-spec.md)
 * [k82mysql集群](docs/quick-start/guide/mysql-k8s-deploy/Readme.md)
 * [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
