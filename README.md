@@ -34,7 +34,17 @@
 * [团队代码合并指南](docs/quick-start/operation/code-merge.md)
 * [github clone 加速，解决国内慢的问题](docs/quick-start/operation/github-access-proxy-for-cn.md)
 
-## IDCF 相关存储库介绍
+## IDCF 应用环境及代码存储库介绍
+
+
+### boathouse 已部署应用(生产环境)
+
+- 前台站点： http://prod-client.boat-house.cn
+- 后台管理端站点： http://prod-management.boat-house.cn
+- 后台APi服务-product： http://prod-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+- 后台API服务-account： http://prod-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+
+部署视图： TODO
 
 ### boat-house: 主库(本库)
 
