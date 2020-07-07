@@ -8,6 +8,11 @@
 
 本指南将以 Product Service 和 Boat House 后端管理平台 Management Web 为例在接下来的三个章节中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈/IDE情况下如何进行前后端到端的调试。
 
+参考资料： 
+  -  [boathouse架构图](resources/boathouse-arch-design.pptx) 
+  -  [boathouse-本地调试结构图](resources/BoatHouse-dev-guide-design.pptx) 
+  -  [Selenium结构图](resources/Selenium.pptx) 
+
 ## Product Service 快速上手指南
 
 #### 简介

@@ -173,13 +173,13 @@ https://www.bilibili.com/video/av96535728
 # 2020.3.3 Boat House K8s 技术分享
 
 
-直播PPT：[点击下载PDF](https://github.com/idcf-boat-house/boat-house/wiki/pdf/03.pdf "点击下载PDF")
+直播PPT：[点击下载PDF](pdf/03.pdf "点击下载PDF")
 
 视频内容：
 
 [![](images/video-k8s.png ':width=80%')](https://www.bilibili.com/video/av95162863)
 
-直播演示脚本：[点击查看](https://github.com/idcf-boat-house/boat-house-devops/blob/master/training/%E5%9F%BA%E4%BA%8EKubernetes%E7%9A%84%E5%AE%B9%E5%99%A8%E5%8C%96%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2.md "点击查看")
+直播演示脚本：[点击查看](team-k8s-env-config.md "点击查看")
 
 
 主题：【基于Kubernetes的容器化集群部署】
@@ -223,7 +223,7 @@ https://www.bilibili.com/video/av96535728
 
 # 2020.2.25 Boat House社区共创项目 - 迭代二火车计划会
 
-直播PPT：[点击下载PDF](https://github.com/idcf-boat-house/boat-house/wiki/pdf/02.pdf "点击下载PDF")
+直播PPT：[点击下载PDF](pdf/02.pdf "点击下载PDF")
 
 视频内容：
 
@@ -268,7 +268,7 @@ B站地址：https://www.bilibili.com/video/av91960324
 
 # 2020.2.24 Boat House 技术分享
 
-直播PPT：[点击下载PDF](https://github.com/idcf-boat-house/boat-house/wiki/pdf/01.pdf "点击下载PDF")
+直播PPT：[点击下载PDF](pdf/01.pdf "点击下载PDF")
 
 视频内容：
 

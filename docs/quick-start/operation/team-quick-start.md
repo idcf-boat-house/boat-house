@@ -20,7 +20,9 @@
 [在Azure上创建boathouse 运行所需的 K8s环境](../guide/k8s-azure/Readme.md)
 
 ###### 1.3 团队流水线配置
-[团队流水线配置](team-pipeline-config.md)
+
+- [团队流水线配置(Jenkins)](team-pipeline-config.md)
+- [团队流水线配置(Github Action)](../guide/github-action/README.MD)
 
 ###### 1.4 团队开发环境部署
 [团队开发环境部署](team-dev-env-deploy.md)

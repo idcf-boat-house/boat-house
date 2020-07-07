@@ -6,11 +6,20 @@
 ## IDCF 社区共创介绍
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
+
+**boathouse 二期共创**
+目前筹备中。。。
+
+**boathouse 一期共创**
 * [项目组成员](docs/quick-start/operation/team-member.md)
 * [迭代计划](docs/quick-start/operation/sprint-plan.md)
 * [会议摘要](docs/quick-start/operation/session-note.md)
-* [项目直播](docs/quick-start/operation/proj-live-cast.md)
+* [项目直播:boathouse 一期直播回放](docs/quick-start/operation/proj-live-cast.md)
 * [技术支持](docs/quick-start/operation/tech-support.md)
+
+
+	>注，由于我们重新梳理了boathouse相关的github 仓库，一期产生的文档已经迁移到了此库，如果需查找之前Issue及文档请在去[这个仓库](https://github.com/idcf-boat-house/boat-house-frontend)中查找。
+
 
 
 ### Contributing
@@ -25,7 +34,40 @@
 * [团队代码合并指南](docs/quick-start/operation/code-merge.md)
 * [github clone 加速，解决国内慢的问题](docs/quick-start/operation/github-access-proxy-for-cn.md)
 
-## IDCF 相关存储库介绍
+## IDCF 应用环境及代码存储库介绍
+
+
+### boathouse 已部署环境
+
+- 开发环境：虚拟机
+  - http://dev-client.boat-house.cn
+  - http://dev-management.boat-house.cn
+  - http://dev-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://dev-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://dev-statistics-api.boat-house.cn
+
+- 测试环境：k8s群集，命令空间(jenkins流水线部署的)： boathouse-test
+  - http://test-client.boat-house.cn
+  - http://test-management.boat-house.cn
+  - http://test-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-statistics-api.boat-house.cn （暂未开放）
+
+- 生产环境：k8s群集，命令空间(jenkins流水线部署的)： boathouse-prod
+  - http://prod-client.boat-house.cn
+  - http://prod-management.boat-house.cn
+  - http://prod-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://prod-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://prod-statistics-api.boat-house.cn （暂未开放）
+
+- 测试环境(github action 流水线部署的)：k8s群集，命令空间： boathouse-test
+  - http://test-action-client.boat-house.cn
+  - http://test-action-management.boat-house.cn
+  - http://test-action-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-action-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-action-statistics-api.boat-house.cn , （暂未开放）
+
+部署视图： TODO
 
 ### boat-house: 主库(本库)
 
@@ -108,12 +150,13 @@
 * [Nexus使用指南](docs/quick-start/guide/nexus-guide/Readme.md)
 * [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
+* [基于Kubernetes的容器化集群部署](docs/quick-start/guide/k8s-common-training/k8s-deploy-traing.md)
 * [Apollo介绍与docker部署](docs/quick-start/guide/apollo-config-center/Readme.md)
 * [MetterMost OpsChat 配置](docs/quick-start/guide/chat-ops-metter-most/readme.md)
 * [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/chat-ops-metter-most/jenkins.md)
 * [MetterMost OpsChat github 集成](docs/quick-start/guide/chat-ops-metter-most/github.md)
-* [JMeter测试用例编写手册](docs/quick-start/guide/JMeter/Readme.md)
-* [Jenkins集成Jmeter](docs/quick-start/guide/JMeter/jmeter--for-jenkins.md)
+* [JMeter测试用例编写手册](docs/quick-start/guide/jmeter-testing/Readme.md)
+* [Jenkins集成Jmeter](docs/quick-start/guide/jmeter-testing/jmeter-for-jenkins.md)
 * [RESTful及RESTful API设计规范简介](docs/quick-start/guide/spec/restfull-api-design-spec.md)
 * [k82mysql集群](docs/quick-start/guide/mysql-k8s-deploy/Readme.md)
 * [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
