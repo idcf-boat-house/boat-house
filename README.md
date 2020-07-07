@@ -40,32 +40,32 @@
 ### boathouse 已部署环境
 
 - 开发环境：虚拟机
-http://dev-client.boat-house.cn
-http://dev-management.boat-house.cn
-http://dev-product-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://dev-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://dev-statistics-api.boat-house.cn
+  - http://dev-client.boat-house.cn
+  - http://dev-management.boat-house.cn
+  - http://dev-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://dev-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://dev-statistics-api.boat-house.cn
 
 - 测试环境：k8s群集，命令空间(jenkins流水线部署的)： boathouse-test
-http://test-client.boat-house.cn
-http://test-management.boat-house.cn
-http://test-product-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://test-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://test-statistics-api.boat-house.cn （暂未开放）
+  - http://test-client.boat-house.cn
+  - http://test-management.boat-house.cn
+  - http://test-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-statistics-api.boat-house.cn （暂未开放）
 
 - 生产环境：k8s群集，命令空间(jenkins流水线部署的)： boathouse-prod
-http://prod-client.boat-house.cn
-http://prod-management.boat-house.cn
-http://prod-product-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://prod-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://prod-statistics-api.boat-house.cn （暂未开放）
+  - http://prod-client.boat-house.cn
+  - http://prod-management.boat-house.cn
+  - http://prod-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://prod-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://prod-statistics-api.boat-house.cn （暂未开放）
 
 - 测试环境(github action 流水线部署的)：k8s群集，命令空间： boathouse-test
-http://test-action-client.boat-house.cn
-http://test-action-management.boat-house.cn
-http://test-action-product-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://test-action-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-http://test-action-statistics-api.boat-house.cn , （暂未开放）
+  - http://test-action-client.boat-house.cn
+  - http://test-action-management.boat-house.cn
+  - http://test-action-product-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-action-account-api.boat-house.cn/api/v1.0/swagger-ui.html
+  - http://test-action-statistics-api.boat-house.cn , （暂未开放）
 
 部署视图： TODO
 
