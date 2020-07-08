@@ -3,8 +3,9 @@
 ## 部署
 
 使用docker快速部署
-
-'docker run --name mattermost-preview -d --publish 8065:8065 mattermost/mattermost-preview'
+``` bash
+docker run --name mattermost-preview -d --publish 8065:8065 mattermost/mattermost-preview
+```
 
 
 ## 配置
