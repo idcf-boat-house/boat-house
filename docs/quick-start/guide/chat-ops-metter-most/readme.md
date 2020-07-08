@@ -1,3 +1,5 @@
+# Matter Most 上手指南
+
 ## 部署
 
 使用docker快速部署
@@ -72,5 +74,5 @@ https://about.mattermost.com/mattermost-android-app/
 
 ## 扩展
 
-[集成Jenkins](jenkins.md)
-[集成GitHub](github.md)
++ [集成Jenkins](jenkins.md)
++ [集成GitHub](github.md)
