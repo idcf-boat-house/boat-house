@@ -140,6 +140,17 @@
 
 ![](images/boathouse-structure-product02.png)
 
+
+## DevOps工具
+
+| 地址  | 说明  | 
+| ------------ | ------------ | ------------ | 
+| http://tools-jenkins.boat-house.cn  | Jenkins管理端  | 
+| http://tools-nexus.boat-house.cn | Nexus  |   
+| http://tools-sonar.boat-house.cn | Sonarqube  |  
+| http://tools-jira.boat-house.cn | Jira  |  
+
+
 ## 工具指导文档
 
 * [Selenium自动化UI测试](docs/quick-start/guide/selenium-ui-testing/Readme.md)
