@@ -15,7 +15,7 @@
 | Name | Description | Estimated monthly cost | 
 |---------|---------|---------|
 | 工具服务器（Jira、Sonar、Nexus 等） | B2s（linux、2 vCPU，4 GiB RAM，8 GiB 临时存储空间，最大磁盘数 4，IOPS 1280） | ¥297.00 * 1 |
-| 	|| Total | 	¥297.6 | 
+| 	| Total | 	¥297.6 | 
 
 ![image.png](images/azure-plan-d2v3.png)
 
@@ -26,7 +26,7 @@
 |---------|---------|---------|
 | Jenkins服务器（包含Agent） | D2s_v3（linux、2 vCPU，8 GiB RAM，16 GiB 临时存储空间，最大磁盘数 4，IOPS 3200） | ¥534.94 * 1 |
 | Dev | B2s（linux、2 vCPU，4 GiB RAM，8 GiB 临时存储空间，最大磁盘数 4，IOPS 1280） | ¥297.00  * 1 |
-| 	|| Total | 	¥831.94 | 
+| 	| Total | 	¥831.94 | 
 
 ![image.png](images/azure-plan-d2v3+b2s.png)
 
@@ -37,7 +37,7 @@
 | Name | Description | Estimated monthly cost |
 |----|---------|---------|
 | K8S | B2s（linux、2 vCPU，4 GiB RAM，8 GiB 临时存储空间，最大磁盘数 4，IOPS 1280） |  ¥297.6  * 2 |
-| 	|| Total | 	¥595.2 | 
+| 	| Total | 	¥595.2 | 
 
 ![image.png](images/azure-plan-b2s_2.png)
 
