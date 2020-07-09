@@ -18,7 +18,9 @@ https://my.visualstudio.com/
 身份证类型，输入账号密码，注意root或者administrator是不能作为用户名。
 ![](images/azure-vm-create-base.png)
 
-磁盘，尽量不要附加磁盘会增加费用
+磁盘
++ 磁盘类型不一样，价格也不一样
++ 尽量不要附加磁盘会增加费用
 ![](images/azure-vm-create-disk.png)
 
 网络，如果不用组网，直接默认即可
