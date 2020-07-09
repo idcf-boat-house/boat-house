@@ -1,4 +1,4 @@
-# IDCF 社区共创文档库
+# IDCF 社区共创文档库(boathouse)
 
 - 官网： https://boat-house.cn/    
 - 文档库查看地址： http://idcf.org.cn/boat-house
@@ -34,7 +34,7 @@
 * [团队代码合并指南](docs/quick-start/operation/code-merge.md)
 * [github clone 加速，解决国内慢的问题](docs/quick-start/operation/github-access-proxy-for-cn.md)
 
-## IDCF 应用环境及代码存储库介绍
+## IDCF boathouse应用环境及代码存储库介绍
 
 
 ### boathouse 已部署环境
