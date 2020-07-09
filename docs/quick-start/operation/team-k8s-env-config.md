@@ -60,6 +60,7 @@
    2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
 
 2. 至此，Jenkins 和 K8s 的集群配置就完毕了。
+3. 同理，Github Action 也需要配置以上两项。可参考文档：[团队 boathouse 部署至k8s-Github Action](../guide/github-action/README.MD)
 
 #### 修改 test & prod K8S yaml 中的 Docker 镜像仓库地址
 在之前的[团队流水线配置](https://github.com/idcf-boat-house/boat-house/wiki/团队流水线配置)文章中，我们创建了五个 Docker 镜像并推送到了团队 Github 账号的 Package 中，因此在部署 test & prod 环境时，我们需要链接到团队 Github 账号的 Docker 镜像仓库，并拉取镜像来进行部署。
