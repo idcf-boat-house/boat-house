@@ -1,4 +1,4 @@
-# 在Azure上创建boathouse 运行所需的 K8s环境(使用使用脚本自动创建vmss的方式]
+# 在Azure上创建boathouse 运行所需的 K8s环境(aks)
 
 ### 工具依赖
 1. AZ CLI：用以连接 Azure China 。
