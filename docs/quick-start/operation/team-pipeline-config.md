@@ -24,7 +24,7 @@
 
 1. 进入Jenkins | 点击 Manage Jenkins | 点击Config System | 找到 Global properties | 选中 Environment variables | 点击 ADD
 
-添加如下两个环境变量：
+添加如下环境变量：
 
 | 变量名称 | 值 | 说明  |
 | ------------ | --------- | --------- |
