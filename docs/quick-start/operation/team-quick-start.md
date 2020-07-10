@@ -32,6 +32,7 @@
 ###### 1.5 团队 K8s 环境（Test & Prod）部署
 
 [boathouse 部署至k8s-K8s初始配置和Jenkins流水线配置](team-k8s-env-config.md)
+
 [团队 boathouse 部署至k8s: 使用Github Action流水线](../guide/github-action/README.MD)
 
 ## 2. 团队协作
