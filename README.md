@@ -1,4 +1,4 @@
-# IDCF 社区共创文档库
+# IDCF 社区共创文档库(boathouse)
 
 - 官网： https://boat-house.cn/    
 - 文档库查看地址： http://idcf.org.cn/boat-house
@@ -34,7 +34,7 @@
 * [团队代码合并指南](docs/quick-start/operation/code-merge.md)
 * [github clone 加速，解决国内慢的问题](docs/quick-start/operation/github-access-proxy-for-cn.md)
 
-## IDCF 应用环境及代码存储库介绍
+## IDCF boathouse应用环境及代码存储库介绍
 
 
 ### boathouse 已部署环境
@@ -51,21 +51,18 @@
   - http://test-management.boat-house.cn
   - http://test-product-api.boat-house.cn/api/v1.0/swagger-ui.html
   - http://test-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-  - http://test-statistics-api.boat-house.cn （暂未开放）
 
 - 生产环境：k8s群集，命令空间(jenkins流水线部署的)： boathouse-prod
   - http://prod-client.boat-house.cn
   - http://prod-management.boat-house.cn
   - http://prod-product-api.boat-house.cn/api/v1.0/swagger-ui.html
   - http://prod-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-  - http://prod-statistics-api.boat-house.cn （暂未开放）
 
-- 测试环境(github action 流水线部署的)：k8s群集，命令空间： boathouse-test
+- 测试环境(github action 流水线部署的)：k8s群集，命令空间： boathouse-test-github
   - http://test-action-client.boat-house.cn
   - http://test-action-management.boat-house.cn
   - http://test-action-product-api.boat-house.cn/api/v1.0/swagger-ui.html
   - http://test-action-account-api.boat-house.cn/api/v1.0/swagger-ui.html
-  - http://test-action-statistics-api.boat-house.cn , （暂未开放）
 
 部署视图： TODO
 
@@ -139,6 +136,17 @@
 目前 boathouse-backend后台代码库 是使用spring boot按照微服务架构方式组织，如下图
 
 ![](images/boathouse-structure-product02.png)
+
+
+## DevOps工具
+
+| 地址  | 说明  | 
+| ------------ | ------------ | 
+| http://tools-jenkins.boat-house.cn  | Jenkins管理端  | 
+| http://tools-nexus.boat-house.cn | Nexus  |   
+| http://tools-sonar.boat-house.cn | Sonarqube  |  
+| http://tools-jira.boat-house.cn | Jira  | 
+
 
 ## 工具指导文档
 

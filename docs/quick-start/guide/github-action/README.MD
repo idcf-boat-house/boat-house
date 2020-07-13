@@ -24,6 +24,8 @@
 
 每个模块的yml文件中基本分为如下几步：
 
+>注：以下脚本可能 并不是最新的，只是用来说明Yml结构,请以代码库中的yml脚本为准
+
 * 触发器部分: 只对对应的目录push代码时才触发，如下所示：
     ```
     on: 
@@ -95,10 +97,13 @@
 ## 使用方法
 
 1. 在Github项目中找到: `Settings=>Sectets=>Add a new secret` 添加以下变量
-   - PACKAGES_TOKEN: 填入带有packages授权的token,此token用于pull/push image时进行权限认证（如果采用github的包管理保存Image，则应为github个人帐号的token，如何创建参考底部最后一个链接）。
+   - PACKAGES_TOKEN: 填入带有packages授权的token,此token用于pull/push image时进行权限认证，目前线上环境采用acr。
+       - 如果采用github的包管理保存Image，则应为github个人帐号的token，如何创建参考底部最后一个链接
+       - 如果采用acr,请在自己的acr服务中找到密码，或者[从这里](https://github.com/idcf-boat-house/secret-files/blob/master/environment/readme.md)获取密码（仅限维护团队）
    - KUBE_CONFIG : kube 管理群集的配置文件，创建集群时生成，用于前面所说设置kube config, 通过此配置文件，流水线引擎才可以连接到对应的k8s集群(如果是维护团队，请从[这里](https://github.com/idcf-boat-house/secret-files/blob/master/k8s/kubeconfig/kubeconfig.chinanorth2.json)获取配置文件)
    - DEPLOY_K8S_NAMESPACE_TEST: k8s群集部署的命命名空间，独立命令空间，避免与其他流水线工具部署时产生冲突。github端值为： `boathouse-test-github`
-
+   - BOATHOUSE_CONTAINER_REGISTRY： docker镜像仓库地址，值为： bhacr.azurecr.cn，使用 acr服务。
+   - CREDS_GITHUB_REGISTRY_USR： bhacr
 
 2. 在每次push代码时，github就会启动相应的yml对应的流程进行构建。可以点击项目的action进行过程查看。各github仓库的流水线地址如下：
 
@@ -112,7 +117,7 @@
 
 ## TAG
 
-注意由于项目中使用了Jenkins做编译打包，为了避免Github Action与Jenkins有冲突，所以我们在Github Action流水线打标签时添加了CI关键词，Github Action当前实现了部署到测试环境中。不依赖jenkins。
+注意由于项目中使用了Jenkins做编译打包，为了避免Github Action与Jenkins有冲突，所以我们在Github Action流水线打标签时添加了CI关键词,并且部署至一个独立的k8s环境命名空间（），Github Action当前实现了部署到测试环境中。不依赖jenkins。
 
 ## 参考文档
 http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html
