@@ -134,8 +134,8 @@ java -version
     |--|--|
     | Username | {代理机Username} |
     | Password | {代理机Password} |
-    | ID | d-slave |
-    | Description | d-slave |
+    | ID | vm-slave |
+    | Description | vm-slave |
 
 1. 然后点击 **Add**
 ![image.png](.attachments/image-d235d0cf-666a-456c-bad0-ee0a1ac81b4b.png)
