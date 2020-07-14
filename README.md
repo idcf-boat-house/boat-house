@@ -149,12 +149,12 @@
 
 
 ## 工具指导文档
-
+ 
 * [Selenium自动化UI测试](docs/quick-start/guide/selenium-ui-testing/Readme.md)
 * [Jenkins调度Selenium](docs/quick-start/guide/selenium-for-jenkins/Readme.md)
 * [Sonarqube配置指南](docs/quick-start/guide/sonarqube/Readme.md)
 * [快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
-* [Nexus搭建及使用指南](docs/quick-start/guide/nexus/Readme.md)
+* [Nexus搭建及使用指南](docs/quick-start/guide/nexus/readme.md)
 * [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
 * [基于Kubernetes的容器化集群部署](docs/quick-start/guide/k8s-common-training/k8s-deploy-traing.md)
