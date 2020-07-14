@@ -4,9 +4,9 @@ name: boat-house-docs-deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ boat-house-main ]
-  #pull_request:
-  #  branches: [ master ]
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 # Use FTP deploy action to publish markdown into https://idcf.org.cn/boat-house
 jobs:
