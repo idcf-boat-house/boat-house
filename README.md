@@ -7,6 +7,10 @@
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
 
+## IDCF 黑客马拉松操作手册
+
+* [流水线基础设施搭建](docs/hackathon/pipeline.md)
+
 **boathouse 二期共创**
 目前筹备中。。。
 
