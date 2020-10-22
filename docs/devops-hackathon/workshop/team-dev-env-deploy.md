@@ -46,7 +46,7 @@ docker-compose --version #docker-compose
 
 #### Jenkins添加SonarQube链接Token
 
-密码可以暂时不填写，后面配置Sonar时在配置
+密码可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonarqube’
 
 ![image.png](images/sonar01.png)
 
