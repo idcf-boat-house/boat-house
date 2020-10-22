@@ -19,11 +19,8 @@
 
 [团队环境配置](team-env-config.md)
 
-[创建团队容器镜像注册表服务(acr)](../guide/azure-acr/README.md)
+[示例代码导入](verson-control-config.md)
 
-[在Azure上创建boathouse 运行所需的 K8s环境(使用aks可视化界面手工创建方式，建议按此方式)](../guide/k8s-azure/aks-deploy.md)
-
-[在Azure上创建boathouse 运行所需的 K8s环境(使用使用脚本自动创建vmss的方式](../guide/k8s-azure/Readme.md)
 
 ###### 1.3 团队流水线配置
 
