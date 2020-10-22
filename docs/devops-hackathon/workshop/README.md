@@ -34,14 +34,7 @@
 
 [boathouse 部署至k8s-K8s初始配置和Jenkins流水线配置](team-k8s-env-config.md)
 
-[团队 boathouse 部署至k8s: 使用Github Action流水线](../guide/github-action/README.MD)
 
-## 2. 团队协作
-
-环境初始化完成以后，接下来团队就可以按照下面的项目协作流程进行工作了
-
-[项目协作流程](contributing-flow.md)
-
-## 3. 开发调试
+###### 1.6 团队 K8s 环境（Test & Prod）部署
 
 [快速开发指南](dev-guide.md)
