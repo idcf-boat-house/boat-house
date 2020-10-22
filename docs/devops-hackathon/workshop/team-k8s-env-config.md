@@ -4,8 +4,7 @@
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boat House 的 Dev 环境。
 接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
 
->在开始前先找到kube config文件，下面需要, 使用boathouse基础设施库中的k8s环境创建脚本执行成功后，此文件存放地址为： 在temp/kubeconfig/kubeconfig.chinanorth2.json
-如果是boathouse维护团队成员请从此私有库获取： https://github.com/idcf-boat-house/secret-files/tree/master/k8s/kubeconfig
+
 
 #### 配置 K8s 集群 & Jenkins 凭据
 
@@ -31,10 +30,7 @@
     kubectl create namespace boathouse-test
     kubectl create namespace boathouse-prod
     ```
-    - 用于Github Action 流水线部署的命令空间：
-    ```
-    kubectl create namespace boathouse-test-github
-    ```    
+   
     ![image.png](images/k8s-02.png)
     
    
@@ -46,12 +42,7 @@
     kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
     ```
     
- - 用于Github Action 流水线   
-    ```
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test-github   
-    ```
-    注意：此 secret 是 k8s 连接 github package 上传镜像所使用的密钥，因此 --docker-password 参数应该使用赋予了 read:package 的权限的用户的PAT。
-    ![image.png](images/k8s-03.png)
+
 1. Jenkins 添加 Kubeconfig 凭据，找到kube config文件（在temp/kubeconfig/kubeconfig.chinanorth2.json），将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
@@ -60,7 +51,6 @@
    2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
 
 2. 至此，Jenkins 和 K8s 的集群配置就完毕了。
-3. 同理，Github Action 也需要配置以上两项。可参考文档：[团队 boathouse 部署至k8s-Github Action](../guide/github-action/README.MD)
 
 #### 修改 test & prod K8S yaml 中的 Docker 镜像仓库地址
 在之前的[团队流水线配置](https://github.com/idcf-boat-house/boat-house/wiki/团队流水线配置)文章中，我们创建了五个 Docker 镜像并推送到了团队 Github 账号的 Package 中，因此在部署 test & prod 环境时，我们需要链接到团队 Github 账号的 Docker 镜像仓库，并拉取镜像来进行部署。
