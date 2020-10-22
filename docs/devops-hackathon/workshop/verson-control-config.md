@@ -35,7 +35,7 @@
 https://github.com/idcf-boat-house/boat-house-frontend
 
 
-![image.png](images/gitee08.png)
+![image.png](images/gitee11.png)
 
 4. 导入完成后如下图所示：
 
@@ -44,9 +44,5 @@ https://github.com/idcf-boat-house/boat-house-frontend
 5. 按照同样的方式导入BoatHouse后端代码库：
 
 https://github.com/idcf-boat-house/boat-house-backend
-
-![image.png](images/gitee10.png)
-
-
 
 
