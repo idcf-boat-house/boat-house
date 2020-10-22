@@ -44,6 +44,12 @@ docker-compose --version #docker-compose
 用户名以及密码，ID需'creds-github-registry’。
 ![image.png](images/teamguide-cd-06.png)
 
+#### Jenkins添加SonarQube链接Token
+
+密码可以暂时不填写，后面配置Sonar时在配置
+
+![image.png](images/sonar01.png)
+
 
 #### 启动master分支构建
 1. 点击master分支后面的构建button，启动构建
