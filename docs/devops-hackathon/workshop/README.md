@@ -25,9 +25,9 @@
 ###### 1.3 团队流水线配置
 
 - [团队流水线配置(Jenkins)](team-pipeline-config.md)
-- [团队流水线配置(Github Action)](../guide/github-action/README.MD)
 
 ###### 1.4 团队开发环境部署
+
 [团队开发环境部署](team-dev-env-deploy.md)
 
 ###### 1.5 团队 K8s 环境（Test & Prod）部署
