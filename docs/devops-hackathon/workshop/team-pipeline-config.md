@@ -38,7 +38,7 @@
 
 ![image.png](.attachments/jenkins01.png)
 
-2. 输入仓库地址，并点击创建流水线，如下图所示：
+2. 输入boat-house-frontend仓库地址，并点击创建流水线，如下图所示：
 
 ![image.png](.attachments/jenkins02.png)
 
@@ -69,3 +69,4 @@
 ![image.png](.attachments/jenkins05.png)
 
 
+9. 按照同样的方式完成boat-house-backend仓库的导入以及配置。

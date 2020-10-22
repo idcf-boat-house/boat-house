@@ -6,8 +6,8 @@
 
 环境配置如下：
 
-* VM01（用于搭建工具链） （CPU: 2 Core MEM: 8G）
-* VM02（用于搭建测试环境） （CPU: 2 Core MEM: 4G）
+* VM-Tools（用于搭建工具链） （CPU: 2 Core MEM: 8G）
+* VM-Dev（用于搭建测试环境） （CPU: 2 Core MEM: 4G）
 
 ###### 1.1 获取团队云资源
 
