@@ -69,12 +69,11 @@ sudo cat jenkins_home/secrets/initialAdminPassword
 
 #### Jenkins 配置
 Jenkins流水线中的各个任务的运行需要跑在一台代理机上，因此我们需要给Jenkins添加构建节点。
-在本示例中将使用两台云资源虚拟机中的 Jenkins VM 作为代理机。
+在本示例中将使用本机同时作为 Jenkins VM 作为代理机。
 
 
 ##### 代理机安装JDK
 ```
-sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 java -version
 ```
@@ -121,7 +120,7 @@ java -version
     | Remote root directory	 | /home/localadmin/jenkins_workspace |
     | Labels | vm-slave (此处很关键，后面JenkinFile流水线文件中会根据此label选取代理机) |
     | Launch method | Launch agents via SSH |
-    | Host | {代理机的Host} |
+    | Host | 虚拟机公网IP地址 |
     | Host Key Verification Strategy | Non verifying Verification Strategy |
 
 1. 创建链接到salve容器认证
