@@ -58,3 +58,14 @@
 6. 点击分支 Tab，点击某个分支后的修改button可以查看流水线的具体设置及任务
 ![image.png](images/teamguide-ci-01.png)
 ![image.png](images/teamguide-ci-02.png)
+
+
+7. 修改jenkinsfile默认地址：
+
+![image.png](.attachments/jenkins04.png)
+
+8. 脚本路径改为：devops/jenkins/jenkinsfile
+
+![image.png](.attachments/jenkins05.png)
+
+
