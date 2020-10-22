@@ -77,7 +77,14 @@ Jenkins流水线中的各个任务的运行需要跑在一台代理机上，因�
 sudo apt-get install openjdk-8-jdk
 java -version
 ```
+
 ![image.png](images/teamguide-env-07.png)
+
+##### 安装Maven
+
+```
+sudo apt install maven
+```
 
 ##### 代理机添加localadmin（当前登陆账号）至Sudoers
 1. 添加localadmin至sudo组：

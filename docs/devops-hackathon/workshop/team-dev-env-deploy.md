@@ -29,9 +29,7 @@ docker --version #docker
 docker-compose --version #docker-compose
 ```
 
-#### 安装Maven
 
-sudo apt install maven
 
 #### Jenkins添加Docker VM的连接密钥
 1. 打开Jenkins流水线，进入凭据配置界面，点击添加凭证
