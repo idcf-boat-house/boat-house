@@ -13,7 +13,7 @@
 
 | 变量名称 | 值 | 说明  |
 | ------------ | --------- | --------- |
-| BOATHOUSE_CONTAINER_REGISTRY  | bhacr.azurecr.cn | 容器镜像仓库地址,可以是github pkg url 或 azure container reg url（acr），目前使用后者  |
+| BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 容器镜像仓库地址,可以是github pkg url 或 azure container reg url（acr），目前使用后者  |
 | BOATHOUSE_DEV_HOST  | 请使用实际 | ev环境内部IP地址（jenkins通过内网IP部署dev环境）  |
 | BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称(即boathouse 在github上的组织名称) |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
