@@ -54,8 +54,8 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 - 用于Jenkins流水线部署
     ```
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
-    kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
+    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
+    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
     ```
     
 
