@@ -35,6 +35,6 @@
 [boathouse 部署至k8s-K8s初始配置和Jenkins流水线配置](team-k8s-env-config.md)
 
 
-###### 1.6 团队 K8s 环境（Test & Prod）部署
+###### 1.6 团队快速开发指南
 
 [快速开发指南](dev-guide.md)
