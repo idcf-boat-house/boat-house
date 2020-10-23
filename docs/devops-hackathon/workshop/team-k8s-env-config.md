@@ -52,11 +52,6 @@
 
 2. 至此，Jenkins 和 K8s 的集群配置就完毕了。
 
-#### 修改 test & prod K8S yaml 中的 Docker 镜像仓库地址
-在之前的[团队流水线配置](https://github.com/idcf-boat-house/boat-house/wiki/团队流水线配置)文章中，我们创建了五个 Docker 镜像并推送到了团队 Github 账号的 Package 中，因此在部署 test & prod 环境时，我们需要链接到团队 Github 账号的 Docker 镜像仓库，并拉取镜像来进行部署。
-1. 我们需要更新 Boat-House Repo中K8S的yaml文件，将镜像仓库的地址更新到团队环境的地址：
-![image.png](images/k8s-11.png)
-2. 修改完毕后，提交此更新到团队账号Fork的 Boat-House 代码仓库。
 
 #### 部署测试环境
 代码仓库的yaml文件提交完毕，接下来我们开始进行Jenkins流水线的部署。
