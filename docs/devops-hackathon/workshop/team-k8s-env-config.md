@@ -8,7 +8,23 @@
 
 #### 配置 K8s 集群 & Jenkins 凭据
 
-前提条件：安装Kubectl工具：https://kubernetes.io/docs/tasks/tools/install-kubectl/
+前提条件：安装Kubectl工具：
+
+工具现在地址：https://files.devopshub.cn/publicfiles/boathouse/
+
+下载完成后参考下面链接的命令完成kubectl工具的安装：
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl/
+
+Windows：下载并解压kubectl.zip, 完成后配置环境变量PATH
+
+macOS: 下载并解压，执行以下命令完成配置
+
+```
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+
 1. 进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
 ![image.png](images/k8s-22.png)
 
