@@ -17,10 +17,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
 
-sudo groupadd docker #添加docker用户组
-sudo gpasswd -a $USER docker #将登陆用户加入到docker用户组中
-newgrp docker #更新用户组
+sudo groupadd docker 
+sudo gpasswd -a $USER docker 
+newgrp docker 
 ```
+
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 
 ```
@@ -40,6 +41,8 @@ sudo chown -R 1000:1000 ~/jenkins_home
 sudo docker run -d -p 8080:8080 -p 50000:50000 -v ~/jenkins_home:/var/jenkins_home -u 0 jenkins/jenkins:lts
 docker ps
 ```
+如果在拉取Jenkins镜像过程中速度较慢，请联系支持团队获取国内镜像登录以及拉取命令
+
 ![image.png](images/teamguide-env-05.png)
 
 ##### 获取管理员账号密码
@@ -47,6 +50,7 @@ docker ps
 sudo cat jenkins_home/secrets/initialAdminPassword
 ```
 ![image.png](images/teamguide-env-06.png)
+
 复制上面的输出结果
 
 ##### 启动Jenkins网站
@@ -94,7 +98,8 @@ sudo apt install maven
 1. 添加localadmin至sudoers文件：
     ```    
     sudo vim /etc/sudoers
-    # /etc/sudoers文件最末尾添加下面代码：localadmin ALL=(ALL) NOPASSWD:ALL
+    # /etc/sudoers文件最末尾添加下面代码：
+    localadmin ALL=(ALL) NOPASSWD:ALL
     ```
 
 ##### 代理机创建Jenkins工作目录, 并创建文件确保目录在非sudo下可写
@@ -109,15 +114,19 @@ sudo apt install maven
 
 ##### Jenkins添加构建节点
 1. 在jenkins管理界面进行节点管理，**Manage Jenkins**
+
 ![image.png](.attachments/image-11b5a0bd-b400-467b-b98c-4c344a74db9f.png)
 
 1. 点击 **Manage Nodes** 
+
 ![image.png](.attachments/image-0dc74956-80c3-4a37-bfe0-850fd2213e6e.png)
 
 1. 点击  ** New Node**
+
 ![image.png](.attachments/image-db115b9c-00be-4206-8753-5610dd18c426.png)
 
 1. 按照下图输入代理名称并勾选**Permanent Agent**，然后点击 **OK**
+
 ![image.png](.attachments/image-ace3ea5f-52f2-4013-b065-84419feb7e46.png)
 
 1. 在创建节点界面输入参数:
@@ -127,7 +136,7 @@ sudo apt install maven
     | Remote root directory	 | /home/localadmin/jenkins_workspace |
     | Labels | vm-slave (此处很关键，后面JenkinFile流水线文件中会根据此label选取代理机) |
     | Launch method | Launch agents via SSH |
-    | Host | 虚拟机公网IP地址 |
+    | Host | vm-tools 虚拟机公网IP地址 |
     | Host Key Verification Strategy | Non verifying Verification Strategy |
 
 1. 创建链接到salve容器认证
@@ -136,8 +145,8 @@ sudo apt install maven
 1. 在认证编辑界面输入参数：
     | 参数名 | 参数值 |
     |--|--|
-    | Username | {代理机Username} |
-    | Password | {代理机Password} |
+    | Username | {vm-tools虚拟机用户名} |
+    | Password | {vm-tools虚拟机密码} |
     | ID | vm-slave |
     | Description | vm-slave |
 
@@ -177,6 +186,24 @@ sudo apt install maven
 ![image.png](images/teamguide-ci-05.png)
 1. 进入插件页面， 选择项目的 **可用** tab，并在上面搜索框中输入 **Blue Ocean** 找到blueocean插件，选择安装
 ![image.png](.attachments/image-339b4bef-042b-41fd-b375-fced13429eab.png)
+
+
+1. 请确保所有插件安装成功，如有失败情况，需要卸载插件重新安装，如下图失败示例：
+
+![image.png](images/jenkins13.png)
+
+
+1. 重启Jenkins服务器
+
+打开重启界面，http://ip:8080/restart
+点击是，如下图所示：
+
+![image.png](images/jenkins15.png)
+
+重启中，如下图所示：
+
+![image.png](images/jenkins16.png)
+
 
 至此，团队环境中的Jenkins设置完毕。
 ****
