@@ -19,27 +19,23 @@
 
 
 
-###### 1.2 导入Boathouse示例代码
+###### 1.2 Folk Boathouse示例代码
 
-1. 找到仓库，点击立即创建，如下图所示：
+1. 打开代码仓库：https://gitee.com/idcf-boat-house/boat-house-frontend
 
-![image.png](images/gitee06.png)
+2. 点击Folk，如下图所示：
 
-2. 拖动页面到最下面，选择导入已有仓库,并将是否开源选择 “公开”，注意这里为了便捷一定要选择公开！
+![image.png](images/gitee16.png)
 
-3. 粘贴BoatHouse前端代码仓库，地址如下：
+3. 选择组织，并点击确定，如下图所示：
 
-https://github.com/idcf-boat-house/boat-house-frontend
+![image.png](images/gitee17.png)
 
+4. Folk完成后，如下图所示：
 
-![image.png](images/gitee11.png)
+![image.png](images/gitee18.png)
 
-4. 导入完成后如下图所示：
+5. 按照以上同样的方式Folk BoatHouse后端代码库：
 
-![image.png](images/gitee09.png)
-
-5. 按照以上同样的方式导入BoatHouse后端代码库：
-
-https://github.com/idcf-boat-house/boat-house-backend
-
+https://gitee.com/idcf-boat-house/boat-house-backend
 
