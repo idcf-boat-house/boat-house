@@ -4,7 +4,7 @@
 ###### 1.1 注册Gitee账号
 
 
-1. 打开Gitee站点：https://gitee.com/，点击注册Gitee
+1. 打开Gitee站点：https://gitee.com ,点击注册Gitee
 
 ![image.png](images/gitee01.jpg)
 
@@ -19,16 +19,13 @@
 
 
 
-
 ###### 1.2 导入Boathouse示例代码
 
 1. 找到仓库，点击立即创建，如下图所示：
 
 ![image.png](images/gitee06.png)
 
-2. 拖动页面到最下面，选择导入已有仓库，如下图所示：
-
-![image.png](images/gitee07.png)
+2. 拖动页面到最下面，选择导入已有仓库,并将是否开源选择 “公开”，注意这里为了便捷一定要选择公开！
 
 3. 粘贴BoatHouse前端代码仓库，地址如下：
 
@@ -41,7 +38,7 @@ https://github.com/idcf-boat-house/boat-house-frontend
 
 ![image.png](images/gitee09.png)
 
-5. 按照同样的方式导入BoatHouse后端代码库：
+5. 按照以上同样的方式导入BoatHouse后端代码库：
 
 https://github.com/idcf-boat-house/boat-house-backend
 
