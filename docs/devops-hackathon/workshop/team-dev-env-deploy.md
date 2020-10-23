@@ -18,15 +18,15 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
 
-sudo groupadd docker #添加docker用户组
-sudo gpasswd -a $USER docker #将登陆用户加入到docker用户组中
-newgrp docker #更新用户组
+sudo groupadd docker 
+sudo gpasswd -a $USER docker
+newgrp docker
 ```
 
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 ```
-docker --version #docker
-docker-compose --version #docker-compose
+docker --version
+docker-compose --version
 ```
 
 
@@ -41,12 +41,12 @@ docker-compose --version #docker-compose
 #### Jenkins添加Docker Registry的连接密钥
 
 
-用户名以及密码，ID需'creds-github-registry’。
+管理员提供给本组的镜像仓库的用户名以及密码，ID需'creds-github-registry’。
 ![image.png](images/teamguide-cd-06.png)
 
-#### Jenkins添加SonarQube链接Token
+#### Jenkins添加SonarQube链接Token（类型：Secret Text）
 
-密码可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonarqube’
+Secret可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonarqube’
 
 ![image.png](images/sonar01.png)
 
