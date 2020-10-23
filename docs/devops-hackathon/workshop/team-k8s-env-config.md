@@ -59,7 +59,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
     ```
     
 
-1. Jenkins 添加 Kubeconfig 凭据，找到kube config文件（在temp/kubeconfig/kubeconfig.chinanorth2.json），将里面的所有内容复制到content中
+1. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
 1. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
