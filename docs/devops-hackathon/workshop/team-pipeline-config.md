@@ -9,13 +9,13 @@
 
 1. 进入Jenkins | 点击 Manage Jenkins | 点击Config System | 找到 Global properties | 选中 Environment variables | 点击 ADD
 
-添加如下环境变量：
+添加如下环境变量（注意复制环境变量以及值的时候避免多复制了空格）：
 
 | 变量名称 | 值 | 说明  |
 | ------------ | --------- | --------- |
-| BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 容器镜像仓库地址,可以是github pkg url 或 azure container reg url（acr），目前使用后者  |
-| BOATHOUSE_DEV_HOST  | 请使用实际 | ev环境内部IP地址（jenkins通过内网IP部署dev环境）  |
-| BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称(即boathouse 在github上的组织名称) |
+| BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 支持团队提供的容器镜像仓库地址 |
+| BOATHOUSE_DEV_HOST  | 请使用实际 | Dev环境IP地址  |
+| BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称 |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
 | DEPLOY_K8S_NAMESPACE_PROD | boathouse-prod | k8s命名空间，即boathouse生产环境部署的命名空间 |
 
@@ -38,35 +38,39 @@
 
 ![image.png](.attachments/jenkins01.png)
 
-2. 输入boat-house-frontend仓库地址，并点击创建流水线，如下图所示：
+2. 获取仓库地址，如下图所示：
+
+![image.png](images/gitee-url.png)
+
+3. 输入boat-house-frontend仓库地址，并点击创建流水线，如下图所示：
+
 
 ![image.png](.attachments/jenkins02.png)
 
-3. 流水线创建中
+4. 流水线创建中
 
 ![image.png](.attachments/jenkins03.png)
 
-
-4. 进入流水线主页，可以看到基于Repo中Jenkins File成功创建出流水线。
+5. 进入流水线主页，可以看到基于Repo中Jenkins File成功创建出流水线。
 
 ![image.png](.attachments/image-3c7d5ea4-52bf-4c49-9e0c-8375d8c027cc.png)
 
-.5 点击当前流水线进入流水线活动页面
+6. 点击当前流水线进入流水线活动页面
 ![image.png](images/teamguide-ci-00.png)
 
 
-6. 点击分支 Tab，点击某个分支后的修改button可以查看流水线的具体设置及任务
+7. 点击分支 Tab，点击某个分支后的修改button可以查看流水线的具体设置及任务
 ![image.png](images/teamguide-ci-01.png)
 ![image.png](images/teamguide-ci-02.png)
 
 
-7. 修改jenkinsfile默认地址：
+8. 修改jenkinsfile默认地址：
 
 ![image.png](.attachments/jenkins04.png)
 
-8. 脚本路径改为：devops/jenkins/jenkinsfile
+9. 脚本路径改为：devops/jenkins/jenkinsfile
 
 ![image.png](.attachments/jenkins05.png)
 
 
-9. 按照同样的方式完成boat-house-backend仓库的导入以及配置。
+10. 按照同样的方式完成boat-house-backend仓库的导入以及配置。
