@@ -42,7 +42,7 @@ docker-compose --version
 
 
 管理员提供给本组的镜像仓库的用户名以及密码，ID需'creds-github-registry’。
-![image.png](images/teamguide-cd-06.png)
+![image.png](images/teamguide-cd-06-v2.png)
 
 #### Jenkins添加SonarQube链接Token（类型：Secret Text）
 
@@ -60,13 +60,13 @@ Secret可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonar
 #### 查看部署结果
 Dev环境部署完毕，打开以下链接，查看部署结果：
 1. Client Web 
-http://{Docker VM Host}:5000
+http://{vm-dev ip address}:5000
 ![image.png](images/teamguide-cd-12.png)
 1. Management Web
-http://{Docker VM Host}:5001
+http://{vm-dev ip address}:5001
 ![image.png](images/teamguide-cd-13.png)
 1. Product Service AP Swagger UI
-http://{Docker VM Host}:7001/api/v1.0/swagger-ui.html
+http://{vm-dev ip address}:7001/api/v1.0/swagger-ui.html
 ![image.png](images/teamguide-cd-14.png)
 
 **注意：暂时没有提供k8s集群环境，所以大家暂时不要部署测试以及生产环境**
