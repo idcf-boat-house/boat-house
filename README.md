@@ -7,9 +7,10 @@
 
 * [项目概念](docs/quick-start/operation/proj-description.md)
 
-## IDCF 黑客马拉松操作手册
+## 培训及操作手册
 
-* [流水线基础设施搭建](docc/workshops/hackathon/README.md)
+* [IDCF DevOps黑客马拉松操作手册](docs/workshops/hackathon/README.md)
+* [BoatHouse开源共创训练营(Azure DevOps版)](docs/workshops/azuer-devops/README.md)
 
 **boathouse 二期共创**
 目前筹备中。。。
