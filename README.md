@@ -9,7 +9,7 @@
 
 ## IDCF 黑客马拉松操作手册
 
-* [流水线基础设施搭建](docs/devops-hackathon/workshop/README.md)
+* [流水线基础设施搭建](docc/workshops/hackathon/README.md)
 
 **boathouse 二期共创**
 目前筹备中。。。
