@@ -55,8 +55,9 @@
 	- agile-team
 	- agile-scaled
 	- devops-e2e-5p，工具实践文档
-	- devops-hackathon，黑客马拉松活动实践文档
-		-workshop
+	- workshops
+	  - devops-hackathon 黑客马拉松活动实践文档
+	  - azure-devops 基于微软Azure DevOps平台的BoatHouse流水线持续交付
 	- devops-case-studies，案例研究文档
 
  
