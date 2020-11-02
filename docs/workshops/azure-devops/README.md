@@ -49,6 +49,42 @@ BoatHouse的全部内容，包括代码和文档全部通过GitHub开源给社�
 
 第二讲将完成产品需求管理和迭代开发过程管理过程在Azure Board电子看板上的工具落地操作指导，讲师讲为大家展示Azure Board如何支持product backlog, sprint backlog的日常管理，以及使用kanban, wiki, query以及dashboard支撑日常项目管理需求。我们还将关注如何支持多团队，层级化团队结构的支撑，以及使用delievery plan管理大规模项目或者产品的日常开发过程。
 
+#### 预习内容
+
+请大家按照以下顺序完成任务，任务分为个人任务和团队任务，个人任务需要个人自行完成，团队任务需要小组在miro内完成。
+
+- 2.1 动手实验 - 创建Azure DevOps个人账号
+
+    **个人任务** 请在个人Azure DevOps账号中完成此任务
+
+    请导航到 <https://azure.com/devops>，请点击"免费开始使用”按钮注册个人Azure DevOps账号。你在后续的操作中可能需要将此账号给到小组组长，加入小组项目内进行操作。
+    **注意：** Azure DevOps允许5人以下团队的免费额度，如果您的团队超过了5个人，可以考虑自行划分为多个小组或者共用几个账号进行操作。
+
+- 2.2 动手实验 - 使用Azure DevOps Demo Generator创建 PartsUnlimited (配置零件无限团队项目) 示例项目
+
+    **个人任务** 请在个人Azure DevOps账号中完成此任务
+
+    请按照以下链接完成示例项目的创建
+
+    - [配置零件无限团队项目](https://almvm.devopshub.cn/labs/azuredevops/prereq/#%E4%BB%BB%E5%8A%A11%E9%85%8D%E7%BD%AE%E9%9B%B6%E4%BB%B6%E6%97%A0%E9%99%90%E5%9B%A2%E9%98%9F%E9%A1%B9%E7%9B%AE)
+
+- 2.3 动手实验 - 使用Azure Boards进行敏捷规划和项目组合管理
+
+    **个人任务** 请在个人Azure DevOps账号中完成此任务
+
+    请按照以下文档完成动手实验
+
+    - [使用Azure Boards进行敏捷规划和项目组合管理](https://almvm.devopshub.cn/labs/azuredevops/agile/)
+
+- 2.4 小组讨论 
+
+    **团队任务** 请将以下问题的讨论结果发布在小组miro上
+
+    - 问题1：什么是工作项？
+    - 问题2: Scrum的几个关键活动是什么？Azure DevOps分别提供了哪些功能支撑这些敏捷实践？
+    - 问题3: Kanban的几个关键活动是什么？Azure DevOps分别提供了哪些功能支撑这些敏捷实践？
+
+
 ### 3. 使用 Azure Repo实现基于Git特性分支的开发流程
 
 > - **预习内容：2020.11.3（周二）晚8点**
