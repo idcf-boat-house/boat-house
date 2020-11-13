@@ -11,7 +11,7 @@ ssh localadmin@<ip>
 ```
 sudo apt-get update
 sudo apt install docker.io
-sudo usermod -a -G docker localadmin
+sudo usermod -a -G docker ghuser
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
@@ -21,6 +21,7 @@ sudo groupadd docker
 sudo gpasswd -a $USER docker 
 newgrp docker 
 ```
+> 注意，如果运行`sudo usermod -a -G docker ghuser` 出错，请执行`sudo apt-get remove unscd`后再执行一次。
 
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 
@@ -38,7 +39,7 @@ docker-compose --version
 ```
 sudo mkdir ~/jenkins_home 
 sudo chown -R 1000:1000 ~/jenkins_home
-sudo docker run -d -p 8080:8080 -p 50000:50000 -v ~/jenkins_home:/var/jenkins_home -u 0 jenkins/jenkins:lts
+sudo docker run -d -p 8080:8080 -p 50000:50000 --env JAVA_OPTS=-Dhudson.model.DownloadService.noSignatureCheck=true -v ~/jenkins_home:/var/jenkins_home -u 0 jenkins/jenkins:lts
 docker ps
 ```
 如果在拉取Jenkins镜像过程中速度较慢，请联系支持团队获取国内镜像登录以及拉取命令
@@ -59,6 +60,16 @@ sudo cat jenkins_home/secrets/initialAdminPassword
 
 ##### 选择安装建议插件
 ![image.png](.attachments/image-a41c5f66-6d30-476b-9bd9-b0eab010fd2e.png)
+
+> 注意，如果vm在国内，插件很有可能安装不上去，如果装不上去，请参考这个[文档](https://gitee.com/hummerstudio/jenkins-update-center-changer) ，步骤如下
+```
+1. ssh到jenkins所在的vm,执行 dockker ps，获取容器id
+1. 进入容器：sudo docker exec -it [容器id] /bin/bash
+1. 执行： bash -c "$(curl -fsSL https://gitee.com/hummerstudio/jenkins-update-center-changer/raw/master/jenkins-update-center-changer.sh)"
+1. 进入插件中心： http://[jenkins url]/pluginManager/advanced, 点击最底部的 get
+1. 重新进入插件初始化页面。
+1. 如果无法打开插件初始化页面，可手动删除jenkins_home文件，重启容器，重复上面的步骤。
+```
 
 ##### 初始化管理员账号密码，都填写为admin即可，然后点击 **Save and Continue**
 ![image.png](.attachments/image-a384fbd7-0205-4405-b31d-cbd84c69fb34.png)
@@ -90,16 +101,16 @@ java -version
 sudo apt install maven
 ```
 
-##### 代理机添加localadmin（当前登陆账号）至Sudoers
-1. 添加localadmin至sudo组：
+##### 代理机添加 vm帐号（当前登陆账号）至Sudoers
+1. 添加 ghuser 至sudo组：
     ```
-    sudo usermod -aG sudo localadmin
+    sudo usermod -aG sudo ghuser
     ```
-1. 添加localadmin至sudoers文件：
+1. 添加 ghuser 至sudoers文件：
     ```    
-    sudo vim /etc/sudoers
-    # /etc/sudoers文件最末尾添加下面代码：
-    localadmin ALL=(ALL) NOPASSWD:ALL
+     pkexec visudo #（或者是sudo vim /etc/sudoers）
+    在# /etc/sudoers文件最末尾添加下面代码：
+    ghuser ALL=(ALL) NOPASSWD:ALL
     ```
 
 ##### 代理机创建Jenkins工作目录, 并创建文件确保目录在非sudo下可写
@@ -133,7 +144,7 @@ sudo apt install maven
     | 参数名 | 参数值 |
     |--|--|
     | # of executors | 1 |
-    | Remote root directory	 | /home/localadmin/jenkins_workspace |
+    | Remote root directory	 | /home/ghuser/jenkins_workspace |
     | Labels | vm-slave (此处很关键，后面JenkinFile流水线文件中会根据此label选取代理机) |
     | Launch method | Launch agents via SSH |
     | Host | vm-tools 虚拟机公网IP地址 |
