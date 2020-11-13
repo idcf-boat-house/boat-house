@@ -3,6 +3,67 @@
 打开 http://[Jenkins服务器url]/pluginManager/advanced
 拉到最底部，选择Upload Plugin
 
+## 此次需要用到的插件
+
+http://mirrors.jenkins-ci.org/plugins/code-coverage-api/1.2.0/code-coverage-api.hpi
+
+http://mirrors.jenkins-ci.org/plugins/cobertura/1.16/cobertura.hpi
+
+http://mirrors.jenkins-ci.org/plugins/authentication-tokens/1.4/authentication-tokens.hpi
+
+http://mirrors.jenkins-ci.org/plugins/docker-commons/1.17/docker-commons.hpi
+
+http://mirrors.jenkins-ci.org/plugins/azure-commons/1.0.5/azure-commons.hpi
+
+http://mirrors.jenkins-ci.org/plugins/script-security/1.75/script-security.hpi
+
+http://mirrors.jenkins-ci.org/plugins/kubernetes-cd/2.3.1/kubernetes-cd.hpi
+
+http://mirrors.jenkins-ci.org/plugins/ssh-steps/2.0.0/ssh-steps.hpi 
+
+## 必装插件（下面的第一部分和第二部分已经包含，建议都安装）
+
+Trilead API	
+
+Oracle Java SE Development Kit Installer	
+
+Structs	
+
+SCM API	
+
+Snakeyaml API	
+
+Jackson 2 API	
+
+Folders	
+
+Branch API	
+
+Script Security	
+
+Command Agent Launcher	
+
+bouncycastle API	
+
+JavaScript GUI Lib: ACE Editor bundle	
+
+Pipeline: Step API	
+
+Pipeline: SCM Step	
+
+Pipeline: API	
+
+Pipeline: Supporting APIs	
+
+Pipeline: Groovy	
+
+Plugin Utilities API	
+
+Pipeline: Job	
+
+Checks API	 
+
+Display URL API
 
 ## 插件下载地址第二部分
 
@@ -165,46 +226,4 @@ http://mirrors.jenkins-ci.org/plugins/workflow-scm-step/2.11/workflow-scm-step.h
 
 http://mirrors.jenkins-ci.org/plugins/workflow-cps/2.85/workflow-cps.hpi
 
-## 必装插件
 
-Trilead API	
-
-Oracle Java SE Development Kit Installer	
-
-Structs	
-
-SCM API	
-
-Snakeyaml API	
-
-Jackson 2 API	
-
-Folders	
-
-Branch API	
-
-Script Security	
-
-Command Agent Launcher	
-
-bouncycastle API	
-
-JavaScript GUI Lib: ACE Editor bundle	
-
-Pipeline: Step API	
-
-Pipeline: SCM Step	
-
-Pipeline: API	
-
-Pipeline: Supporting APIs	
-
-Pipeline: Groovy	
-
-Plugin Utilities API	
-
-Pipeline: Job	
-
-Checks API	 
-
-Display URL API
