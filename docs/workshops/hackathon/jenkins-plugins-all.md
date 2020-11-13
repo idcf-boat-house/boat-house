@@ -165,5 +165,27 @@ http://mirrors.jenkins-ci.org/plugins/workflow-scm-step/2.11/workflow-scm-step.h
 
 http://mirrors.jenkins-ci.org/plugins/workflow-cps/2.85/workflow-cps.hpi
 
+## 必装插件
 
+Trilead API	
+Oracle Java SE Development Kit Installer
+Structs	
+SCM API	
+Snakeyaml API	
+Jackson 2 API	
+Folders	
+Branch API	
+Script Security	
+Command Agent Launcher	
+bouncycastle API	
+JavaScript GUI Lib: ACE Editor bundle	
+Pipeline: Step API	
+Pipeline: SCM Step	
+Pipeline: API	
+Pipeline: Supporting APIs	
+Pipeline: Groovy	
+Plugin Utilities API	
+Pipeline: Job	
+Checks API	 
+Display URL API
 
