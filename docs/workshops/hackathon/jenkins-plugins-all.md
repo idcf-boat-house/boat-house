@@ -1,3 +1,10 @@
+## 安装方法
+
+打开 http://[Jenkins服务器url]/pluginManager/advanced
+拉到最底部，选择Upload Plugin
+
+
+## 所有插件下载地址
 http://mirrors.jenkins-ci.org/plugins/cloudbees-folder/6.15/cloudbees-folder.hpi
 http://mirrors.jenkins-ci.org/plugins/trilead-api/1.0.12/trilead-api.hpi
 http://mirrors.jenkins-ci.org/plugins/antisamy-markup-formatter/2.1/antisamy-markup-formatter.hpi
@@ -30,3 +37,4 @@ http://mirrors.jenkins-ci.org/plugins/command-launcher/1.5/command-launcher.hpi
 http://mirrors.jenkins-ci.org/plugins/ace-editor/1.1/ace-editor.hpi
 http://mirrors.jenkins-ci.org/plugins/workflow-scm-step/2.11/workflow-scm-step.hpi
 http://mirrors.jenkins-ci.org/plugins/workflow-cps/2.85/workflow-cps.hpi
+
