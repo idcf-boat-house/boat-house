@@ -1,3 +1,13 @@
+## 获取插件下载地址
+
+插件镜像地址：
+
+http://mirrors.jenkins-ci.org
+
+https://jenkins-zh.cn/tutorial/management/mirror/
+
+由于官方插件中心hpm文件下载不了，可以从jenkins日志中找到下载失败的插件，将地址：https://updates.jenkins.io/download 替换成: http://mirrors.jenkins-ci.org
+
 ## 安装方法
 
 打开 http://[Jenkins服务器url]/pluginManager/advanced
