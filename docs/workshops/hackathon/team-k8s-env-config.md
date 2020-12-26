@@ -25,23 +25,35 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-1. 进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
+1. 获取 kubectl config 文件
+
+此文件包含连接k8s集群的密钥信息，可以通过 [DevOps实验室]所提供的 [Kubernetes集群实验环境] 的配置页面中获取集群master节点的ssh访问hostname和用户名密码，通过ssh登录此节点后。
+
+进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
+
 ![image.png](images/k8s-22.png)
 
-1. 我们需要使用分配给团队的K8s Config 登陆集群，即修改步骤1中 .kube 文件夹下的 Config 文件为团队的 K8s Config，打开团队 K8s Config文件我们可以看到如下内容：
+可以将此文件内容复制出来保存到本地备用。
+
+1. 如果需要使用以上K8s Config登陆集群，可以在安装kubectl的环境中当前用户目录中创建 .kube 文件夹，并在此文件夹下创建 Config 文件，并将以上复制的内容保存到这个文件中
 
 ![image.png](images/k8s-21.png)
 
 使用替换文件或修改文件内容的方式修改.kube下的config。
 
+对于使用BOAT-HOUSE jenkins流水线的用户，可以在vm-slave节点上安装kubectl并配置 k8s config 文件以便允许jenkins流水线连接到k8b集群。
+
 1. 保存完毕后运行命令，查看连接情况：
+
     ```
     kubectl get pods -n kube-system
     ```
+
     ![image.png](images/k8s-01.png)
 1. 创建 test & prod 命名空间
 
     - 用于Jenkins流水线部署的命令空间：
+
     ```
     kubectl create namespace boathouse-test
     kubectl create namespace boathouse-prod
@@ -70,6 +82,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 
 #### 部署测试环境
+
 代码仓库的yaml文件提交完毕，接下来我们开始进行Jenkins流水线的部署。
 1. 打开Jenkins流水线，点击分支重新启动流水线
 ![image.png](images/k8s-12.png)
@@ -96,7 +109,10 @@ Management: http://[management-serivce-ip]:[port]
 ![image.png](images/k8s-15.png)
 Product Service Swagger API: http://[product-serivce-api-ip]:[port]/api/v1.0/swagger-ui.html
 ![image.png](images/k8s-16.png)
+
+
 #### 部署生产环境
+
 1. 打开Jenkins流水线，点击同意部署到生产环境
 ![image.png](images/k8s-08.png)
 1. 等待生产环境部署完毕，可以看到该步骤执行成功
