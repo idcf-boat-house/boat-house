@@ -12,7 +12,7 @@
 ```
 sudo apt-get update
 sudo apt install docker.io
-sudo usermod -a -G docker localadmin
+sudo usermod -a -G docker ghuser
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
@@ -47,6 +47,8 @@ docker-compose --version
 #### Jenkins添加SonarQube链接Token（类型：Secret Text）
 
 Secret可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonarqube’
+
+注意：此配置虽然在没有用sonar的情况下没有用，但是jenkinsfile中使用了这个token，如果不配置流水线将无法运行。你可以在后续启用son的时候再更新此token为正确的取值，当前可以输入任何内容
 
 ![image.png](images/sonar01.png)
 
