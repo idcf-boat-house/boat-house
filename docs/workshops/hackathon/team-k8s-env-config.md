@@ -81,7 +81,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 2. 至此，Jenkins 和 K8s 的集群配置就完毕了。
 
 
-** 重要提示： ** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
+**重要提示：** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
 
 
 #### 部署测试环境
