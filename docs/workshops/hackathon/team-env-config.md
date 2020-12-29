@@ -2,7 +2,7 @@
 
 使用ssh登录vm-tools
 ```
-ssh localadmin@<ip>
+ssh <username>@<ip/hostname>
 ```
 
 ### 1. Docker 安装
@@ -11,7 +11,7 @@ ssh localadmin@<ip>
 ```
 sudo apt-get update
 sudo apt install docker.io
-sudo usermod -a -G docker ghuser
+sudo usermod -a -G docker <当前用户用户名>
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl daemon-reload
@@ -104,7 +104,7 @@ sudo apt install maven
 ##### 代理机添加 vm帐号（当前登陆账号）至Sudoers
 1. 添加 ghuser 至sudo组：
     ```
-    sudo usermod -aG sudo ghuser
+    sudo usermod -aG sudo <当前用户用户名>
     ```
 1. 添加 ghuser 至sudoers文件：
     ```    

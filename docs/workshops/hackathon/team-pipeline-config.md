@@ -4,7 +4,6 @@
 
 **配置Gitee之前，团队需要选定一个Gitee账号跟Jenkins环境集成
 
-
 ##### 添加全局变量
 
 1. 进入Jenkins | 点击 Manage Jenkins | 点击Config System | 找到 Global properties | 选中 Environment variables | 点击 ADD
@@ -19,11 +18,8 @@
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
 | DEPLOY_K8S_NAMESPACE_PROD | boathouse-prod | k8s命名空间，即boathouse生产环境部署的命名空间 |
 
-
-
 添加完成后如下图所示：
 ![image.png](images/jenkins-add-envs.png)
-
 
 ##### Jenkins配置
 
@@ -58,11 +54,9 @@
 6. 点击当前流水线进入流水线活动页面
 ![image.png](images/teamguide-ci-00.png)
 
-
 7. 点击分支 Tab，点击某个分支后的修改button可以查看流水线的具体设置及任务
 ![image.png](images/teamguide-ci-01.png)
 ![image.png](images/teamguide-ci-02.png)
-
 
 8. 修改jenkinsfile默认地址：
 
@@ -71,6 +65,5 @@
 9. 脚本路径改为：devops/jenkins/jenkinsfile
 
 ![image.png](.attachments/jenkins05.png)
-
 
 10. 按照同样的方式完成boat-house-backend仓库的导入以及配置。

@@ -1,6 +1,5 @@
 在本实验中我们使用Gitee作为代码托管以及管理的平台，所以我们需要申请Gitee账号，并将示例项目导入到Gitee平台中。
 
-
 ###### 1.1 注册Gitee账号
 
 
@@ -15,9 +14,6 @@
 3. 注册完成后，如下图所示：
 
 ![image.png](images/gitee03.png)
-
-
-
 
 ###### 1.2 Folk Boathouse示例代码
 
