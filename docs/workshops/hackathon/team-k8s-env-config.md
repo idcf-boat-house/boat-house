@@ -4,8 +4,6 @@
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boat House 的 Dev 环境。
 接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
 
-
-
 #### 配置 K8s 集群 & Jenkins 凭据
 
 前提条件：安装Kubectl工具：
@@ -35,7 +33,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 可以将此文件内容复制出来保存到本地备用。
 
-1. 如果需要使用以上K8s Config登陆集群，可以在安装kubectl的环境中当前用户目录中创建 .kube 文件夹，并在此文件夹下创建 Config 文件，并将以上复制的内容保存到这个文件中
+2. 如果需要使用以上K8s Config登陆集群，可以在安装kubectl的环境中当前用户目录中创建 .kube 文件夹，并在此文件夹下创建 Config 文件，并将以上复制的内容保存到这个文件中
 
 ![image.png](images/k8s-21.png)
 
@@ -43,14 +41,14 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 对于使用BOAT-HOUSE jenkins流水线的用户，可以在vm-slave节点上安装kubectl并配置 k8s config 文件以便允许jenkins流水线连接到k8b集群。
 
-1. 保存完毕后运行命令，查看连接情况：
+3. 保存完毕后运行命令，查看连接情况：
 
     ```
     kubectl get pods -n kube-system
     ```
 
     ![image.png](images/k8s-01.png)
-1. 创建 test & prod 命名空间
+4. 创建 test & prod 命名空间
 
     - 用于Jenkins流水线部署的命令空间：
 
@@ -62,7 +60,9 @@ sudo mv ./kubectl /usr/local/bin/kubectl
     ![image.png](images/k8s-02.png)
     
    
-1. 为命名空间创建 docker-registry-secrets
+5. 为命名空间创建 docker-registry-secrets
+
+> 镜像仓库的用户名和密钥可以通过 DevOps实验室 中的环境信息页面获取。
 
 - 用于Jenkins流水线部署
     ```
@@ -70,16 +70,16 @@ sudo mv ./kubectl /usr/local/bin/kubectl
     kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
     ```
     
-
-1. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
+6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
-1. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
+7. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
    1.  DEPLOY_K8S_NAMESPACE_TEST : `boathouse-test`
    2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
 
-2. 至此，Jenkins 和 K8s 的集群配置就完毕了。
+8. 至此，Jenkins 和 K8s 的集群配置就完毕了。
 
+### 触发流水线完成测试环境和生产环境部署
 
 **重要提示：** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
 
