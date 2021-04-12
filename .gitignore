@@ -116,3 +116,6 @@ dist
 
 # macos
 .DS_Store
+
+# -local file
+*-local.*
