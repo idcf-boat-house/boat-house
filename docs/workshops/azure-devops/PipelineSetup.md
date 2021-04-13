@@ -88,14 +88,6 @@ az network vnet subnet create \
 ## 创建 service principal
 az ad sp create-for-rbac --skip-assignment
 
-{
-  "appId": "b954fd17-f49a-464b-b18a-a868aeeba5e4",
-  "displayName": "azure-cli-2021-04-12-14-47-02",
-  "name": "http://azure-cli-2021-04-12-14-47-02",
-  "password": "EVI.K~R~8OXa0DqXfNMZgT-r9t-O1fc07Y",
-  "tenant": "248ba678-61fd-4ce3-90f9-9881212469b5"
-}
-
 ## 获取vnet id
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 
