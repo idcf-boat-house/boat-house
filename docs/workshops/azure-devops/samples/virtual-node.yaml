@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: aci-helloworld
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: mcr.microsoft.com/azuredocs/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld:v2
         ports:
         - containerPort: 80
       nodeSelector:

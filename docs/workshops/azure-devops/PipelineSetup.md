@@ -7,29 +7,29 @@
 az login
 
 ## 设置默认订阅
-az account set -s ecfae2b5-6fc2-4a86-a848-86e9bad00d22
+az account set -s <SubscriptionId>
 
 ## 获取当前区域最新版的aks版本号
-version=$(az aks get-versions -l southeastasia --query 'orchestrators[-1].orchestratorVersion' -o tsv)
+version=$(az aks get-versions -l <Location> --query 'orchestrators[-1].orchestratorVersion' -o tsv)
 
 ## 创建资源组
-az group create --name akshandsonlab --location southeastasia
+az group create --name <ResourceGroupName> --location <Location>
 
 ## 创建aks集群
-az aks create --resource-group akshandsonlab --name boathouse-cluster01 --enable-addons monitoring --kubernetes-version $version --generate-ssh-keys --location southeastasia
+az aks create --resource-group <ResourceGroupName> --name <AKSClusterName> --enable-addons monitoring --kubernetes-version $version --generate-ssh-keys --location <Location>
 
 ## 创建ACR容器镜像仓库
-az acr create --resource-group akshandsonlab --name boathouseacr01 --sku Standard --location southeastasia
-az acr login --name boathouseacr01
+az acr create --resource-group <ResourceGroupName> --name <ACRName> --sku Standard --location <Location>
+az acr login --name <ACRName>
 
 ## 获取aks访问密钥
-az aks get-credentials --resource-group akshandsonlab --name boathouse-cluster01
+az aks get-credentials --resource-group <ResourceGroupName> --name <AKSClusterName>
 
 # 获取aks集群的clientID
-CLIENT_ID=$(az aks show --resource-group akshandsonlab --name boathouse-cluster01 --query "identityProfile.kubeletidentity.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group <ResourceGroupName> --name <AKSClusterName> --query "identityProfile.kubeletidentity.clientId" --output tsv)
 
  # 获取acr的资源id
-ACR_ID=$(az acr show --name boathouseacr01 --resource-group akshandsonlab --query "id" --output tsv)
+ACR_ID=$(az acr show --name <ACRName> --resource-group <ResourceGroupName> --query "id" --output tsv)
 
 # 授权aks直接访问acr
 az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
@@ -70,53 +70,54 @@ az provider register --namespace Microsoft.ContainerInstance
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 
 ## 创建资源组
-az group create --name myResourceGroup --location southeastasia
+az group create --name <ResourceGroupName> --location <Location>
 # 创建vnet
 az network vnet create \
-    --resource-group myResourceGroup \
+    --resource-group <ResourceGroupName> \
     --name myVnet \
     --address-prefixes 10.0.0.0/8 \
     --subnet-name myAKSSubnet \
     --subnet-prefix 10.240.0.0/16
 
 az network vnet subnet create \
-    --resource-group myResourceGroup \
+    --resource-group <ResourceGroupName> \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
     --address-prefixes 10.241.0.0/16
 
-## 创建 service principal
+## 创建 service principal 获取 <appId> <password>
 az ad sp create-for-rbac --skip-assignment
+## 记录你的service principal信息
 
-## 获取vnet id
-az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
+## 获取VNetId
+az network vnet show --resource-group <ResourceGroupName> --name myVnet --query id -o tsv
 
 ## 为vnet授权
-az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
+az role assignment create --assignee <appId> --scope <VNetId>
 
-## 获取subnet id
-az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
+## 获取<SubNetId>
+az network vnet subnet show --resource-group <ResourceGroupName> --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 
 ## 创建aks集群
 az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group <ResourceGroupName> \
+    --name myAKSCluster01 \
     --node-count 1 \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
     --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id <subnetId> \
+    --vnet-subnet-id <SubNetId> \
     --service-principal <appId> \
     --client-secret <password>
 
 ## 获取集群密钥
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials --resource-group <ResourceGroupName> --name myAKSCluster01
 
 ## 激活虚拟节点
 az aks enable-addons \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
+    --resource-group <ResourceGroupName> \
+    --name myAKSCluster01 \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 
