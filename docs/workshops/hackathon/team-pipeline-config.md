@@ -13,6 +13,8 @@
 | 变量名称 | 值 | 说明  |
 | ------------ | --------- | --------- |
 | BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 支持团队提供的容器镜像仓库地址 |
+| CREDS_GITHUB_REGISTRY_USR  | 容器镜像仓库用户名|支持团队提供的容器镜像仓库用户名|
+| CREDS_GITHUB_REGISTRY_PSW  | 容器镜像仓库密码| 支持团队提供的容器镜像仓库密码|
 | BOATHOUSE_DEV_HOST  | 请使用实际 | Dev环境IP地址  |
 | BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称 |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
