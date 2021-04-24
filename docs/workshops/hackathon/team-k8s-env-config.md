@@ -22,6 +22,12 @@ macOS: 下载并解压，执行以下命令完成配置
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
+Linux：执行以下命令完成配置
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
 
 1. 获取 kubectl config 文件
 
