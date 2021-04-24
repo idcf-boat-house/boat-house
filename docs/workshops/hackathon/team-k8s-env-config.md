@@ -8,7 +8,7 @@
 
 前提条件：安装Kubectl工具：
 
-工具现在地址：https://files.devopshub.cn/publicfiles/boathouse/
+工具下载地址：https://files.devopshub.cn/publicfiles/boathouse/
 
 下载完成后参考下面链接的命令完成kubectl工具的安装：
 
