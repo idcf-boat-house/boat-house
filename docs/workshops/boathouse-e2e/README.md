@@ -37,8 +37,6 @@ az aks get-credentials -g bhdemo0429-rg -n bhdemo0429cluster
 
 ## Demo 1 - 使用DevOps实验室创建虚拟机
 
-Ubuntu Linux 16.04 LTS	邀请码试用	bbb4b575	true
-
 https://labs.devcloudx.com/templates
 
 ## Demo 2 - Gitee上创建组织并Fork代码库
@@ -103,7 +101,7 @@ Cobertura、Kubernetes Continuous Deploy、SSH Pipeline、Blue Ocean
 
 BOATHOUSE_CONTAINER_REGISTRY	tgjwkats1044.azurecr.cn
 CREDS_GITHUB_REGISTRY_USR	tgjwkats1044
-CREDS_GITHUB_REGISTRY_PSW	dWPA9h/r61XDQHNQyTAAcB0ZUL5mH7yV
+CREDS_GITHUB_REGISTRY_PSW	
 BOATHOUSE_DEV_HOST	nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn
 BOATHOUSE_ORG_NAME	idcf-boat-house	
 DEPLOY_K8S_NAMESPACE_TEST	boathouse-test	
@@ -123,8 +121,8 @@ DEPLOY_K8S_NAMESPACE_PROD	boathouse-prod
 
 kubectl create namespace boathouse-test
 kubectl create namespace boathouse-prod
-kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password=dWPA9h/r61XDQHNQyTAAcB0ZUL5mH7yV --docker-email=info@idcf.io -n boathouse-test
-kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password=dWPA9h/r61XDQHNQyTAAcB0ZUL5mH7yV --docker-email=info@idcf.io -n boathouse-prod
+kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password= --docker-email=info@idcf.io -n boathouse-test
+kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password= --docker-email=info@idcf.io -n boathouse-prod
 
 watch kubectl get pods -n boathouse-test
 watch kubectl get svc -n boathouse-test
