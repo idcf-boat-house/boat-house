@@ -10,7 +10,7 @@
 ## 培训及操作手册
 
 * [IDCF DevOps黑客马拉松操作手册](docs/workshops/hackathon/README.md)
-* [BoatHouse开源共创训练营(Azure DevOps版)](docs/workshops/azure-devops/README.md)
+* [IDCF BoatHouse 实战训练营(Azure DevOps版)](docs/workshops/boathouse-e2e-azuredevops/README.md)
 
 **boathouse 二期共创**
 目前筹备中。。。
