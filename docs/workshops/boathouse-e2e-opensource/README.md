@@ -10,13 +10,53 @@
 
 个人环境要求
 
+请按照以下要求下载所需软件，并按照【DevOpsBox安装说明】完成安装配置
+
 - 硬件要求
   - 最低配置：4核CPU，8G内存，500G硬盘，
   - 推荐配置：8核CPU，16G内存，500G SSD 硬盘
+  - 支持硬件虚拟化，并且已经再BIOS中启用，具体操作请参考[这篇文章](https://blog.csdn.net/Blueberry521/article/details/104240762)
+- 操作系统要求
+  - 支持使用Windows或者MacOS操作系统
+  - Windows 10 64位，家庭版/专业版/企业版/教育版，版本 1903、内部版本 18362 或更高版本
+  - MacOS 10.14以上，Majave, catalina或者Big Sur
+- 软件环境要求
+  - Docker for Desktop [下载地址](https://www.docker.com/products/docker-desktop)
+    - 如果使用Windows，请使用WSL2模式运行Docker for Desktop，这样可以避免安装HyperV (安装HyperV之后就无法使用MiniKube)
+    - WSL2 [安装说明](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)
+  - Virtual Box [下载地址](https://www.virtualbox.org/wiki/Downloads)
+  - Git [下载地址](http://git-scm.com/) 
+  - Visual Studio Code [下载地址](https://code.visualstudio.com/)
+  - 终端程序
+    - Windows 推荐使用 Windows Terminal [安装说明](https://docs.microsoft.com/zh-cn/windows/terminal/get-started)
+    - MacOS 推荐使用 iTerm2 [下载地址](https://iterm2.com/)
+- 个人云资源
+  - 1 个 容器镜像仓库 （此资源由讲师通过【DevOps实验室】环境提供）
 
+团队环境
 
+团队实验环境会在培训结束前通过【DevOps实验室】环境提供提供给各参训小组，每组1套，包括以下资源
 
+- 2 台 Linux 虚拟机 Ubuntu 16.04 LTS
+- 1 个 容器镜像仓库
+- 1 个 Kubernetes 集群 （包括 2 个虚拟机节点）
 
+## DevOpsBox 安装配置说明
+
+DevOpsBox是由IDCF/LEANSOFT的专业工程师团队设计的单机版全流程DevOps工具实验环境，设计目的是为了可以占用最少的资源提供一套全开源免费的DevOps工具链实验环境，让任何人可以在任何地点完成各类DevOps实践的学习和验证，以及定制化工具的开发。
+
+![](images/01-devopxbox-architecture.png)
+
+### 安装步骤
+
+以下安装步骤除特别说明为特定环境之外，均同时适用与Windows和MacOS两种环境
+
+1. 安装并配置 Virutal Box
+2. 安装并配置 Docker for Desktop
+3. 在 Windows 环境中使用WSL2运行Docker for Desktop
+4. 安装并配置阿里云版MiniKube
+5. 在 Virutal Box 上安装Linux虚拟机
+6. 在 Linux 虚拟机中安装 DevOpsBox 实验环境
 
 ## 实验列表
 
