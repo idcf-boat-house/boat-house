@@ -21,8 +21,8 @@
   - Windows 10 64位，家庭版/专业版/企业版/教育版，版本 1903、内部版本 18362 或更高版本
   - MacOS 10.14以上，Majave, catalina或者Big Sur
 - 软件环境要求
-  - Docker for Desktop [下载地址](https://www.docker.com/products/docker-desktop)
-    - 如果使用Windows，请使用WSL2模式运行Docker for Desktop，这样可以避免安装HyperV (安装HyperV之后就无法使用MiniKube)
+  - Docker Desktop [下载地址](https://www.docker.com/products/docker-desktop)
+    - 如果使用Windows，请使用WSL2模式运行Docker Desktop，这样可以避免安装HyperV (安装HyperV之后就无法使用MiniKube)
     - WSL2 [安装说明](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)
   - Virtual Box [下载地址](https://www.virtualbox.org/wiki/Downloads)
   - Git [下载地址](http://git-scm.com/) 
@@ -52,11 +52,10 @@ DevOpsBox是由IDCF/LEANSOFT的专业工程师团队设计的单机版全流程D
 以下安装步骤除特别说明为特定环境之外，均同时适用与Windows和MacOS两种环境
 
 1. 安装并配置 Virutal Box
-2. 安装并配置 Docker for Desktop
-3. 在 Windows 环境中使用WSL2运行Docker for Desktop
-4. 安装并配置阿里云版MiniKube
-5. 在 Virutal Box 上安装Linux虚拟机
-6. 在 Linux 虚拟机中安装 DevOpsBox 实验环境
+2. 安装并配置 Docker Desktop
+3. 安装并配置阿里云版MiniKube
+4. 在 Virutal Box 上安装Linux虚拟机
+5. 在 Linux 虚拟机中安装 DevOpsBox 实验环境
 
 ## 实验列表
 
