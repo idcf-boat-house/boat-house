@@ -8,11 +8,10 @@
 
 ![image-20210524183959867](../images/VScode-Download.png)
 
-#### **c.下载Karate.jar**到自己电脑，放到指定目录下，如/Users/用户名目录，下载 地址：https://yunzhihui.feishu.cn/drive/folder/fldcnFyLmeEx6qACZLYoh2za3Se
+#### **c.下载Karate.jar**到自己电脑，放到指定目录下，如/Users/用户名目录，下载 地址：链接: https://pan.baidu.com/s/1Ip3kvju2nia1jXvtBDlTeA 提取码: jxxv ,后者扫二维码下载 "karate.jar"
 
-#### 下载karate.jar
-
-![image-20210526190440659](../images/tools-karate.png) 
+| ![image-20210601235215891](../images/image-baidukarate.png) | ![image-20210601234825911](../images/image-2weima.png) |
+| ----------------------------------------------------------- | ------------------------------------------------------ |
 
 #### d.启动VSCODE后，安装karate -插件 https://marketplace.visualstudio.com/items?itemName=kirkslota.karate-runner
 
@@ -26,37 +25,26 @@
 
 #### e.设置lanche.json（可以修改）
 
+```json
 {
-
-​    // Use IntelliSense to learn about possible attributes.
-
-​    // Hover to view descriptions of existing attributes.
-
-​    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-
-​    "version": "0.2.0",
-
-​    "configurations": [
-
-​        {
-
-​            "type": "karate",
-
-​            "name": "Karate (debug): Standalone",
-
-​            "request": "launch",
-
-​            //"feature": "${command:karateRunner.getDebugFile}",
-
-​            "karateOptions": "-t ~@ignore -T 1 ${command:karateRunner.getDebugFile}",
-
-​            "karateCli": "java -jar **/Users/zhujiefu/karate.jar**   com.intuit.karate.Main -d"
-
-​        }
-
-​    ]
-
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "karate",
+            "name": "Karate (debug): Standalone",
+            "request": "launch",
+            //"feature": "${command:karateRunner.getDebugFile}",
+            "karateOptions": "-t ~@ignore -T 1 ${command:karateRunner.getDebugFile}",
+            "karateCli": "java -jar /Users/zhujiefu/karate.jar   com.intuit.karate.Main -d"
+        }
+    ]
 }
+```
+
+
 
 **备注：加粗字体根据c步骤下载Karate.jar 具体保存目录，进行替换，切记！**
 
@@ -70,21 +58,17 @@
 
 #### **2.以添加菜品接口为例，**在VSCODE中新建 addFoodcaeGory.feature ，脚本样例如下：
 
-**Feature**:  Karate  黑马测试
-
+```gherkin
+Feature:  Karate  黑马测试
 本Demo为黑客马拉松 引入Karate API 接口自动化测试Demo
+      Scenario: Add foodcategory
+        Given url "http://krbumatp1060.chinanorth2.cloudapp.chinacloudapi.cn:5001"
+          And path "/api/foodcategory"
+          And request {name: "Test云智慧Devops5", description: "Test5湘菜-鲁菜-粤菜"}
+        When method post
+        Then status 200
 
-​      **Scenario**: Add foodcategory
-
-​        **Given** url "http://krbumatp1060.chinanorth2.cloudapp.chinacloudapi.cn:5001"
-
-​          **And** path "/api/foodcategory"
-
-​          **And** request {name: "Test云智慧Devops5", description: "Test5湘菜-鲁菜-粤菜"}
-
-​        **When** method post
-
-​        **Then** status 200
+```
 
 **备注**：**url** :接口地址
 
@@ -106,7 +90,20 @@
 
 ![image-20210525182522959](../images/run-karate-sh.png)
 
-   **备注：需要给脚本添加执行权限 chmod +x ./RunKarate.sh**
+```shell
+#!/bin/bash
+#get current_path
+current_path=$(cd "$(dirname "$0")"; pwd)
+#检查报告目录是否存在
+if [ ! -d "${current_path}/karateResult" ];
+then
+ mkdir -p "${current_path}/karateResult"
+fi
+#run AuotoTest feature
+java -jar ${current_path}/karate.jar -o ./karateResult/  ${current_path}/TestAdd.feature & 
+```
+
+**备注：需要给脚本添加执行权限 chmod +x ./RunKarate.sh**
 
 **c.在项目的Jenkinsfile文件中，添加KarateTest测试的stage，代码如下:**
 
@@ -116,6 +113,7 @@
 
 ##### **Jenkins配置样例代码如下：**
 
+```groovy
 // 基于dev环境进行karate测试
         stage('karate') {
           steps {
@@ -127,6 +125,7 @@
             }
           }
         }
+```
 
 
 
