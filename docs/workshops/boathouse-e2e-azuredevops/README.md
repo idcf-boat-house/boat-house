@@ -22,15 +22,15 @@
 
 ## 实验列表
 
-**BHLA**：Boathouse Labs on Azure DevOps
+**BHAL**：Boathouse on Azure DevOps Hans On Labs
 
-BHLA 00 - Azure DevOps 账号获取和团队配置
-BHLA 01 - 容器化开发
-BHLA 02 - 基于Azure Repo的源代码管理
-BHLA 03 – 使用Azure Pipeline搭建Boathouse流水线
-BHLA 04 – 特性分支主干发布模式演练
-BHLA 05 - 使用Azure Board管理敏捷团队开发
-BHLA 06 - 使用 Dashboard 为团队提供可视化仪表盘
+BHAL00 - Azure DevOps 账号获取和团队配置
+BHAL01 - 容器化开发
+BHAL02 - 基于Azure Repo的源代码管理
+BHAL03 – 使用Azure Pipeline搭建Boathouse流水线
+BHAL04 – 特性分支主干发布模式演练
+BHAL05 - 使用Azure Board管理敏捷团队开发
+BHAL06 - 使用 Dashboard 为团队提供可视化仪表盘
 
 
 

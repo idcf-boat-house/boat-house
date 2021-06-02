@@ -1,128 +1,42 @@
-# Demo Script
+# IDCF Boathouse DevOps 实战训练营 (开源版)
 
-## Demo Resource -- PreConfigured
+本文档包括 IDCF Boathouse DevOps 实战训练营（开源）所提供的公开文档
 
-预搭建的Jenkins服务器：
-ssh ghuser@pmdmwspu1039.chinanorth2.cloudapp.chinacloudapi.cn
-Zh6E92RP
-http://pmdmwspu1039.chinanorth2.cloudapp.chinacloudapi.cn:8080
+## 培训准备
 
+所有参训学员均需要按照以下文档完成培训准备，本培训包含大量实操内容，对于所使用的环境有标准化要求，如果你在实操过程中遇到操作性问题，请首先检查自己的环境是否满足以下环境要求：
 
-Dev环境 
-ssh ghuser@wwkqbgsx1040.chinanorth2.cloudapp.chinacloudapi.cn
-CsFwfM1X
-http://wwkqbgsx1040.chinanorth2.cloudapp.chinacloudapi.cn:5000
-http://wwkqbgsx1040.chinanorth2.cloudapp.chinacloudapi.cn:5001
-http://wwkqbgsx1040.chinanorth2.cloudapp.chinacloudapi.cn:7001/api/v1.0/swagger-ui.html
+### 环境要求
 
-K8s环境
-az aks get-credentials -g lx-boathouse-aks-rg01 -n bhaks01
+个人环境要求
 
-## Demo Resource -- DEMO
-
-预搭建的Jenkins服务器：
-ssh ghuser@krrgzuhe1042.chinanorth2.cloudapp.chinacloudapi.cn
-
-http://krrgzuhe1042.chinanorth2.cloudapp.chinacloudapi.cn:8080 
-
-Dev环境 
-ssh ghuser@nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn
-
-http://nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn:5000
-http://nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn:5001
-http://nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn:7001/api/v1.0/swagger-ui.html
-
-K8s环境
-az aks get-credentials -g bhdemo0429-rg -n bhdemo0429cluster
-
-## Demo 1 - 使用DevOps实验室创建虚拟机
-
-https://labs.devcloudx.com/templates
-
-## Demo 2 - Gitee上创建组织并Fork代码库
-
-## Demo 3准备 - 初始化Jenkins服务器并导入前后端流水线
-
-```shell
-## 演示前完成以下操作，确保jenkins处于可用状态
-
-## ssh登录
-ssh ghuser@krrgzuhe1042.chinanorth2.cloudapp.chinacloudapi.cn
-
-## 安装docker环境
-sudo apt-get update
-sudo apt install docker.io
-sudo usermod -a -G docker ghuser
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo systemctl daemon-reload
-sudo systemctl restart docker 
-
-sudo groupadd docker 
-sudo gpasswd -a $USER docker 
-newgrp docker 
-
-## 安装jenkins
-
-sudo mkdir ~/jenkins_home 
-sudo chown -R 1000:1000 ~/jenkins_home
-sudo docker run -d -p 8080:8080 -p 50000:50000 --env JAVA_OPTS=-Dhudson.model.DownloadService.noSignatureCheck=true -v ~/jenkins_home:/var/jenkins_home -u 0 jenkins/jenkins:lts
-docker ps
-
-## 获取jenkins初始密码并完成基础插件的安装
-sudo cat jenkins_home/secrets/initialAdminPassword
-
-## 安装java环境
-sudo apt-get install openjdk-8-jdk
-java -version
-sudo apt install maven
-
-## 设置面密码sudoer
-
-sudo usermod -aG sudo ghuser
-sudo vim /etc/sudoers
-## /etc/sudoers文件最末尾添加下面代码：
-ghuser ALL=(ALL) NOPASSWD:ALL
-
-## 设置当前机器为vm-slave节点
-
-mkdir jenkins_workspace
-cd jenkins_workspace
-touch test
-ls
-## Labels=vm-slave
-## Remote root directory	/home/ghuser/jenkins_workspace
-
-## 安装以下插件
-Cobertura、Kubernetes Continuous Deploy、SSH Pipeline、Blue Ocean
+- 硬件要求
+  - 最低配置：4核CPU，8G内存，500G硬盘，
+  - 推荐配置：8核CPU，16G内存，500G SSD 硬盘
 
 
-## 完成以下全局变量和credental的设置
 
-BOATHOUSE_CONTAINER_REGISTRY	tgjwkats1044.azurecr.cn
-CREDS_GITHUB_REGISTRY_USR	tgjwkats1044
-CREDS_GITHUB_REGISTRY_PSW	
-BOATHOUSE_DEV_HOST	nygyerha1045.chinanorth2.cloudapp.chinacloudapi.cn
-BOATHOUSE_ORG_NAME	idcf-boat-house	
-DEPLOY_K8S_NAMESPACE_TEST	boathouse-test	
-DEPLOY_K8S_NAMESPACE_PROD	boathouse-prod	
 
-```
 
-## Demo 3 - 初始化Jenkins服务器并导入前后端流水线
+## 实验列表
 
-1. 登录Jenkins
-2. 进入 Blue Ocean
-3. 导入 gitee boat-house-backend 库地址
-4. 配置 jenkins file path devops/jenkins/jenkinsfile
-5. 启动流水线
+**BHAL**：Boathouse on Azure DevOps Hans On Labs
 
-## Demo 4 - 部署到k8s集群
+BHAL00 - Azure DevOps 账号获取和团队配置
+BHAL01 - 容器化开发
+BHAL02 - 基于Azure Repo的源代码管理
+BHAL03 – 使用Azure Pipeline搭建Boathouse流水线
+BHAL04 – 特性分支主干发布模式演练
+BHAL05 - 使用Azure Board管理敏捷团队开发
+BHAL06 - 使用 Dashboard 为团队提供可视化仪表盘
 
-kubectl create namespace boathouse-test
-kubectl create namespace boathouse-prod
-kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password= --docker-email=info@idcf.io -n boathouse-test
-kubectl create secret docker-registry regcred --docker-server=tgjwkats1044.azurecr.cn --docker-username=tgjwkats1044 --docker-password= --docker-email=info@idcf.io -n boathouse-prod
 
-watch kubectl get pods -n boathouse-test
-watch kubectl get svc -n boathouse-test
+## 环境获取
+
+参训学员会被分为多个小组，每个小组由IDCF提供以下资源：
+
+- 1 台 Linux Ubuntu 16.04 LTS虚拟机
+- 1 个 2 节点 Kubernetes 集群
+- 1 个 容器镜像仓库
+
+
