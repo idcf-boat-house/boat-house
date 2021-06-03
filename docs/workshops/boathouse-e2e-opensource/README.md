@@ -47,15 +47,23 @@ DevOpsBox是由IDCF/LEANSOFT的专业工程师团队设计的单机版全流程D
 
 ![](images/01-devopxbox-architecture.png)
 
+### Boathouse 资源网盘
+
+Boathouse资源网盘提供了一系列的资源文件，简化或者加速大家的配置操作，请大家提前下载
+
+- 链接: https://pan.baidu.com/s/1NAgfpofbhE368ethbuD8OQ  密码: wo8p
+
+
 ### 安装步骤
 
 以下安装步骤除特别说明为特定环境之外，均同时适用与Windows和MacOS两种环境
 
-1. 安装并配置 Virutal Box
+1. [安装并配置 Virutal Box](devopsbox/README.md?id=_01-安装并配置-virutal-box)
 2. 安装并配置 Docker Desktop
 3. 安装并配置阿里云版MiniKube
 4. 在 Virutal Box 上安装Linux虚拟机
-5. 在 Linux 虚拟机中安装 DevOpsBox 实验环境
+5. 配置 Visual Studio Code 通过 SSH Remote 访问 DevOpsBox 环境
+6. 在 DevOpsBox 上启动 Boathouse DevOpsBox 工具链环境
 
 ## 实验列表
 

@@ -137,8 +137,6 @@ DevOpsBox是我们用来运行DevOps核心工具链的虚拟机环境，我们�
 
 首先从Boathouse资源网盘下载 ubuntu安装iso 文件
 
-- 链接: https://pan.baidu.com/s/1NAgfpofbhE368ethbuD8OQ  密码: wo8p
-
 ![](images/04-devopsbox01.png)
 
 在VirtualBox中创建虚拟机，命名为 DevOpsBox， 选择 Linux 和 Ubuntu (64-bit)
@@ -295,7 +293,7 @@ sudo vim /etc/network/interfaces
 ```shell
 auto enp0s8
 iface enp0s8 inet static
-address 192.168.102
+address 192.168.99.102
 netmask 255.255.255.0
 ```
 
@@ -339,7 +337,7 @@ sudo sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/
 
 ## 安装 docker 和 docker-compose
 sudo apt-get update
-sudo apt install docker.io
+sudo apt install docker.io -y
 sudo usermod -a -G docker <当前用户用户名>
 sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
@@ -358,8 +356,8 @@ docker-compose --version
 docker-compose version 1.24.1, build 4667896b
 
 ## 安装 jdk 和 maven
-sudo apt-get install openjdk-8-jdk
-sudo apt install maven
+sudo apt-get install openjdk-8-jdk  -y
+sudo apt install maven -y
 
 ## 验证 java 和 maven 工作正常
 ### 请确保你收到的输出版本不低于以下版本
@@ -378,6 +376,112 @@ OS name: "linux", version: "4.4.0-186-generic", arch: "amd64", family: "unix"
 ```
 
 至此，我们的 DevOpsBox 基础环境准备完毕
+
+## 05. 配置 Visual Studio Code 通过 SSH Remote 访问 DevOpsBox 环境
+
+Visual Studio Code 提供了一个SSH Remote插件，可以允许我们通过SSH连接到远程环境，方便我们编辑远程环境中的文件以及运行终端。
+
+Visual Studio Code 官方安装地址 https://code.visualstudio.com/
+
+安装好以后，找到 Remote Development 插件并将这个插件安装到你的vscode中，这个插件包括了
+
+- Remote WSL
+- Remote Container
+- Remote SSH 
+
+以上三个分别可以帮助我们通过vscode远程操作 WSL Container (容器) 和 SSH 远程服务器。
+
+![](images/04-devopsbox-vscode01.png)
+
+Remote Development 插件安装好之后，可以通过左侧的菜单进入，并添加我们的 DevOpsBox 环境
+
+![](images/04-devopsbox-vscode02.png)
+
+添加好之后点击 连接 按钮，选择 Linux 作为目标操作系统类型
+
+![](images/04-devopsbox-vscode03.png)
+
+输入密码后，vscode会自动在目标环境中配置所需要的软件环境，现在我们就可以直接在宿主机上通过vscode操作 DevOpsBox 虚拟机了，如下图
+
+- 左侧的文件浏览器中显示的是远程的 DevOpsBox 虚拟机中的文件系统，你可以复制粘贴，或者拖拽的方式将宿主机的文件直接上传远程服务器
+- 底部的 Terminal 则可以直接在 DevOpsBox 上运行命令
+
+我们后续的操作都默认使用vscode remote的方式进行操作。
+
+![](images/04-devopsbox-vscode04.png)
+
+## 05. 在 DevOpsBox 上启动 Boathouse DevOpsBox 工具链环境
+
+首先从Boathouse资源网盘下载 jenkins plugin 的打包文件文件
+
+![](images/04-devopsbox-up01.png)
+
+按照以上步骤通过vscode连接到 DevOpsBox 并通过 Terminal 执行以下动作获取 DevOpsBox 部署配置文件
+
+```shell
+git clone https://github.com/idcf-boat-house/boat-house-devopsbox.git
+```
+
+![](images/04-devopsbox-up02.png)
+
+在jenkins目录中创建一个jenkins_home目录，将解压好的 jenkins plugin 资源文件放入到 jenkins/jenkins_home目录内。
+
+复制需要一会儿，请注意底部状态栏上的进度提示
+
+![](images/04-devopsbox-up03.png)
+
+复制完成后，运行以下命令即可启动 DevOpsBox 环境
+
+```shell
+cd boat-house-devopsbox
+## 启动 gitea
+docker-compose -f devopsbox/gitea/docker-compose.yml up -d
+## 启动 wekan
+docker-compose -f devopsbox/wekan/docker-compose.yml up -d
+## 启动 jenkins
+### 首先修正jenkins_home目录权限
+sudo chown -R 1000:1000 devopsbox/jenkins/jenkins_home
+docker-compose -f devopsbox/jenkins/docker-compose.yml up -d
+```
+
+以上启动完成后，通过以下地址就可以访问环境
+
+- 开源电子看板 wekan http://192.168.99.102:8081
+- 开源Git服务器 Gitea http://192.168.99.102:8082
+- 开源流水线 Jenkins http://192.168.99.102:8080
+
+Wekan 首页 - 可以自行注册用户，第一用户自动成为系统管理员，建议使用统一的localadmin账号
+
+![](images/04-devopsbox-up_wekan.png)
+
+Gitea 首页 - 注意修改 localhost 为 192.168.99.102，并使用 localadmin 作为管理员账号
+
+![](images/04-devopsbox-up_gitea.png)
+
+Jenkins 初始化首页，需要通过以下命令获取初始密钥，并输入到界面中
+
+```shell
+cd devopsbox/jenkins/
+sudo cat jenkins_home/secrets/initialAdminPassword
+```
+
+输入以上命令输出的密钥解锁 Jenkins
+
+![](images/04-devopsbox-up_jenkins01.png)
+
+选择安装推荐的插件（因为我们已经复制了插件到jenkins_home目录，这个步骤会非常快）
+
+![](images/04-devopsbox-up_jenkins02.png)
+
+使用 DevOpsBox 标准管理员账号 lcoaladmin 创建 Jenkins管理员账号
+
+![](images/04-devopsbox-up_jenkins03.png)
+
+完成配置，Jenkins重启后进入登录界面，配置完成。
+
+![](images/04-devopsbox-up_jenkins04.png)
+
+至此，我们的DevOpsBox配置完毕，大家现在已经有一个可以运行大多数DevOps实践的工具链环境。
 
 
 
