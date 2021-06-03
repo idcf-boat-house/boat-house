@@ -266,7 +266,7 @@ DevOpsBox是我们用来运行DevOps核心工具链的虚拟机环境，我们�
 
 ![](images/04-devopsbox-ub21.png)
 
-### 04.3 获取虚拟机ip地址并使用ssh登录虚拟机
+### 04.3 配置虚拟机的主机网络ip地址并使用ssh登录虚拟机
 
 在VirutalBox控制台中使用我们的默认账号登录
 
@@ -274,5 +274,110 @@ DevOpsBox是我们用来运行DevOps核心工具链的虚拟机环境，我们�
 - 密码：devops@2021
 
 ![](images/04-devopsbox-ssh01.png)
+
+现在我们需要激活我们增加的 网卡2，并且让这块网卡使用前面配置的主机网络子网 (192.168.99.1/24网段)，在虚拟机中键入如下命令：
+
+```shell
+## 查询操作系统上可用网卡状态
+ifconfig -a
+```
+系统反馈如下，以下列出的 enp0s8 就是我们所添加的 网卡2，我们需要为这块网卡绑定搞一个固定的IP地址，以方便我们后续的操作
+![](images/04-devopsbox-ssh02.png)
+
+
+```shell
+## 编辑操作系统网络配置文件
+sudo vim /etc/network/interfaces
+```
+
+在vim编辑器中按 i 开始编辑，并在文件底部添加如下内容，编辑完成以后按 ESC 键推出编辑模式，按 :wq! 保存文件退出
+
+```shell
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.102
+netmask 255.255.255.0
+```
+
+![](images/04-devopsbox-ssh03.png)
+
+使用以下命令从新启动网络系统
+
+```shell
+sudo systemctl restart networking
+```
+
+如果以上命令正常退出，没有任何错误则表示网络配置成功。
+
+现在你就可以从你的宿主机上开启一个命令行，测试以下是否可以链接到自己的 DevOpsBox 虚拟机了
+
+```shell
+## 测试虚拟机IP地址可以联通
+ping 192.168.99.102
+## 使用ssh连接虚拟机
+ssh localadmin@192.168.99.102
+```
+
+![](images/04-devopsbox-ssh04.png)
+
+现在你就可以直接通过宿主机的终端操作我们的 DevOpsBox 环境了，后续的操作都可以通过这种方式完成。
+
+### 04.4 完成虚拟机基础环境安装
+
+使用以下脚本配置虚拟机基础环境，包括
+- 使用华为开源镜像站作为apt-get源，以便稳定安装操作系统组件
+- 安装 docker 和 docker-compose 
+- 安装 jdk 和 maven
+
+```shell
+## 使用华为镜像站 https://mirrors.huaweicloud.com/
+### 1. 备份配置文件
+sudo cp -a /etc/apt/sources.list /etc/apt/sources.list.bak
+### 2. 修改sources.list文件，将http://archive.ubuntu.com和http://security.ubuntu.com替换成http://repo.huaweicloud.com，可以参考如下命令：
+sudo sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
+
+## 安装 docker 和 docker-compose
+sudo apt-get update
+sudo apt install docker.io
+sudo usermod -a -G docker <当前用户用户名>
+sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo systemctl daemon-reload
+sudo systemctl restart docker 
+
+sudo groupadd docker 
+sudo gpasswd -a $USER docker 
+newgrp docker 
+
+## 验证 docker 和 docker-compose 工作正常
+### 确保你收到的输出版本不低于以下版本号
+docker --version
+Docker version 18.09.7, build 2d0083d
+docker-compose --version
+docker-compose version 1.24.1, build 4667896b
+
+## 安装 jdk 和 maven
+sudo apt-get install openjdk-8-jdk
+sudo apt install maven
+
+## 验证 java 和 maven 工作正常
+### 请确保你收到的输出版本不低于以下版本
+java -version
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10)
+OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
+
+mvn --version
+Apache Maven 3.3.9
+Maven home: /usr/share/maven
+Java version: 1.8.0_292, vendor: Private Build
+Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_HK, platform encoding: UTF-8
+OS name: "linux", version: "4.4.0-186-generic", arch: "amd64", family: "unix"
+```
+
+至此，我们的 DevOpsBox 基础环境准备完毕
+
 
 
