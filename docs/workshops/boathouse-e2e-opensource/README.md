@@ -59,11 +59,11 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 以下安装步骤除特别说明为特定环境之外，均同时适用与Windows和MacOS两种环境
 
 1. [安装并配置 Virutal Box](devopsbox/README.md?id=_01-安装并配置-virutal-box)
-2. 安装并配置 Docker Desktop
-3. 安装并配置阿里云版MiniKube
-4. 在 Virutal Box 上安装Linux虚拟机
-5. 配置 Visual Studio Code 通过 SSH Remote 访问 DevOpsBox 环境
-6. 在 DevOpsBox 上启动 Boathouse DevOpsBox 工具链环境
+2. [安装并配置 Docker Desktop](devopsbox/README.md?id=_02-安装并配置-docker-for-desktop)
+3. [安装并配置阿里云版MiniKube](devopsbox/README.md?id=_03-安装并配置阿里云版minikube)
+4. [在 Virutal Box 上安装Linux虚拟机](devopsbox/README.md?id=_04-在-virutal-box-上安装linux虚拟机)
+5. [配置 Visual Studio Code 通过 SSH Remote 访问 DevOpsBox 环境](devopsbox/README.md?id=_05-配置-visual-studio-code-通过-ssh-remote-访问-devopsbox-环境)
+6. [在 DevOpsBox 上启动 Boathouse DevOpsBox 工具链环境](devopsbox/README.md?id=_05-在-devopsbox-上启动-boathouse-devopsbox-工具链环境)
 
 ## 实验列表
 
