@@ -51,7 +51,9 @@ DevOpsBox是由IDCF/LEANSOFT的专业工程师团队设计的单机版全流程D
 
 Boathouse资源网盘提供了一系列的资源文件，简化或者加速大家的配置操作，请大家提前下载
 
-- 链接: https://pan.baidu.com/s/1NAgfpofbhE368ethbuD8OQ  密码: wo8p
+获取方式：扫描二维码，关注DevOps公众号，输入：boathouse训练营 即可获取网盘连接和密码
+
+![](images/devops-barcode.jpg)
 
 
 ### 安装步骤
