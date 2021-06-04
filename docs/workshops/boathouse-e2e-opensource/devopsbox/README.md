@@ -430,18 +430,22 @@ git clone https://github.com/idcf-boat-house/boat-house-devopsbox.git
 
 ![](images/04-devopsbox-up03.png)
 
-复制完成后，运行以下命令即可启动 DevOpsBox 环境
+复制完成后，运行以下命令即可启动 DevOpsBox 环境，注意docker-compose都需要先进入各个工具的子目录后执行
 
 ```shell
-cd boat-house-devopsbox
 ## 启动 gitea
-docker-compose -f devopsbox/gitea/docker-compose.yml up -d
+cd devopsbox/gitea
+docker-compose up -d
+
 ## 启动 wekan
-docker-compose -f devopsbox/wekan/docker-compose.yml up -d
+cd devopsbox/wekan
+docker-compose up -d
+
 ## 启动 jenkins
 ### 首先修正jenkins_home目录权限
-sudo chown -R 1000:1000 devopsbox/jenkins/jenkins_home
-docker-compose -f devopsbox/jenkins/docker-compose.yml up -d
+cd devopsbox/jenkins
+sudo chown -R 1000:1000 jenkins_home
+docker-compose up -d
 ```
 
 以上启动完成后，通过以下地址就可以访问环境
