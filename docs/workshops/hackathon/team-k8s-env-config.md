@@ -12,7 +12,9 @@
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
-Windows：下载并解压kubectl.zip, 完成后配置环境变量PATH
+Windows：下载kubectl.exe, 完成后配置环境变量PATH
+
+下载地址: https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe
 
 MacOS/Linux: 下载并解压，执行以下命令完成配置
 
@@ -81,7 +83,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
-    
+
 7. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
    1.  DEPLOY_K8S_NAMESPACE_TEST : `boathouse-test`
    2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
