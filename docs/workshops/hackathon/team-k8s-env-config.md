@@ -8,30 +8,31 @@
 
 前提条件：安装Kubectl工具：
 
-工具下载地址：https://files.devopshub.cn/publicfiles/boathouse/
-
 下载完成后参考下面链接的命令完成kubectl工具的安装：
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 Windows：下载并解压kubectl.zip, 完成后配置环境变量PATH
 
-macOS: 下载并解压，执行以下命令完成配置
+MacOS/Linux: 下载并解压，执行以下命令完成配置
 
-```
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-```
-Linux：执行以下命令完成配置
-```
+```shell
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
+注意：如果以上古方安装地址出现无法访问的情况，请通过【Boathouse资源网盘】下载kubectl工具，下载方式如下
+
+获取方式：扫描二维码，关注DevOps公众号，输入：boathouse训练营 即可获取网盘连接和密码
+
+![](images/devops-barcode.jpg)
+
 1. 获取 kubectl config 文件
 
 此文件包含连接k8s集群的密钥信息，可以通过 [DevOps实验室]所提供的 [Kubernetes集群实验环境] 的配置页面中获取集群master节点的ssh访问hostname和用户名密码，通过ssh登录此节点后。
+
+注意：如果【DevOps实验室】的【Kubernetes集群实验环境】不可用，讲师会直接提供kube.config文件给到小组。
 
 进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
 
@@ -49,7 +50,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 3. 保存完毕后运行命令，查看连接情况：
 
-    ```
+    ```shell
     kubectl get pods -n kube-system
     ```
 
@@ -58,7 +59,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
     - 用于Jenkins流水线部署的命令空间：
 
-    ```
+    ```shell
     kubectl create namespace boathouse-test
     kubectl create namespace boathouse-prod
     ```
@@ -71,14 +72,16 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 > 镜像仓库的用户名和密钥可以通过 DevOps实验室 中的环境信息页面获取。
 
 - 用于Jenkins流水线部署
-    ```
-    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-test
-    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[PAT] --docker-email=info@idcf.io -n boathouse-prod
+
+    ```shell
+    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-test
+    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-prod
     ```
     
 6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
     ![image.png](images/k8s-04.png)
     注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
+    
 7. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
    1.  DEPLOY_K8S_NAMESPACE_TEST : `boathouse-test`
    2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`

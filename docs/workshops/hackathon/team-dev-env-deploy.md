@@ -10,18 +10,30 @@
 请使用ssh命令登录vm-dev，并参考如下命令安装Docker以及docker-compose
 
 ```
+## 更新包管理数据库
 sudo apt-get update
+## 安装docker
 sudo apt install docker.io
 sudo usermod -a -G docker ghuser
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+## 安装docker-compose
+### docker-compose 官方安装地址（如果此地址安装不成功，请使用以下国内镜像地址）
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+## docker-compose 国内镜像
+sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+## 启动 docker 服务
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
 
+## 设置 docker 用户权限
 sudo groupadd docker 
 sudo gpasswd -a $USER docker
 newgrp docker
 ```
+
+
 
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 ```

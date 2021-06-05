@@ -9,17 +9,27 @@ ssh <username>@<ip/hostname>
 
 由于整个环境我们都使用容器的进行部署，所以需要在环境中先安装Docker以及docker-compose，执行以下shell命令安装。
 ```
+## 更新包管理数据库
 sudo apt-get update
+## 安装docker
 sudo apt install docker.io
-sudo usermod -a -G docker <当前用户用户名>
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo usermod -a -G docker ghuser
+
+## 安装docker-compose
+### docker-compose 官方安装地址（如果此地址安装不成功，请使用以下国内镜像地址）
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+## docker-compose 国内镜像
+sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+## 启动 docker 服务
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
 
+## 设置 docker 用户权限
 sudo groupadd docker 
-sudo gpasswd -a $USER docker 
-newgrp docker 
+sudo gpasswd -a $USER docker
+newgrp docker
 ```
 > 注意，如果运行`sudo usermod -a -G docker ghuser` 出错，请执行`sudo apt-get remove unscd`后再执行一次。
 
