@@ -24,7 +24,7 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-注意：如果以上古方安装地址出现无法访问的情况，请通过【Boathouse资源网盘】下载kubectl工具，下载方式如下
+注意：如果以上安装地址出现无法访问的情况，请通过【Boathouse资源网盘】下载kubectl工具，下载方式如下
 
 获取方式：扫描二维码，关注DevOps公众号，输入：boathouse训练营 即可获取网盘连接和密码
 
