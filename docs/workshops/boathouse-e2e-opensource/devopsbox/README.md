@@ -349,7 +349,7 @@ sudo sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/
 sudo apt-get update
 ## 安装docker
 sudo apt install docker.io
-sudo usermod -a -G docker ghuser
+sudo usermod -a -G docker {你的虚拟机用户名}
 
 ## 安装docker-compose
 ### docker-compose 官方安装地址（如果此地址安装不成功，请使用以下国内镜像地址）
