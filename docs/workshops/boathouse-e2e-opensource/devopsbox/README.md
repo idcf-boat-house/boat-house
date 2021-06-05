@@ -118,7 +118,9 @@ minikube start --driver=virtualbox --no-vtx-check
 
 ```shell
 ## 以下命令列出minikube上运行的所有系统pod的运行状态
-➜  boat-house git:(master) ✗ kubectl get po -A
+### 以下命令实际上使用了k8s的官方客户端工具kubectl，如果你本地没有安装这个工具，minikube会首先为你下载安装这个工具
+### 以下命令执行成功后你可以直接使用 kubectl get po -A 进行操作
+minikube kubectl get po -A
 NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
 kube-system   coredns-54d67798b7-krqgh           1/1     Running   0          17m
 kube-system   etcd-minikube                      1/1     Running   0          17m
@@ -127,6 +129,9 @@ kube-system   kube-controller-manager-minikube   1/1     Running   0          17
 kube-system   kube-proxy-h5pk6                   1/1     Running   0          17m
 kube-system   kube-scheduler-minikube            1/1     Running   0          17m
 kube-system   storage-provisioner                1/1     Running   2          17m
+
+### 直接使用kubectl操作minikube集群
+kubectl get pods -n kube-system
 ```
 
 ## 04. 在 Virutal Box 上安装Linux虚拟机
