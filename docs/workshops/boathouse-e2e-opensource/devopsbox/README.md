@@ -341,24 +341,35 @@ sudo sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/a
 sudo sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
 
 ## 安装 docker 和 docker-compose
+
+## 更新包管理数据库
 sudo apt-get update
-sudo apt install docker.io -y
-sudo usermod -a -G docker <当前用户用户名>
-sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+## 安装docker
+sudo apt install docker.io
+sudo usermod -a -G docker ghuser
+
+## 安装docker-compose
+### docker-compose 官方安装地址（如果此地址安装不成功，请使用以下国内镜像地址）
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+## docker-compose 国内镜像
+sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+## 启动 docker 服务
 sudo systemctl daemon-reload
 sudo systemctl restart docker 
 
+## 设置 docker 用户权限
 sudo groupadd docker 
-sudo gpasswd -a $USER docker 
-newgrp docker 
+sudo gpasswd -a $USER docker
+newgrp docker
 
 ## 验证 docker 和 docker-compose 工作正常
 ### 确保你收到的输出版本不低于以下版本号
 docker --version
 Docker version 18.09.7, build 2d0083d
 docker-compose --version
-docker-compose version 1.24.1, build 4667896b
+docker-compose version 1.29.2, build 4667896b
 
 ## 安装 jdk 和 maven
 sudo apt-get install openjdk-8-jdk  -y
