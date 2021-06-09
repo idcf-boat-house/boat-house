@@ -506,5 +506,24 @@ sudo cat jenkins_home/secrets/initialAdminPassword
 
 至此，我们的DevOpsBox配置完毕，大家现在已经有一个可以运行大多数DevOps实践的工具链环境。
 
+## 06. 停止 DevOpsBox 环境
+
+我们后续的实验中会利用DevOpsBox做一些实验操作，为了避免损毁以上环境或者造成问题，可以通过以下命令停止DevOpsBox中的工具链运行。需要的时候再启动。
+
+```shell
+## 停止 gitea
+cd devopsbox/gitea
+docker-compose down
+
+## 停止 wekan
+cd devopsbox/wekan
+docker-compose down
+
+## 停止 jenkins
+cd devopsbox/jenkins
+docker-compose down
+```
+
+
 
 
