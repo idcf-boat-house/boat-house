@@ -69,7 +69,7 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 
 ## 实验列表
 
-**BHOL**：Boathouse on Open Source Hans On Labs
+**BHOL**：Boathouse on Open Source Hands-on Labs
 
 - [BHOL01 - Docker 基本操作](labs/bhol01.md)
 - [BHOL02 - 应用的容器化开发全流程实践](labs/bhol02.md)
