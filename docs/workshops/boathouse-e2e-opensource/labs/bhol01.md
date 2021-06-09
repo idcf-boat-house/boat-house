@@ -6,21 +6,21 @@
 
 注意：以下操作中使用了阿里云提供的公开镜像仓库，请确保你的实验环境可以链接互联网。
 
-## 01 - 使用容器运行 Hello World
+## 01 - 使用容器运行 Hello Boathouse
 
-使用命令行运行以下命令，此命令通过 busybox 容器输出 Hello World 文本，执行完毕后，容器自动退出。
+使用命令行运行以下命令，此命令通过 busybox 容器输出 Hello Boathouse 文本，执行完毕后，容器自动退出。
 
 ```shell
 ## 运行容器
-docker run registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox /bin/echo 'hello world'
-hello world
+docker run busybox /bin/echo 'Hello Boathouse'
+Hello Boathouse
 ## 查看正在运行的容器
 docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ## 查看正在运行和已经退出的容器
 docker ps -a
-CONTAINER ID   IMAGE                                                          COMMAND                  CREATED         STATUS                     PORTS     NAMES
-13f29240c769   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/echo 'hello wo…"   3 seconds ago   Exited (0) 2 seconds ago             sleepy_burnell
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+13f29240c769   busybox   "/bin/echo 'Hello Bo…"   3 seconds ago   Exited (0) 2 seconds ago             sleepy_burnell
 ```
 
 实验要点：
@@ -29,19 +29,19 @@ CONTAINER ID   IMAGE                                                          CO
 - 查看第三部的STATUS字段可以看到已经退出的字样
 - 这说明容器和虚拟机的本质区别，容器就是一个进程，如果我们不要求容器持续运行，它完成任务后就会直接退出。
 
-## 02 - 使用容器持续运行 Hello World
+## 02 - 使用容器持续运行 Hello Boathouse
 
-使用以下命令启动一个会持久化运行的 busybox 容器，并在其中持续输出 'Hello World' 文本
+使用以下命令启动一个会持久化运行的 busybox 容器，并在其中持续输出 'Hello Boathouse' 文本
 
 ```shell
 ## 使用 -d 参数持久化运行容器，docker会返回容器ID
 ### 注意你的容器所输出的ID会和我的不同
-docker run -d registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox /bin/sh -c "while true; do echo hello world; sleep 1; done"
+docker run -d busybox /bin/sh -c "while true; do echo Hello Boathouse; sleep 1; done"
 bfd6cc5fc3869a034582c4572323143e84a7fd89de0d0e0fa438c42351b928ad
 ## 使用 docker ps 查看正在运行的容器
 docker ps 
-CONTAINER ID   IMAGE                                                          COMMAND                  CREATED         STATUS         PORTS     NAMES
-bfd6cc5fc386   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh -c 'while t…"   3 seconds ago   Up 2 seconds             elated_faraday
+CONTAINER ID   IMAGE    COMMAND                  CREATED         STATUS         PORTS     NAMES
+bfd6cc5fc386   busybox   "/bin/sh -c 'while t…"   3 seconds ago   Up 2 seconds             elated_faraday
 ## 复制你的 CONTAINER ID 并查看容器日志
 docker logs -f {CONTAINER ID}
 ## 停止容器运行
@@ -60,7 +60,7 @@ docker stop {CONTAINER ID}
 
 ```shell
 ## 使用 -i -t 参数，我们会将容器的交互功能启动，允许我们进入容器进行操作
-docker run -i -t registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox /bin/sh
+docker run -i -t busybox /bin/sh
 / # ls
 bin   dev   etc   home  proc  root  sys   tmp   usr   var
 / # pwd
@@ -83,12 +83,12 @@ drwxr-xr-x    4 root     root          4096 Oct  1  2018 var
 / # exit
 
 ## 添加 -d 参数，我们可以将容器置于后台运行，同时允许交互操作
-docker run -i -t -d registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox /bin/sh
+docker run -i -t -d busybox /bin/sh
 d66297ef608b97ca2a98122f681b92dff4933055597aebeafcc44a2b548bd66e
 ## 使用 docker ps 获取 CONTAINER ID 
 docker ps
-CONTAINER ID   IMAGE                                                          COMMAND     CREATED         STATUS         PORTS     NAMES
-d66297ef608b   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh"   6 seconds ago   Up 5 seconds             magical_mendeleev
+CONTAINER ID   IMAGE     COMMAND     CREATED         STATUS         PORTS     NAMES
+d66297ef608b   busybox   "/bin/sh"   6 seconds ago   Up 5 seconds             magical_mendeleev
 ## 使用 docker exec 进入容器执行 /bin/sh
 docker exec -it {CONTAINER ID} /bin/sh
 / # ls
@@ -104,13 +104,13 @@ bin   dev   etc   home  proc  root  sys   tmp   usr   var
 ```shell
 ## 使用 docker ps -a 获取所有正在运行和已经退出的容器
 docker ps -a
-CONTAINER ID   IMAGE                                                          COMMAND                  CREATED          STATUS                        PORTS     NAMES
-d66297ef608b   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh"                9 minutes ago    Up 9 minutes                            magical_mendeleev
-f21ff0357755   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh"                12 minutes ago   Exited (0) 9 minutes ago                youthful_hermann
-5c31d491b2f3   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh"                13 minutes ago   Exited (0) 13 minutes ago               peaceful_bohr
-4338f1bb6a19   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/bash"              13 minutes ago   Created                                 quizzical_payne
-bfd6cc5fc386   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/sh -c 'while t…"   22 minutes ago   Exited (137) 16 minutes ago             elated_faraday
-13f29240c769   registry.cn-hangzhou.aliyuncs.com/aliacs-app-catalog/busybox   "/bin/echo 'hello wo…"   26 minutes ago   Exited (0) 26 minutes ago               sleepy_burnell
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                        PORTS     NAMES
+d66297ef608b   busybox   "/bin/sh"                9 minutes ago    Up 9 minutes                            magical_mendeleev
+f21ff0357755   busybox   "/bin/sh"                12 minutes ago   Exited (0) 9 minutes ago                youthful_hermann
+5c31d491b2f3   busybox   "/bin/sh"                13 minutes ago   Exited (0) 13 minutes ago               peaceful_bohr
+4338f1bb6a19   busybox   "/bin/bash"              13 minutes ago   Created                                 quizzical_payne
+bfd6cc5fc386   busybox   "/bin/sh -c 'while t…"   22 minutes ago   Exited (137) 16 minutes ago             elated_faraday
+13f29240c769   busybox   "/bin/echo 'Hello Bo…"   26 minutes ago   Exited (0) 26 minutes ago               sleepy_burnell
 
 ## 使用 docker rm 可以清理容器
 ### 你可以使用容器id的前几位作为容器标识，只要不重复就可以
