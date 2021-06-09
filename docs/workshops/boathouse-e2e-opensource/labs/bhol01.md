@@ -97,7 +97,31 @@ bin   dev   etc   home  proc  root  sys   tmp   usr   var
 
 ```
 
-## 04 - 清理容器
+## 04 - 运行带有WebUI的容器并通过浏览器访问
+
+docker-demo 是Boathouse训练营提供的演示程序，带有简单的WebUI，通过以下命令运行此容器。
+
+```shell
+docker run -itd -p 3000:3000 boathousex/docker-demo 
+5c2ca9520b7f43a40cd594fd887abce51eb86081c4246ce59a719de164536138
+```
+
+打开浏览器并访问 http://localhost:3000 可以看到以下界面
+
+![](images/bhol01-001-docker-demo.png)
+
+再运行一个同样的 docker-demo 容器，使用另外一个端口（3001）
+
+```shell
+docker run -itd -p 3001:3000 boathousex/docker-demo 
+29c8d086350977f4628b10d80cb0a2fe797fa46e14a32e90dddd6df8fcdd9e7a
+```
+
+打开另外一个浏览器并访问 http://localhost:3001 我们现在通过容器同时运行了一个应用的两个实例
+
+![](images/bhol01-002-docker-demo.png)
+
+## 05 - 清理容器
 
 运行容器一段时候，我们的环境中会遗留大量已经退出的容器，会占用我们的磁盘资源，使用以下命令可以清理。
 
@@ -148,6 +172,7 @@ docker rm $(docker ps -qa)
 ### 一键强制删除所有容器
 docker rm -f $(docker ps -qa)
 ```
+
 
 ## 小结
 
