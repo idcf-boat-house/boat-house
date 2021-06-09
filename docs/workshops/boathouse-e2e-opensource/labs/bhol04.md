@@ -154,6 +154,14 @@ http://192.168.99.102:3000
 
 ![](images/bhol04-mysql002.png)
 
+清理环境
+
+```shell
+## 按Ctrl-C停止docker-compose运行
+## 清理docker-compose应用
+docker-compose down
+```
+
 ## 小结
 
 docker-compose实在单机docker环境中进行多容器编排的非常有效的工具，可以把复杂纷乱的命令行参数转换成容易管理的yaml格式，便于我们与代码一同存储，同时也方便我们对环境配置变更进行审核。确保环境部署的可靠性。
