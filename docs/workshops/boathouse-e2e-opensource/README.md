@@ -71,10 +71,10 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 
 **BHOL**：Boathouse on Open Source Hands-on Labs
 
-- [BHOL01 - Docker 基本操作](labs/bhol01.md)
-- [BHOL02 - 应用的容器化开发全流程实践](labs/bhol02.md)
-- [BHOL03 - Docker数据持久化和网络](labs/bhol03.md)
-- [BHOL04 - 使用docker-compose进行容器编排](labs/bhol04.md)
+- [BHOL301 - Docker 基本操作](labs/bhol301.md)
+- [BHOL302 - 应用的容器化开发全流程实践](labs/bhol302.md)
+- [BHOL303 - Docker数据持久化和网络](labs/bhol303.md)
+- [BHOL304 - 使用docker-compose进行容器编排](labs/bhol304.md)
 
 
 ## 版权说明
