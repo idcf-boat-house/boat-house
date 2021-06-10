@@ -76,9 +76,11 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL303 - Docker数据持久化和网络](labs/bhol303.md)
 - [BHOL304 - 使用docker-compose进行容器编排](labs/bhol304.md)
 - [BHOL401 - 连接到Kubernetes集群及Minikube基础操作](labs/bhol401.md)
-- BHOL402 - k8s应用开发部署
-- BHOL403 - k8s Pod 生命周期
-- BHOL404 - k8s 内部服务发现工作机制
+- [BHOL402 - k8s应用开发部署 - 使用pod进行部署](labs/bhol402.md)
+- [BHOL403 - k8s应用开发部署 - 使用deployment进行部署](labs/bhol403.md)
+- [BHOL404 - k8s应用开发部署 - 使用Service对外提供服务](labs/bhol404.md)
+- [BHOL405 - k8s应用开发部署 - 使用Secrets保存和使用密钥信息](labs/bhol405.md)
+- [BHOL406 - k8s应用开发部署 - 使用Namespace隔离应用](labs/bhol406.md)
 
 
 ## 版权说明
