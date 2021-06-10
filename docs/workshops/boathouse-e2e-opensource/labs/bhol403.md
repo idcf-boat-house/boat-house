@@ -81,7 +81,7 @@ deployment "hello-boathouse-deployment" successfully rolled out
 对外暴露服务以便可以测试
 
 ```shell
-ubectl expose deployment hello-boathouse-deployment --name hello-boathouse-service --type=NodePort
+kubectl expose deployment hello-boathouse-deployment --name hello-boathouse-service --type=NodePort
 minikube service hello-boathouse-service --url
 ```
 

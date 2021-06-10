@@ -30,8 +30,8 @@ kubectl delete -f kube-deploy/hello-boathouse-deployment.yaml
 - hello-boathouse-secrets-volumes.yaml
 
  hello-boathouse-secrets.yaml
- ```yaml
- apiVersion: v1
+```yaml
+apiVersion: v1
 kind: Secret
 metadata:
   name: db-secrets
@@ -39,7 +39,7 @@ type: Opaque
 data:
   username: cm9vdA==
   password: cGFzc3dvcmQ=
- ```
+```
 
 hello-boathouse-secrets-volumes.yaml
 ```yaml
