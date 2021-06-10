@@ -107,6 +107,48 @@ kubectl config current-context
 minikube
 ```
 
+## 03 - k8s 常用工具
+
+### Dashboard
+
+Dashboard 是 k8s 内置的 WebUI，可以帮助你查看和管理集群资源。
+
+```shell
+## 使用minikube启动dashboard
+### 注意：启动dashboard之后会独占terminal窗口，建议打开新窗口运行此命令
+minikube dashboard
+```
+
+Dashboard启动后效果如下：
+
+![](images/bhol401-tools003.png)
+
+### k9s
+
+k9s是一款基于terminal的k8s监控管理工具，可以通过terminal窗口查看和管理大多数k8s集群的功能。
+
+官网地址：https://k9scli.io/
+
+按照官方说明安装后，在 terminal 中键入 k9s 即可连接到当前的KubeConfig Context所指向的集群，效果如下
+
+![](images/bhol401-tools001.png)
+
+### Lens
+
+Lens 是一个桌面程序，可以连接到k8s集群查看管理集群资源，同时支持直接连接pod的terminal，方便我们调试k8s应用。
+
+官方地址：https://k8slens.dev/
+
+安装好之后，在Add Cluster中指定你所要使用的KubeConfig文件，Lens即可连接到集群。效果如下：
+
+![](images/bhol401-tools002.png)
+
+## 小结
+
+本节内容帮助你开始你的k8s开发，对于后续的操作是基础性内容。
+
+
+
 
 
 
