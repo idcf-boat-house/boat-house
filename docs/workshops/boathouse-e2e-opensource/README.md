@@ -55,7 +55,6 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 
 ![](images/devops-barcode.jpg)
 
-
 ### 安装步骤
 
 以下安装步骤除特别说明为特定环境之外，均同时适用与Windows和MacOS两种环境
@@ -82,6 +81,13 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL405 - k8s应用开发部署 - 使用Secrets保存和使用密钥信息](labs/bhol405.md)
 - [BHOL406 - k8s应用开发部署 - 使用Namespace隔离应用](labs/bhol406.md)
 
+## 常见问题
+
+1. docker官方镜像无法拉取的问题处理方式
+
+    如果因为网络原因出现拉取镜像失败的情况，请大家使用阿里云 【容器镜像服务】个人免费版中的【镜像加速器】功能。
+
+    连接如下： https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors
 
 ## 版权说明
 
