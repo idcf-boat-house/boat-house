@@ -29,7 +29,7 @@ kubectl delete -f kube-deploy/hello-boathouse-deployment.yaml
 - hello-boathouse-secrets.yaml
 - hello-boathouse-secrets-volumes.yaml
 
- hello-boathouse-secrets.yaml
+hello-boathouse-secrets.yaml
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -89,7 +89,8 @@ kubectl get pods
 ```shell
 ## 进入其中一个pod
 kubectl exec {pod id} -it -- /bin/bash
-ls /etc/creds/
-cat /etc/creds/username
-/etc/creds/password
+cd /etc/creds
+cat username
+cat password
 ```
+

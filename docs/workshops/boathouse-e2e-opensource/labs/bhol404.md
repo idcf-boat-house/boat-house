@@ -74,10 +74,18 @@ status:
 ```shell
 minikube tunnel
 ```
+ps：该命令在window10上需要使用管理员权限执行
 
 使用以下命令提交部署
 
 ```shell
 kubectl apply -f kube-deploy/hello-boathouse-lb-service.yaml
 kubectl get services
+```
+观察tunnel服务状态：
+![](images/bhol404-minikube-tunnel.png)
+
+最后通过如下命令获取访问地址：
+```shell
+minikube service hello-boathouse-lb-service --url 
 ```
