@@ -50,6 +50,14 @@ kubectl apply -f kompose/images/ --namespace voting
 
 启动后，通过k9s监控应用运行状态，获取服务地址，浏览器分别打开 result 和 vote 两个应用的地址即可运行应用。
 
+```shell
+# 获取vote服务访问地址
+minikube service vote -n=voting --url
+
+# 获取result服务访问地址
+minikube service result -n=voting --url
+```
+
 ![](images/bhol402-voting002.png)
 
 
