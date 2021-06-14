@@ -120,7 +120,7 @@ minikube start --driver=virtualbox --no-vtx-check
 ## 以下命令列出minikube上运行的所有系统pod的运行状态
 ### 以下命令实际上使用了k8s的官方客户端工具kubectl，如果你本地没有安装这个工具，minikube会首先为你下载安装这个工具
 ### 以下命令执行成功后你可以直接使用 kubectl get po -A 进行操作
-minikube kubectl get po -A
+kubectl get po -A
 NAMESPACE     NAME                               READY   STATUS    RESTARTS   AGE
 kube-system   coredns-54d67798b7-krqgh           1/1     Running   0          17m
 kube-system   etcd-minikube                      1/1     Running   0          17m
@@ -179,7 +179,7 @@ DevOpsBox是我们用来运行DevOps核心工具链的虚拟机环境，我们�
 注意：
 
 1. 这个设置非常重要，让DevOpsBox和MiniKube使用同样的主机网络可以确保两台虚拟机处于同一个子网，以便进行通讯，同时，因为主机网络与宿主机是相通的，我们就可以在宿主机（你的开发机）上使用各种工具访问我们的环境。
-2. 如果你使用的是windows上的virutal box环境，系统本身只有一个网段为192.168.99.56.1/24的主机网络网卡，通过安装minikube会自动创建另外一块192.168.99.1/24的网卡，我们后续需要使用的是这块主机网络网卡。
+2. 如果你使用的是windows上的virutal box环境，系统本身只有一个网段为192.168.56.0/24的主机网络网卡，通过安装minikube会自动创建另外一块192.168.99.0/24的网卡，我们后续需要使用的是这块主机网络网卡。
 
 ### 04.2 启动虚拟机完成操作系统安装
 
@@ -370,9 +370,11 @@ newgrp docker
 ## 验证 docker 和 docker-compose 工作正常
 ### 确保你收到的输出版本不低于以下版本号
 docker --version
-Docker version 18.09.7, build 2d0083d
+## 应该输出以下版本信息
+## Docker version 18.09.7, build 2d0083d
 docker-compose --version
-docker-compose version 1.29.2, build 4667896b
+## 应该输出以下版本信息
+## docker-compose version 1.29.2, build 4667896b
 
 ## 安装 jdk 和 maven
 sudo apt-get install openjdk-8-jdk  -y
@@ -381,17 +383,19 @@ sudo apt install maven -y
 ## 验证 java 和 maven 工作正常
 ### 请确保你收到的输出版本不低于以下版本
 java -version
-openjdk version "1.8.0_292"
-OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10)
-OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
+## 应该输出以下版本信息
+## openjdk version "1.8.0_292"
+## OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10)
+## OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
 
 mvn --version
-Apache Maven 3.3.9
-Maven home: /usr/share/maven
-Java version: 1.8.0_292, vendor: Private Build
-Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
-Default locale: en_HK, platform encoding: UTF-8
-OS name: "linux", version: "4.4.0-186-generic", arch: "amd64", family: "unix"
+## 应该输出以下版本信息
+## Apache Maven 3.3.9
+## Maven home: /usr/share/maven
+## Java version: 1.8.0_292, vendor: Private Build
+## Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+## Default locale: en_HK, platform encoding: UTF-8
+## OS name: "linux", version: "4.4.0-186-generic", arch: "amd64", family: "unix"
 ```
 
 至此，我们的 DevOpsBox 基础环境准备完毕
@@ -443,7 +447,7 @@ git clone https://github.com/idcf-boat-house/boat-house-devopsbox.git
 
 ![](images/04-devopsbox-up02.png)
 
-在jenkins目录中创建一个jenkins_home目录，将解压好的 jenkins plugin 资源文件放入到 jenkins/jenkins_home目录内。
+在 devopsbox/jenkins 目录中创建一个jenkins_home目录，将解压好的 jenkins plugin 资源文件放入到 devopsbox/jenkins/jenkins_home 目录内。
 
 复制需要一会儿，请注意底部状态栏上的进度提示
 
@@ -455,15 +459,17 @@ git clone https://github.com/idcf-boat-house/boat-house-devopsbox.git
 ## 启动 gitea
 cd devopsbox/gitea
 docker-compose up -d
+cd ../../
 
 ## 启动 wekan
 cd devopsbox/wekan
 docker-compose up -d
+cd ../../
 
 ## 启动 jenkins
 ### 首先修正jenkins_home目录权限
 cd devopsbox/jenkins
-sudo chown -R 1000:1000 jenkins_home
+sudo chown -R localadmin:localadmin jenkins_home
 docker-compose up -d
 ```
 
@@ -477,7 +483,7 @@ Wekan 首页 - 可以自行注册用户，第一用户自动成为系统管理�
 
 ![](images/04-devopsbox-up_wekan.png)
 
-Gitea 首页 - 注意修改 localhost 为 192.168.99.102，并使用 localadmin 作为管理员账号
+Gitea 首页 - 注意修改 localhost 为 192.168.99.102，将 HTTP 服务端口从 3000 修改为 8082, 并使用 localadmin 作为管理员账号
 
 ![](images/04-devopsbox-up_gitea.png)
 
@@ -485,7 +491,7 @@ Jenkins 初始化首页，需要通过以下命令获取初始密钥，并输入
 
 ```shell
 cd devopsbox/jenkins/
-sudo cat jenkins_home/secrets/initialAdminPassword
+cat jenkins_home/secrets/initialAdminPassword
 ```
 
 输入以上命令输出的密钥解锁 Jenkins
