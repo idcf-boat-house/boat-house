@@ -80,6 +80,9 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL404 - k8s应用开发部署 - 使用Service对外提供服务](labs/bhol404.md)
 - [BHOL405 - k8s应用开发部署 - 使用Secrets保存和使用密钥信息](labs/bhol405.md)
 - [BHOL406 - k8s应用开发部署 - 使用Namespace隔离应用](labs/bhol406.md)
+BHOL501 - 创建Git代码库，并推送至Gitea服务器
+BHOL502 - 讨厌的产品经理之本地工作流
+BHOL503 - 讨厌的产品经理之服务器工作流
 
 ## 常见问题
 
