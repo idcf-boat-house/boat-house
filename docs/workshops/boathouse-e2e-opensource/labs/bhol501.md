@@ -102,6 +102,15 @@ git add .
 git commit -m "C1 - create project"
 ```
 
+如果这是你第一使用git，可能git会提示你设置 user.email 和 user.name，请按照以下命令完成设置。注意：这里的user和email并不要求与你所使用的服务器上的账号一致，因为Git本身的分布式特性，这些信息仅仅作为记录提交者的用途而已。
+
+```shell
+# 将所有修改加入git跟踪文件列表，进入stage状态
+git add .
+# 创建我们的第一个 commit，并添加 commit说明
+git commit -m "C1 - create project"
+```
+
 注意：完成以上操作后，左侧的git图标上不再显示有未提交的改动。后续你可以通过这个图标跟踪你所修改的文件列表。
 
 ![](images/bhol501-gitcommit001.png)
@@ -171,11 +180,68 @@ vscode 内置git工具
 
 ![](images/bhol501-gitcommit004.png)
 
+现在我们可以把剩下的文件全部提交，添加说明：C3 - node configuration.
+
+## 05 - 查看git并理解历史记录
+
+在vscode的terminal中输入
+
+```shell
+git log --oneline --graph
+```
+
+注意：我们可以看到以上操作所创建的C1,C2,C3三个提交的内容以及我们添加的提交说明。
+
+![](images/bhol501-gitlog001.png)
+
+我们也可以在vscode中添加插件来更加方便的查看历史记录，比如可以使用 Git History 这个插件。
+
+![](images/bhol501-gitlog002.png)
+
+安装后在Git菜单中会增加 View Git History 按钮，点击后即可查看历史记录，也可以查看每次提交的详细内容。
+
+![](images/bhol501-gitlog003.png)
+
+按图示修改 index.js 的第5行，并添加提交说明 C4 - change in master
+
+![](images/bhol501-gitlog004.png)
+
+完成后通过 Git History 查看文件修改内容。
+
+![](images/bhol501-gitlog005.png)
+
+注意：通过Git History我们可以非常详细的追踪代码修改；而且这些操作都无需连接服务器就可以完成，这得益于Git的分布式特性，以上所有的操作数据实际上都保存在.git这个目录中，如果你删除掉.git目录，那么我们的所有历史记录就都消失了。
+
+## 06 - 在Gitea上创建代码库并推送hello-boathouse代码到服务器上
+
+启动 DevOpsBox 中的 Gitea 服务器，并点击 “创建仓库“。
+
+![](images/bhol501-gitea001.png)
+
+在 【创建仓库】页面中输入 hello-boathouse 作为仓库名称，保留其他默认设置，直接点击“创建”。
+
+![](images/bhol501-gitea002.png)
+
+按照提示完成代码推送
+
+注意：Gitea在这里有个bug，需要点击以下http按钮以后才能正确显示推送地址
+
+![](images/bhol501-gitea003.png)
+
+```shell
+git remote add origin http://192.168.99.102:3000/localadmin/hello-boathouse.git
+git push -u origin master
+```
+
+![](images/bhol501-gitea004.png)
+
+推送完成的Gitea页面如下
+
+![](images/bhol501-gitea005.png)
 
 
+## 小结
 
-
-
-
+本节实现我们完成了Git代码库的创建以及基本的代码提交和推送动作。
 
 
