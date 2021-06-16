@@ -105,10 +105,8 @@ git commit -m "C1 - create project"
 如果这是你第一使用git，可能git会提示你设置 user.email 和 user.name，请按照以下命令完成设置。注意：这里的user和email并不要求与你所使用的服务器上的账号一致，因为Git本身的分布式特性，这些信息仅仅作为记录提交者的用途而已。
 
 ```shell
-# 将所有修改加入git跟踪文件列表，进入stage状态
-git add .
-# 创建我们的第一个 commit，并添加 commit说明
-git commit -m "C1 - create project"
+git config --global user.name "你的名字"
+git config --global user.email "你的邮件地址"
 ```
 
 注意：完成以上操作后，左侧的git图标上不再显示有未提交的改动。后续你可以通过这个图标跟踪你所修改的文件列表。
