@@ -159,4 +159,26 @@ git push origin main
 
 ![](images/bhol603-pipeline011.png)
 
+## 05 - 在Gitea上添加Webhook实现提交触发
+
+我们刚才的设置因为使用了1分钟的检查机制，Jenkins基本上可以及时的发现改动并构建，但是更好的方式是由Gitea通知Jenkins。
+
+在 boathouse/hello-boathouse 仓库设置 ｜ 管理Web钩子 中点击 添加 Web钩子
+
+![](images/bhol603-pipeline012.png)
+
+将目标URL设置为 http://192.168.99.102:8080/gitea-webhook/post，也就是我们Jenkins服务器上的钩子地址，点击 添加Web钩子
+
+![](images/bhol603-pipeline013.png)
+
+完成后可以通过 测试推送 按钮来验证钩子工作正常
+
+![](images/bhol603-pipeline014.png)
+
+现在，我们就可以实现推送代码后自动触发流水线了。
+
+## 小结
+
+本节实验完成了一个基本的Jenkins流水线的搭建。
+
 
