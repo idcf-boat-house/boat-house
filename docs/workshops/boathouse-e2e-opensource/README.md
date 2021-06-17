@@ -84,7 +84,7 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL502 - 讨厌的产品经理之本地工作流](labs/bhol502.md)
 - [BHOL503 - 讨厌的产品经理之服务器工作流](labs/bhol503.md)
 - [BHOL601 - 初始化Jenkins服务器](labs/bhol601.md)
-BHOL602 - 创建Gitea组织配置
+- [BHOL602 - 创建Gitea组织配置](labs/bhol602.md)
 BHOL603 - 为hello-boathouse添加Jenkinsfile并完成基础流水线配置
 BHOL604 - 实现FPR-CICD-Flow，添加自动触发器并使用合并请求进行流水线出发
 
