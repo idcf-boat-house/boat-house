@@ -471,6 +471,15 @@ cd ../../
 cd devopsbox/jenkins
 sudo chown -R localadmin:localadmin jenkins_home
 docker-compose up -d
+
+## 启动 SonarQube
+### 首先配置一些系统参数
+#### 查看最大虚拟内存
+sysctl -a|grep vm.max_map_count
+#### 如果小于 262144，请执行如下命令
+sudo sysctl -w vm.max_map_count=262144 
+cd devopsbox/sonarqube
+docker-compose up -d
 ```
 
 以上启动完成后，通过以下地址就可以访问环境
@@ -478,6 +487,7 @@ docker-compose up -d
 - 开源电子看板 wekan http://192.168.99.102:8081
 - 开源Git服务器 Gitea http://192.168.99.102:3000
 - 开源流水线 Jenkins http://192.168.99.102:8080
+- 开源代码检查工具 SonarQube http://192.168.99.102:9000
 
 Wekan 首页 - 可以自行注册用户，第一用户自动成为系统管理员，建议使用统一的localadmin账号
 
@@ -509,6 +519,10 @@ cat jenkins_home/secrets/initialAdminPassword
 完成配置，Jenkins重启后进入登录界面，配置完成。
 
 ![](images/04-devopsbox-up_jenkins04.png)
+
+SonarQube启动后，进入后使用 admin/admin 登录并修改默认密码为我们的标准密码
+
+![](images/04-devopsbox-up_sonarqube.png)
 
 至此，我们的DevOpsBox配置完毕，大家现在已经有一个可以运行大多数DevOps实践的工具链环境。
 
