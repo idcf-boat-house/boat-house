@@ -88,8 +88,7 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL603 - 为hello-boathouse添加Jenkinsfile并完成基础流水线配置](labs/bhol603.md)
 - [BHOL701 - 在流水线中增加单元测试环节](labs/bhol701.md)
 - [BHOL702 - 在流水线中增加SonarQube代码扫描环节](labs/bhol702.md)
-- BHOL703 - 在流水线中增加Kubernetes环境部署并进行人工审批
-- BHOL704 - 在流水线中增加版本标签和并行任务能力
+- [BHOL703 - 在流水线中增加Kubernetes环境部署并进行人工审批](labs/bhol703.md)
 
 ## 常见问题
 
