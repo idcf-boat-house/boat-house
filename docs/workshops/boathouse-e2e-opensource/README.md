@@ -86,6 +86,9 @@ Boathouse资源网盘提供了一系列的资源文件，简化或者加速大�
 - [BHOL601 - 初始化Jenkins服务器](labs/bhol601.md)
 - [BHOL602 - 创建Gitea组织配置](labs/bhol602.md)
 - [BHOL603 - 为hello-boathouse添加Jenkinsfile并完成基础流水线配置](labs/bhol603.md)
+- [BHOL701 - 在流水线中增加单元测试环节](labs/bhol701.md)
+- [BHOL702 - 在流水线中增加SonarQube代码扫描环节](labs/bhol702.md)
+- [BHOL703 - 在流水线中增加Kubernetes环境部署并进行人工审批](labs/bhol703.md)
 
 ## 常见问题
 
