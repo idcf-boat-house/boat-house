@@ -4,7 +4,7 @@
 
 ## 01 - 导入 boathouse-calculator 代码库
 
-请参考 [BHOL602 | 02 节](bhol602?id=_02-在boathouse组织中导入-hello-boathouse代码库) 中所描述的方法，将以下代码库导入 Gitea 服务器的 boathouse 组织中。
+请参考 [BHOL602 | 02 节](bhol602.md?id=_02-在boathouse组织中导入-hello-boathouse代码库) 中所描述的方法，将以下代码库导入 Gitea 服务器的 boathouse 组织中。
 
 boathouse-calculator 代码库地址：https://github.com/idcf-boat-house/boathouse-calculator
 

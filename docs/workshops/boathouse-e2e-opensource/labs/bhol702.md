@@ -2,7 +2,7 @@
 
 本节实验中，我们将在流水线中增加 SonarQube 的代码检查环节。
 
-提示，如果还没有在 DevOpsBox 中启用 SonarQube 服务器，请参考 [DevOpsBox 安装指南](../devopsbox/README?id=_05-在-devopsbox-上启动-boathouse-devopsbox-工具链环境)。
+提示，如果还没有在 DevOpsBox 中启用 SonarQube 服务器，请参考 [DevOpsBox 安装指南](../devopsbox/README.md?id=_05-在-devopsbox-上启动-boathouse-devopsbox-工具链环境)。
 
 ## 01 - 配置SonarQube，获取认证Token
 
