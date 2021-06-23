@@ -99,6 +99,8 @@ services:
 
 Jenkinsfile
 
+注意：本节实验中的Jenkinsfile中使用了与 [BHOL603](bhol603.md) 实验中一致的环境变量和密钥，请确保你的 BHOL603 已经运行成功，否则这个Jenkinsfile无法运行。
+
 ```shell
 def getHost() {
   def remote = [:]
