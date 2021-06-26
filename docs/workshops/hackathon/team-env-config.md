@@ -1,19 +1,22 @@
 ### 登录虚拟机
 
 使用ssh登录vm-tools
-```
+
+```shell
+## 如果使用DevOps实验室环境，请使用实验室环境资源中提供的用户名
 ssh <username>@<ip/hostname>
 ```
 
 ### 1. Docker 安装
 
 由于整个环境我们都使用容器的进行部署，所以需要在环境中先安装Docker以及docker-compose，执行以下shell命令安装。
-```
+
+```shell
 ## 更新包管理数据库
 sudo apt-get update
 ## 安装docker
 sudo apt install docker.io
-sudo usermod -a -G docker ghuser
+sudo usermod -a -G docker {你当前的登录用户名}
 
 ## 安装docker-compose
 ### docker-compose 官方安装地址（如果此地址安装不成功，请使用以下国内镜像地址）
@@ -35,7 +38,7 @@ newgrp docker
 
 运行完以上命令重新登陆虚拟机,并执行以下命令，测试Docker是否安装成功
 
-```
+```shell
 # docker
 docker --version
 

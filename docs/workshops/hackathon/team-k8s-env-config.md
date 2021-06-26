@@ -52,21 +52,22 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 3. 保存完毕后运行命令，查看连接情况：
 
-    ```shell
-    kubectl get pods -n kube-system
-    ```
+```shell
+kubectl get pods -n kube-system
+```
 
-    ![image.png](images/k8s-01.png)
+![image.png](images/k8s-01.png)
+
 4. 创建 test & prod 命名空间
 
-    - 用于Jenkins流水线部署的命令空间：
+- 用于Jenkins流水线部署的命令空间：
 
-    ```shell
-    kubectl create namespace boathouse-test
-    kubectl create namespace boathouse-prod
-    ```
-   
-    ![image.png](images/k8s-02.png)
+```shell
+kubectl create namespace boathouse-test
+kubectl create namespace boathouse-prod
+```
+
+![image.png](images/k8s-02.png)
     
    
 5. 为命名空间创建 docker-registry-secrets
@@ -75,25 +76,26 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 - 用于Jenkins流水线部署
 
-    ```shell
-    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-test
-    kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-prod
+```shell
+kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-test
+kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-prod
     ```
     
 6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
-    ![image.png](images/k8s-04.png)
-    注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
+    
+![image.png](images/k8s-04.png)
+
+注意：ID 字段同我们的 K8s 部署 yaml 对应，以此默认需要写为 creds-test-k8s
 
 7. 在Jenkins的`configure=>全局属性=>环境变量(勾选)`中 添加 k8s命名空间配置项：
-   1.  DEPLOY_K8S_NAMESPACE_TEST : `boathouse-test`
-   2.  DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
+   - DEPLOY_K8S_NAMESPACE_TEST : `boathouse-test`
+   - DEPLOY_K8S_NAMESPACE_PROD : `boathouse-prod`
 
 8. 至此，Jenkins 和 K8s 的集群配置就完毕了。
 
 ### 触发流水线完成测试环境和生产环境部署
 
 **重要提示：** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
-
 
 #### 部署测试环境
 

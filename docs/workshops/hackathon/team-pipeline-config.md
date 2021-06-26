@@ -23,6 +23,28 @@
 添加完成后如下图所示：
 ![image.png](images/jenkins-add-envs.png)
 
+##### Jenkins添加Docker VM的连接密钥
+
+1. 打开Jenkins流水线，进入凭据配置界面，点击添加凭证
+![image.png](images/teamguide-cd-01.png)
+2. 添加vm-dev的连接密钥
+用户名密码为登陆vm-dev的用户名密码，ID需为‘creds-dev-server’。
+![image.png](images/teamguide-cd-02.png)
+
+##### Jenkins添加Docker Registry的连接密钥
+
+管理员提供给本组的镜像仓库的用户名以及密码，ID需'creds-github-registry’。
+![image.png](images/teamguide-cd-06-v2.png)
+
+##### Jenkins添加SonarQube链接Token（类型：Secret Text）
+
+Secret可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonarqube’
+
+注意：此配置虽然在没有用sonar的情况下没有用，但是jenkinsfile中使用了这个token，如果不配置流水线将无法运行。你可以在后续启用son的时候再更新此token为正确的取值，当前可以输入任何内容
+
+![image.png](images/sonar01.png)
+
+
 ##### Jenkins配置
 
 1. 进入jenkins首页，点击进入左侧菜单栏中 **open blue ocean** 的菜单
