@@ -23,7 +23,7 @@ jobs:
         ftp-server: ${{ secrets.PUBLISH_URL }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-  sync:
+  Sync-To-Gitee:
     runs-on: ubuntu-latest
     steps:
     - name: Sync to Gitee
