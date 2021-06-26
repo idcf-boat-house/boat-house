@@ -23,3 +23,15 @@ jobs:
         ftp-server: ${{ secrets.PUBLISH_URL }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync to Gitee
+      uses: wearerequired/git-mirror-action@master
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      with:
+        # 来源仓库
+        source-repo: "git@github.com:idcf-boat-house/boat-house.git"
+        # 目标仓库
+        destination-repo: "git@gitee.com:idcf-boat-house/boat-house.gitt"
