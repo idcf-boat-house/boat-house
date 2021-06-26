@@ -34,4 +34,4 @@ jobs:
         # 来源仓库
         source-repo: "git@github.com:idcf-boat-house/boat-house.git"
         # 目标仓库
-        destination-repo: "git@gitee.com:idcf-boat-house/boat-house.gitt"
+        destination-repo: "git@gitee.com:idcf-boat-house/boat-house.git"
