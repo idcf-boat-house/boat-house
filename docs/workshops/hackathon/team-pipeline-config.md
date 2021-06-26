@@ -91,3 +91,6 @@ Secret可以暂时不填写，后面配置Sonar时在配置,ID需 ‘token_sonar
 ![image.png](.attachments/jenkins05.png)
 
 10. 按照同样的方式完成boat-house-backend仓库的导入以及配置。
+
+**注意：** 此时流水线仍然无法正确运行，因为流水线中已经包含了对DEV环境的部署动作，但是我们还没有完成DEV环境虚拟机的配置。请继续后续文档。
+
