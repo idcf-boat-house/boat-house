@@ -48,4 +48,4 @@
 
 完成本链接中（工具指导文档）中的任意配置，团队可以获得额外加分。
 
-https://github.com/idcf-boat-house/boat-house#%E5%B7%A5%E5%85%B7%E6%8C%87%E5%AF%BC%E6%96%87%E6%A1%A3
+[Boathouse工具链指导文档列表](../../README.md?id=工具指导文档)
