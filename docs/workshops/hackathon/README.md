@@ -22,7 +22,7 @@
 
 ### 2.2 团队环境配置
 
-[示例代码导入](verson-control-config.md)
+[示例代码导入](version-control-config.md)
 
 [Jenkins服务器搭建](team-env-config.md)：Jenkins服务器搭建，添加节点并安装插件。
 
