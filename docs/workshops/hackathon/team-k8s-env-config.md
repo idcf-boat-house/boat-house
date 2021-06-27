@@ -34,7 +34,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 此文件包含连接k8s集群的密钥信息，可以通过 [DevOps实验室]所提供的 [Kubernetes集群实验环境] 的配置页面中获取集群master节点的ssh访问hostname和用户名密码，通过ssh登录此节点后。
 
-注意：如果【DevOps实验室】的【Kubernetes集群实验环境】不可用，讲师会直接提供kube.config文件给到小组。
+> 注意：如果【DevOps实验室】的【Kubernetes集群实验环境】不可用，讲师会直接提供kube.config文件给到小组。
 
 进入本地用户根目录下的 .kube 文件夹中，我们可以看到有一个名为 config 的文件，此文件即为本机 kubectl 默认链接的集群配置文件
 
@@ -72,7 +72,7 @@ kubectl create namespace boathouse-prod
    
 5. 为命名空间创建 docker-registry-secrets
 
-> 镜像仓库的用户名和密钥可以通过 DevOps实验室 中的环境信息页面获取。
+> 镜像仓库的用户名和密钥可以通过 [DevOps实验室](https://labs.devcloudx.com) 中的环境信息页面获取
 
 - 用于Jenkins流水线部署
 
