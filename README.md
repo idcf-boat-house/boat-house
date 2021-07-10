@@ -10,10 +10,9 @@
 ## 培训及操作手册
 
 * [IDCF DevOps黑客马拉松操作手册](docs/workshops/hackathon/README.md)
+* [IDCF DevOps黑客马拉松操作手册（云智慧版）](docs/workshops/hackathon/README-cloudwise.md)
 * [IDCF BoatHouse DevOps 实战训练营(开源版)](docs/workshops/boathouse-e2e-opensource/README.md)
 
-**boathouse 二期共创**
-目前筹备中。。。
 
 **boathouse 一期共创**
 * [项目组成员](docs/quick-start/operation/team-member.md)
