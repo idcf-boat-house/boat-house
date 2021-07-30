@@ -134,6 +134,7 @@
 * [Jenkins调度Selenium](docs/quick-start/guide/selenium-for-jenkins/Readme.md)
 * [Sonarqube配置指南](docs/quick-start/guide/sonarqube/Readme.md)
 * [快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
+* [Idea 快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
 * [Nexus搭建及使用指南](docs/quick-start/guide/nexus/readme.md)
 * [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
@@ -148,8 +149,6 @@
 * [k82mysql集群](docs/quick-start/guide/mysql-k8s-deploy/Readme.md)
 * [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
 * [使用 Flyway 进行数据库持续交付](docs/quick-start/guide/java-flyway-db-pipeline/Readme.md)
-* [Idea 快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
-
 
 ## Contribute Guide：
 
