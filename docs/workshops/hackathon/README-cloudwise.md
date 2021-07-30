@@ -52,7 +52,7 @@
 | 序号 | 任务名称 | 验收标准  |
 | ------------ | --------- | --------- |
 | cw001 | 使用karate API进行自动化测试 | 完成karate环境搭建，并集成到现有流水线，确保可以查看测试报告。如果可以自行编写1-2个测试用例，另外加1分。参考文档 [jenkins 调度karate API 自动测试](docs/quick-start/guide/karate-API-testing/Readme.md) |
-| cw002 | 使用nGrinder进行接口性能测试 ｜ 完成nGrinder环境搭建，并对Boathouse后端接口进行压力测试，至少完成3个接口的压力测试，测试执行时间不少于3分钟，可以展示测试报告。参考文档 [nGrinder 接口性能测试](docs/quick-start/guide/nGrinder-perf-testing/Readme.md) |
+| cw002 | 使用nGrinder进行接口性能测试 | 完成nGrinder环境搭建，并对Boathouse后端接口进行压力测试，至少完成3个接口的压力测试，测试执行时间不少于3分钟，可以展示测试报告。参考文档 [nGrinder 接口性能测试](docs/quick-start/guide/nGrinder-perf-testing/Readme.md) |
 | cw003 | 使用透视宝定位并修复性能问题 | 完成透视宝环境搭建并结合以上nGrinder自动化测试定位Boathouse后台接口中的性能问题，修复此文档并通过数据证明性能问题已经修复。参考文档 [TSB JavaAgent 探针安装](docs/quick-start/guide/TSB-Agent-use/Readme.md) |
 | 001 | 在流水线中增加基于SonarQube的静态代码检查 | 完成SonarQube服务器搭建并集成到现有流水线，可以通过SonarQube页面查看后端代码的检查结果。如果可以修复至少一个代码问题，额外加1分。 参考文档 [Sonarqube配置指南](../../quick-start/guide/sonarqube/Readme.md) |
 | 002 | 在流水线中添加单元测试环节 | 通过现有流水线执行代码中提供的单元测试用例，可以通过Jenkins内置的测试结果视图查看测试结果，如果可以增加一个以上的测试用例，额外加1分。 参考文档 [快速创建Junit测试](../..//quick-start/guide/junit-testing/Readme.md) [Idea 快速创建Junit测试](../../quick-start/guide/junit-testing/Readme.md) |
