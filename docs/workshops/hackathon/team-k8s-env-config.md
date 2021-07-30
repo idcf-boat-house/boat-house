@@ -48,7 +48,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 
 使用替换文件或修改文件内容的方式修改.kube下的config。
 
-对于使用BOAT-HOUSE jenkins流水线的用户，可以在vm-slave节点上安装kubectl并配置 k8s config 文件以便允许jenkins流水线连接到k8b集群。
+对于使用jenkins流水线的用户，可以在vm-slave节点上安装kubectl并配置 k8s config 文件以便直接通过这台机器来操作k8s环境。当然你也可以直接将kubectl安装在本地环境使用。Jenkinsl流水线通过Kuberentes Deploy这个插件就可以直接完成K8s部署操作，并不依赖kubectl工具。
 
 3. 保存完毕后运行命令，查看连接情况：
 
