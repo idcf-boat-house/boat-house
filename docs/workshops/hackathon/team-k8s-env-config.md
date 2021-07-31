@@ -97,33 +97,56 @@ kubectl create secret docker-registry regcred --docker-server=[docker registry u
 
 **重要提示：** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
 
+如果无法访问github.com请参考一下截图
+
+![image.png](images/k8s-db-issue.png)
+
 #### 部署测试环境
 
 代码仓库的yaml文件提交完毕，接下来我们开始进行Jenkins流水线的部署。
+
 1. 打开Jenkins流水线，点击分支重新启动流水线
+
 ![image.png](images/k8s-12.png)
-1. Dev环境部署完毕后，点击同意部署到测试环境
+
+2. Dev环境部署完毕后，点击同意部署到测试环境
+
 ![image.png](images/k8s-05.png)
-1. 等待测试环境部署完毕，可以看到该步骤执行成功
+
+3. 等待测试环境部署完毕，可以看到该步骤执行成功
+
 ![image.png](images/k8s-06.png)
-1. 回到命令行，查看测试环境命名空间下的 pods
+
+4. 回到命令行，查看测试环境命名空间下的 pods
     ```
     kubectl get pods -n boathouse-test
     ```
     可以看到测试环境已经部署成功
+
     ![image.png](images/k8s-07.png)
-1. 运行以下命令，查看测试环境的 services 列表
+
+6. 运行以下命令，查看测试环境的 services 列表
+    
     ```
     kubectl get services -n boathouse-test
     ```
+
     ![image.png](images/k8s-13.png)
+    
     上图中，我们可以看到 client, management, product-service-api 服务均已经启动，外部 IP 地址和端口号也已经可以看到
-1. 访问各服务的 IP地址和端口号对应的网站，可以看到环境已经成功在运行中
+
+7. 访问各服务的 IP地址和端口号对应的网站，可以看到环境已经成功在运行中
+
 Client: http://[client-serivce-ip]:[port]
+
 ![image.png](images/k8s-14.png)
+
 Management: http://[management-serivce-ip]:[port]
+
 ![image.png](images/k8s-15.png)
+
 Product Service Swagger API: http://[product-serivce-api-ip]:[port]/api/v1.0/swagger-ui.html
+
 ![image.png](images/k8s-16.png)
 
 
