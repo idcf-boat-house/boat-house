@@ -5,7 +5,17 @@
 
 ## DEV环境虚拟机配置
 
-请使用ssh命令登录vm2
+### 登录虚拟机
+
+使用ssh登录vm1
+
+```shell
+## 如果使用DevOps实验室环境，请使用实验室环境资源中提供的用户名
+## 我们提供了2台VM，请自行决定2台VM的角色
+ssh <username>@<ip/hostname>
+```
+
+### 安装Docker和Docker-Compose工具
 
 ```shell
 ## 更新包管理数据库

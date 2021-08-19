@@ -8,10 +8,11 @@ Jenkins作为Boathouse流水线的底层工具，需要一台VM作为运行环�
 
 ```shell
 ## 如果使用DevOps实验室环境，请使用实验室环境资源中提供的用户名
+## 我们提供了2台VM，请自行决定2台VM的角色
 ssh <username>@<ip/hostname>
 ```
 
-## 1. Docker 安装
+## 安装Docker和Docker-Compose工具
 
 由于整个环境我们都使用容器的进行部署，所以需要在环境中先安装Docker以及docker-compose，执行以下shell命令安装。
 
