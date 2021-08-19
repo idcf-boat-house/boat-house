@@ -1,7 +1,7 @@
-## IDCF Boat House 快速开发指南
-### IDCF Boat House 项目架构：
+# IDCF Boat House 快速开发指南
+## IDCF Boat House 项目架构：
 ![boathouse-arch](images/devguide-boathouse-arch.png)
-### 指南概要
+## 指南概要
 如上Boat House项目架构图所示:
 * 基于 Spring Boot 框架开发的 **Product Service** 将为Boat House提供 REST API 数据支持；
 * 基于Node Js + Vue 框架开发的后端管理平台 **Management Web** 将为Boat House提供后台数据管理功能。
@@ -15,7 +15,7 @@
 
 ## Product Service 快速上手指南
 
-#### 简介
+### 简介
 
 Boat House Product Service 是 ：
 * Boat House 的产品后台数据服务
@@ -24,12 +24,12 @@ Boat House Product Service 是 ：
 
 ![](images/devguide-product-service-01.png)
 
-#### 开发环境
+### 开发环境
 
 * Windows/Mac OS
 * [Itellij IDEA](https://www.jetbrains.com/idea/) IDE
 * Docker for Windows/Mac
-#### 快速开始
+### 快速开始
 
 1. 安装 [Itellij IDEA](https://www.jetbrains.com/idea/)
 1. 使用 IDEA 打开 Product Service Api 代码
@@ -55,7 +55,7 @@ Boat House Product Service 是 ：
 
 ## Management Web 快速上手指南
 
-#### 简介
+### 简介
 
 Boat House Management Web 是：
 * Boat House 的后台管理网站
@@ -66,13 +66,13 @@ Boat House Management Web 是：
 
 ![](images/devguide-debugging-11.png)
 
-#### 开发环境
+### 开发环境
 
 * Windows/Mac OS
 * [VS Code](https://code.visualstudio.com/) IDE
 * [nodejs](https://nodejs.org/)
 
-#### 快速开始
+### 快速开始
 1. 安装 [VS Code](https://www.jetbrains.com/idea/), [nodejs](https://nodejs.org/)
 1. 使用 VS Code 打开 Management Web 代码
 ![](images/devguide-management-web-02.png)
@@ -88,10 +88,10 @@ Boat House Management Web 是：
 ![](images/devguide-management-web-06.png)
 
 ## Product Service & Management Web 跨技术栈/IDE连调指南
-#### 整体架构图：
+### 整体架构图：
 ![](images/devguide-debugging-arch.png)
 
-#### 具体步骤
+### 具体步骤
 * **Product Service ： IDEA Debugging Mode**
 1. IDEA中打开Product Service api 项目目录
 ![](images/devguide-debugging-01.png)
