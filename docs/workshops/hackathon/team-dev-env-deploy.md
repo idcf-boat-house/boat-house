@@ -5,7 +5,7 @@
 
 ## DEV环境虚拟机配置
 
-请使用ssh命令登录vm-dev，并参考如下命令安装Docker以及docker-compose
+请使用ssh命令登录vm2
 
 ```shell
 ## 更新包管理数据库

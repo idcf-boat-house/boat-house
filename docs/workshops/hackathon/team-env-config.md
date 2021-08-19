@@ -4,7 +4,7 @@ Jenkins作为Boathouse流水线的底层工具，需要一台VM作为运行环�
 
 ## 登录虚拟机
 
-使用ssh登录vm-tools
+使用ssh登录vm1
 
 ```shell
 ## 如果使用DevOps实验室环境，请使用实验室环境资源中提供的用户名
