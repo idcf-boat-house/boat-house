@@ -1,10 +1,10 @@
-### Boat House K8S (Test & Prod) 环境部署
+# Boat House K8S (Test & Prod) 环境部署
 
 
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boat House 的 Dev 环境。
 接下来，我们会使用已分配给团队的K8S环境部署 Boat House 的 Test & Prod 环境.
 
-#### 配置 K8s 集群 & Jenkins 凭据
+## 配置 K8s 集群 & Jenkins 凭据
 
 前提条件：安装Kubectl工具：
 
@@ -93,7 +93,7 @@ kubectl create secret docker-registry regcred --docker-server=[docker registry u
 
 8. 至此，Jenkins 和 K8s 的集群配置就完毕了。
 
-### 触发流水线完成测试环境和生产环境部署
+## 触发流水线完成测试环境和生产环境部署
 
 **重要提示：** 当前的k8s环境部署脚本存在一个缺陷，在部署完成后端系统后不会自动创建所需要的数据库实例，这会造成后台api工作不正常。请参考一下 issue 中的说明暂时性修复此问题 https://github.com/idcf-boat-house/boat-house-backend/issues/1
 
@@ -101,7 +101,7 @@ kubectl create secret docker-registry regcred --docker-server=[docker registry u
 
 ![image.png](images/k8s-db-issue.png)
 
-#### 部署测试环境
+### 部署测试环境
 
 代码仓库的yaml文件提交完毕，接下来我们开始进行Jenkins流水线的部署。
 
@@ -150,7 +150,7 @@ Product Service Swagger API: http://[product-serivce-api-ip]:[port]/api/v1.0/swa
 ![image.png](images/k8s-16.png)
 
 
-#### 部署生产环境
+### 部署生产环境
 
 1. 打开Jenkins流水线，点击同意部署到生产环境
 ![image.png](images/k8s-08.png)

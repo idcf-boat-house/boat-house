@@ -29,21 +29,19 @@
 
 - [Jenkins服务器搭建](team-env-config.md)：按照此文档完成Jenkins服务器搭建，添加节点并安装插件。
 
-### 2.3 使用Jenkins完成到dev环境的自动化部署
+- [Jenkins环境变量配置](team-pipeline-config.md)：按照此文档完成Jenkins中各种环境变量和密钥的配置
 
-- [流水线配置](team-pipeline-config.md)：按照此文档完成Jenkins中各种环境变量和密钥的配置，并从代码库中导入Jenkinsfile
+### 2.3 Boathouse 前后端流水线搭建 - 部署到DEV环境
 
-### 2.4 团队开发环境部署
+- [完成流水线搭建并部署到Dev环境](team-dev-env-deploy.md)：完成流水线搭建，并使用流水线完成Dev环境的自动化部署
 
-- [使用流水线完成Dev环境的自动化部署](team-dev-env-deploy.md)：使用流水线完成Dev环境的自动化部署
-
-### 2.5 团队快速开发指南
+### 2.4 团队快速开发指南 - 本地调试（可选）
 
 - [快速开发指南](dev-guide.md)：搭建本地开发环境，完成Boathouse前后端代码的联调。
 
 ## 3. 完整流水线搭建和测试/生产环境部署
 
-### 3.1 加分项必选项 - 团队 K8s 环境（Test & Prod）部署
+### 3.1 加分项必选项 - 团队 k8s 环境（TEST & PROD）部署
 
 **注意**：团队必须首先完成此加分项才能开始进入3.2所列的其他加分项，否则视为无效得分。
 

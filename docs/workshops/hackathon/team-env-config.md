@@ -1,4 +1,8 @@
-### 登录虚拟机
+# Jenkins服务器搭建
+
+Jenkins作为Boathouse流水线的底层工具，需要一台VM作为运行环境。本文档描述了如何配置一台Ubuntu 16.04 LTS的虚拟机作为Jenkins的运行环境。
+
+## 登录虚拟机
 
 使用ssh登录vm-tools
 
@@ -7,7 +11,7 @@
 ssh <username>@<ip/hostname>
 ```
 
-### 1. Docker 安装
+## 1. Docker 安装
 
 由于整个环境我们都使用容器的进行部署，所以需要在环境中先安装Docker以及docker-compose，执行以下shell命令安装。
 
@@ -46,7 +50,7 @@ docker --version
 docker-compose --version
 ```
 
-### 2. 搭建Jenkins
+## 2. 搭建Jenkins
 使用以下命令完成Jenkins的安装
 
 ```
@@ -59,7 +63,8 @@ docker ps
 
 ![image.png](images/teamguide-env-05.png)
 
-##### 获取管理员账号密码
+### 获取管理员账号密码
+
 ``` 
 sudo cat jenkins_home/secrets/initialAdminPassword
 ```
@@ -67,11 +72,13 @@ sudo cat jenkins_home/secrets/initialAdminPassword
 
 复制上面的输出结果
 
-##### 启动Jenkins网站
+### 启动Jenkins网站
+
 在浏览器中打开jenkins站点，粘贴上面的管理员密码，并点击 **Continue** 按钮
 ![image.png](.attachments/image-e3ec56b5-7ecb-408e-a2f2-4a9f806f6044.png)
 
-##### 选择安装建议插件
+### 选择安装建议插件
+
 ![image.png](.attachments/image-a41c5f66-6d30-476b-9bd9-b0eab010fd2e.png)
 
 > 注意，如果vm在国内，插件很有可能安装不上去，如果装不上去，请参考这个[文档](https://gitee.com/hummerstudio/jenkins-update-center-changer) ，步骤如下
@@ -84,23 +91,23 @@ sudo cat jenkins_home/secrets/initialAdminPassword
 1. 如果无法打开插件初始化页面，可手动删除jenkins_home文件，重启容器，重复上面的步骤。
 ```
 
-##### 初始化管理员账号密码，都填写为admin即可，然后点击 **Save and Continue**
+### 初始化管理员账号密码，都填写为admin即可，然后点击 **Save and Continue**
 ![image.png](.attachments/image-a384fbd7-0205-4405-b31d-cbd84c69fb34.png)
 
-##### 保持默认的URL设置
+###保持默认的URL设置
 ![image.png](.attachments/image-d645d145-3189-4960-9afa-93f4b77f3442.png)
 
-##### 完成服务器搭建，启动Jenkins
+### 完成服务器搭建，启动Jenkins
 ![image.png](.attachments/image-c0287ce8-f8b7-4ab4-ab48-3d3a22980cd9.png)
 
 ****
 
-#### Jenkins 配置
+### Jenkins 配置
 Jenkins流水线中的各个任务的运行需要跑在一台代理机上，因此我们需要给Jenkins添加构建节点。
 在本示例中将使用本机同时作为 Jenkins VM 作为代理机。
 
 
-##### 代理机安装JDK
+### 代理机安装JDK
 ```
 sudo apt-get install openjdk-8-jdk
 java -version
@@ -108,13 +115,13 @@ java -version
 
 ![image.png](images/teamguide-env-07.png)
 
-##### 安装Maven
+### 安装Maven
 
 ```
 sudo apt install maven
 ```
 
-##### 代理机添加 vm帐号（当前登陆账号）至Sudoers
+### 代理机添加 vm帐号（当前登陆账号）至Sudoers
 1. 添加 ghuser 至sudo组：
     ```
     sudo usermod -aG sudo <当前用户用户名>
@@ -126,7 +133,7 @@ sudo apt install maven
     ghuser ALL=(ALL) NOPASSWD:ALL
     ```
 
-##### 代理机创建Jenkins工作目录, 并创建文件确保目录在非sudo下可写
+### 代理机创建Jenkins工作目录, 并创建文件确保目录在非sudo下可写
   ```
   mkdir jenkins_workspace
   cd jenkins_workspace
@@ -136,7 +143,7 @@ sudo apt install maven
 ![image.png](images/teamguide-env-08.png)
 
 
-##### Jenkins添加构建节点
+### Jenkins添加构建节点
 1. 在jenkins管理界面进行节点管理，**Manage Jenkins**
 
 ![image.png](.attachments/image-11b5a0bd-b400-467b-b98c-4c344a74db9f.png)
