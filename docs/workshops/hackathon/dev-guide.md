@@ -27,9 +27,76 @@ Boat House Product Service 是 ：
 ### 开发环境
 
 * Windows/Mac OS
-* [Itellij IDEA](https://www.jetbrains.com/idea/) IDE
+* [Itellij IDEA](https://www.jetbrains.com/idea/) IDE / [Visual Studio Code](https://code.visualstudio.com/) 
 * Docker for Windows/Mac
 ### 快速开始
+
+开发模式我们提供了两种方式：
+ - 基于SmartIDE容器化开发环境的方式进行开发（推荐）：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
+ - 本地开发环境进行开发：此种方式就是传统的软件开发模式，本地需要安装SDK，开发工具等。
+
+### （01）SmartIDE容器化开发模式
+
+1. 请参考以下连接完成SmartIDE的安装-https://smartide.dev/zh/docs/getting-started/install/
+2. 在ProductService代码目录下boat-house-backend/src/product-service/api/，创建.ide目录
+3. 在.ide文件夹下，创建.ide.yaml文件，并添加以下内容
+
+```
+version: smartide/v0.2
+orchestrator:
+  type: docker-compose
+  version: 3
+workspace:
+  dev-container:
+    service-name: product-service-dev
+    webide-port: 6800
+  services:
+
+    product-service-dev:
+      container_name: product-service-dev
+      image: registry.cn-hangzhou.aliyuncs.com/smartide/smartide-java:latest
+      restart: always
+      environment:
+        POSTGRES_HOST_AUTH_METHOD: trust
+        ROOT_PASSWORD: root123
+        TZ: Asia/Shanghai
+      volumes:
+        - $HOME/.m2/repository:/root/.m2/repository
+        - .:/home/project
+      expose:
+        - 3000
+      networks:
+        - smartide-network
+
+    product-service-db:
+      container_name: product-service-db
+      image: mysql:5.6
+      command: 
+        - --default-authentication-plugin=mysql_native_password
+      restart: always
+      volumes:
+        - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      expose:
+        - 3306
+      environment:
+        MYSQL_ROOT_PASSWORD: P2ssw0rd
+      networks:
+        - smartide-network
+  networks:
+    smartide-network:
+      external: true
+```
+
+4. 进入ProductService工作目录，并执行启动开发调试命令
+```
+cd src/product-service/api
+smartide start
+```
+
+5. 系统会自动打开浏览器，并打开一个WebIDE，我们就可以直接在WebIDE中进行开发调试了。
+
+
+### （02）传统开发模式
 
 1. 安装 [Itellij IDEA](https://www.jetbrains.com/idea/)
 1. 使用 IDEA 打开 Product Service Api 代码
