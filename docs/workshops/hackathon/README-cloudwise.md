@@ -74,6 +74,7 @@
 | 005 | 使用 Neuxs 管理依赖和制品  | 搭建 Nexus 服务器并使用这台私有制品服务器管理本团队的外部依赖和待发布制品，待发布制品需要通过流水线实现自动上传和版本对其（制品版本与Jenkins构建ID的双向跟踪， 参考文档 [Nexus搭建及使用指南](../../quick-start/guide/nexus/readme.md) |
 | 006 | 进行 Jmeter 自动执行接口/性能测试 | 搭建Jmeter环境，完成JMeter测试用例编写并在流水线中自动执行，可以正确查看JMeter测试报告。参考文档 [JMeter测试用例编写手册](../../quick-start/guide/jmeter-testing/Readme.md) [Jenkins集成Jmeter](../../quick-start/guide/jmeter-testing/jmeter-for-jenkins.md) |
 | 007 | 使用 Flyway 管理结构化数据库的持续交付 | 搭建Flyway环境，并通过Flyway集成流水线完成至少一个数据库字段的结构变更，变更内容需要自动发布到DEV环境。参考文档 [使用 Flyway 进行数据库持续交付](../../quick-start/guide/java-flyway-db-pipeline/Readme.md) |
+| 008 | 完成Product Service 代码的开发调试 | 能调试起Product Service应用，并通过设置端点的方式，监控到变量的值。参考文档 [开发调试指南](dev-guide.md) |
 
 参考文档：[Boathouse工具链指导文档列表](../../../README.md?id=工具指导文档) 这里列出了所有相关的工具链指导文档，供参考。
 
