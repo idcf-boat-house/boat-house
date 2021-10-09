@@ -93,8 +93,30 @@ cd src/product-service/api
 smartide start
 ```
 
-5. 系统会自动打开浏览器，并打开一个WebIDE，我们就可以直接在WebIDE中进行开发调试了。
+5. 系统会自动打开浏览器，并打开一个WebIDE，我们就可以直接在WebIDE中进行开发调试了。默认地址：http://localhost:6800/
+6. 点击Terminal | New Terminal，输入以下命令编译应用。
+```
+mvn install
+```
 
+7. 在ProductService代码目录下boat-house-backend/src/product-service/api/，创建.theia目录，并添加launch.json文件，内容如下：
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Launch ProductServiceApplication",
+            "request": "launch",
+            "mainClass": "com.idcf.boathouse.product.ProductServiceApplication",
+            "projectName": "product-service"
+        }
+    ]
+  }
+```
+
+8. 点击Debug菜单，启动调试
 
 ### （02）传统开发模式
 
