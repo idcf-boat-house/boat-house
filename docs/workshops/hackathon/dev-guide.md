@@ -35,11 +35,11 @@ Boat House Product Service 是 ：
  - 基于SmartIDE容器化开发环境的方式进行开发（推荐）：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
  - 本地开发环境进行开发：此种方式就是传统的软件开发模式，本地需要安装SDK，开发工具等。
 
-### （01）SmartIDE容器化开发模式
+### （模式一）SmartIDE容器化开发模式
 
 1. 请参考以下连接完成SmartIDE的安装-https://smartide.dev/zh/docs/getting-started/install/
 2. 在ProductService代码目录下boat-house-backend/src/product-service/api/，创建.ide目录
-3. 在.ide文件夹下，创建.ide.yaml文件，并添加以下内容
+3. 在.ide文件夹下，创建.ide.yaml(此文件用户描述开发环境，以及开发环境所依赖的相关中间件)文件，并添加以下内容
 
 ```
 version: smartide/v0.2
@@ -96,10 +96,10 @@ smartide start
 5. 系统会自动打开浏览器，并打开一个WebIDE，我们就可以直接在WebIDE中进行开发调试了。默认地址：http://localhost:6800/
 6. 点击Terminal | New Terminal，输入以下命令编译应用。
 ```
-mvn install
+mvn package
 ```
 
-7. 在ProductService代码目录下boat-house-backend/src/product-service/api/，创建.theia目录，并添加launch.json文件，内容如下：
+7. 在ProductService代码目录下boat-house-backend/src/product-service/api/，创建.theia目录，并添加launch.json（此文件用户描述调试配置）文件，内容如下：
 ```
 {
     "version": "0.2.0",
@@ -118,8 +118,9 @@ mvn install
 
 8. 点击插件，搜索JAVA插件，点击安装
 9. 点击Debug菜单，启动调试
+10. 打开http://localhost:8080，开始开发调试
 
-### （02）传统开发模式
+### （模式二）传统开发模式
 
 1. 安装 [Itellij IDEA](https://www.jetbrains.com/idea/)
 1. 使用 IDEA 打开 Product Service Api 代码
