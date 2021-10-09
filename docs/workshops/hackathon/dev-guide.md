@@ -87,14 +87,14 @@ workspace:
       external: true
 ```
 
-4. 进入ProductService工作目录，并执行启动开发调试命令
+4. 进入ProductService工作目录，并执行以下命令启动开发环境
 ```
 cd src/product-service/api
 smartide start
 ```
 
 5. 系统会自动打开浏览器，并打开一个WebIDE，我们就可以直接在WebIDE中进行开发调试了。默认地址：http://localhost:6800/
-6. 点击Terminal | New Terminal，输入以下命令编译应用。
+6. 点击Terminal | New Terminal，执行以下命令来编译应用。
 ```
 mvn package
 ```
@@ -116,9 +116,9 @@ mvn package
   }
 ```
 
-8. 点击插件，搜索JAVA插件，点击安装
-9. 点击Debug菜单，启动调试
-10. 打开http://localhost:8080，开始开发调试
+8. 点击插件，搜索JAVA，点击安装
+9. 安装完成后就可以点击Debug菜单，启动调试（注意启动开发调试大概需要几分钟，这里稍等，直到命令行里提示8080端口开放）
+10. 打开http://localhost:8080，开始应用的开发调试
 
 ### （模式二）传统开发模式
 
