@@ -10,6 +10,7 @@
 ## 培训及操作手册
 
 * [IDCF DevOps黑客马拉松操作手册](docs/workshops/hackathon/README.md)
+* [IDCF DevOps黑客马拉松操作手册（无须准备环境版）](docs/workshops/hackathon/README-FullEnv.md)
 * [IDCF DevOps黑客马拉松操作手册（云智慧版）](docs/workshops/hackathon/README-cloudwise.md)
 * [IDCF BoatHouse DevOps 实战训练营(开源版)](docs/workshops/boathouse-e2e-opensource/README.md)
 
