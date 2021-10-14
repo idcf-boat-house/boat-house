@@ -87,7 +87,7 @@ docker-compose --version
 
 8. 保存后流水线自动启动，等待构建完成后查看结果
 
-![image.png](.attachments/2021-10-14_14-52-02.png)
+![image.png](images/2021-10-14_14-52-02.png)
 
 9. 由于目前还没有配置Test和Production环境，并且Jenkins中只有一个代理，因此我们需要讲后面的部署取消掉，然后跑后台应用流水线
 
