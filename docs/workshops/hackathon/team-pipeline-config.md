@@ -28,7 +28,9 @@ Boathouse流水线为了适配不同团队环境，使用了大量环境变量�
 ## Jenkins添加Docker VM的连接密钥
 
 1. 打开Jenkins流水线，进入凭据配置界面，点击添加凭证
-![image.png](images/teamguide-cd-01.png)
+![image.png](images/2021-10-14_9-13-09.png)
+![image.png](images/2021-10-14_10-34-30.png)
+
 2. 添加vm-dev的连接密钥
 用户名密码为登陆vm-dev的用户名密码，ID需为‘creds-dev-server’。
 ![image.png](images/teamguide-cd-02.png)
