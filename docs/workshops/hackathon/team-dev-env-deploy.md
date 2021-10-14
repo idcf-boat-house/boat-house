@@ -73,26 +73,27 @@ docker-compose --version
 
 ![image.png](.attachments/jenkins03.png)
 
-5. 进入流水线主页，可以看到基于Repo中Jenkins File成功创建出流水线。
+5. 流水线创建成功，但是会提示找不到Jenkinsfile
 
-![image.png](.attachments/image-3c7d5ea4-52bf-4c49-9e0c-8375d8c027cc.png)
+![image.png](images/2021-10-14_13-18-07.png)
 
-6. 点击当前流水线进入流水线活动页面
-![image.png](images/teamguide-ci-00.png)
-
-7. 点击分支 Tab，点击某个分支后的修改button可以查看流水线的具体设置及任务
-![image.png](images/teamguide-ci-01.png)
-![image.png](images/teamguide-ci-02.png)
-
-8. 修改jenkinsfile默认地址：
+6. 点击配置按钮，修改jenkinsfile默认地址：
 
 ![image.png](.attachments/jenkins04.png)
 
-9. 脚本路径改为：devops/jenkins/jenkinsfile
+7. 脚本路径改为：devops/jenkins/jenkinsfile
 
 ![image.png](.attachments/jenkins05.png)
 
-10. 按照同样的方式完成boat-house-backend仓库的导入以及配置。
+8. 保存后流水线自动启动，等待构建完成后查看结果
+
+![image.png](.attachments/2021-10-14_14-52-02.png)
+
+9. 由于目前还没有配置Test和Production环境，并且Jenkins中只有一个代理，因此我们需要讲后面的部署取消掉，然后跑后台应用流水线
+
+![image.png](images/2021-10-14_14-50-16.png)
+
+8. 按照同样的方式完成boat-house-backend仓库的导入以及配置。
 
 ## 启动master分支构建
 
