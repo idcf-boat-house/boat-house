@@ -137,14 +137,14 @@ npm start
 ![](images/2021-11-14-20-48-02.png)
 
 
-### 06. 修改船屋餐厅管理端（magegement端）
+### 06. 修改船屋餐厅管理端（management端）
 -------------
 
 船屋餐厅管理端与客户端使用的同样的技术栈，都是Nodejs+Vue。所以操作方式是一样的。直接按照上面的方式打开对应的管理端目录进行开发调试即可。
 
-打开船屋餐厅客户端代码目录（src/magegement）, 后面参考04以及05章节即可。：
+打开船屋餐厅客户端代码目录（src/management）, 后面参考04以及05章节即可。：
 
-> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/magegement/ ｜ 点击 OK，如下图所示：
+> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/management/ ｜ 点击 OK，如下图所示：
 
 ![](images/2021-11-14-20-50-29.png)
 
