@@ -18,7 +18,7 @@
 
 请参考以下安装手册，完成smartide开发客户端的安装：
 
-https://smartide.dev/zh/docs/getting-started/install/
+https://smartide.dev/zh/docs/quickstart/install/
 
  - Docker Desktop && Docker-Compose（已安装Docker用户可以跳过）
  - SmartIDE 命令行工具
