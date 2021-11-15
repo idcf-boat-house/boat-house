@@ -72,7 +72,9 @@ Visual Studio Code Web IDE打开后，效果如下图所示：
 
 打开船屋餐厅客户端代码目录（src/client）：
 
-> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/client/ ｜ 点击 OK，如下图所示：
+> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/client/ ｜ 点击 OK，如下图所示：也可以直接通过更改URL的方式快速打开，连接如下：
+
+http://localhost:6800/?folder=vscode-remote%3A%2F%2Flocalhost%3A6800%2Fhome%2Fproject%2Fsrc%2Fclient
 
 ![](images/2021-11-14-11-21-55.png)
 
@@ -81,6 +83,7 @@ Visual Studio Code Web IDE打开后，效果如下图所示：
 -------------
 
 点击 Terminal ｜ New Terminal，打开命令行工具，如下图所示：
+
 
 ![](images/2021-11-14-11-24-43.png)
 
@@ -144,9 +147,12 @@ npm start
 
 打开船屋餐厅客户端代码目录（src/management）, 后面参考04以及05章节即可。：
 
-> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/management/ ｜ 点击 OK，如下图所示：
+> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/management/ ｜ 点击 OK，如下图所示，也可以使用URL的方式快速打开目录：
+
+http://localhost:6800/?folder=vscode-remote%3A%2F%2Flocalhost%3A6800%2Fhome%2Fproject%2Fsrc%2Fmanagement
+
 
 ![](images/2021-11-14-20-50-29.png)
 
 
-总结：本加分项我们使用了开发容器化开发工具smartide完成了船屋餐厅前端的开发与调试，开发人员无需安装配置IDE以及SDK即可快速进行开发状态。这其实也是DevOps的最后一公里，云原生开发环境也将是后续的主流趋势。
+总结：本加分项我们使用了开源容器化开发工具smartide完成了船屋餐厅前端的开发与调试，开发人员无需安装配置IDE以及SDK即可快速进行开发状态。这其实也是DevOps的最后一公里，云原生开发环境也将是后续的主流趋势。
