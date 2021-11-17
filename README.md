@@ -128,29 +128,29 @@
 
 ## 工具指导文档
 
-* [jenkins 调度karate API 自动测试](docs/quick-start/guide/karate-API-testing/Readme.md)
-* [nGrinder 接口性能测试](docs/quick-start/guide/nGrinder-perf-testing/Readme.md)
-* [TSB JavaAgent 探针安装](docs/quick-start/guide/TSB-Agent-use/Readme.md)
+* [云原生标准化容器开发模式](docs/quick-start/guide/smartide/Readme.md)
+* [Idea 快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
+* [快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
+* [Jenkins集成Jmeter](docs/quick-start/guide/jmeter-testing/jmeter-for-jenkins.md)
+* [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
+* [JMeter测试用例编写手册](docs/quick-start/guide/jmeter-testing/Readme.md)
 * [Selenium自动化UI测试](docs/quick-start/guide/selenium-ui-testing/Readme.md)
 * [Jenkins调度Selenium](docs/quick-start/guide/selenium-for-jenkins/Readme.md)
 * [Sonarqube配置指南](docs/quick-start/guide/sonarqube/Readme.md)
-* [快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
-* [Idea 快速创建Junit测试](docs/quick-start/guide/junit-testing/Readme.md)
 * [Nexus搭建及使用指南](docs/quick-start/guide/nexus/readme.md)
-* [Postman接口测试指南](docs/quick-start/guide/postman-api-testing/Readme.md)
 * [Azure快速搭建K8s环境](docs/quick-start/guide/k8s-azure/Readme.md)
 * [基于Kubernetes的容器化集群部署](docs/quick-start/guide/k8s-common-training/k8s-deploy-traing.md)
+* [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
+* [使用 Flyway 进行数据库持续交付](docs/quick-start/guide/java-flyway-db-pipeline/Readme.md)
+* [jenkins 调度karate API 自动测试](docs/quick-start/guide/karate-API-testing/Readme.md)
 * [Apollo介绍与docker部署](docs/quick-start/guide/apollo-config-center/Readme.md)
 * [MetterMost OpsChat 配置](docs/quick-start/guide/chat-ops-metter-most/readme.md)
 * [MetterMost OpsChat jenkins 集成](docs/quick-start/guide/chat-ops-metter-most/jenkins.md)
 * [MetterMost OpsChat github 集成](docs/quick-start/guide/chat-ops-metter-most/github.md)
-* [JMeter测试用例编写手册](docs/quick-start/guide/jmeter-testing/Readme.md)
-* [Jenkins集成Jmeter](docs/quick-start/guide/jmeter-testing/jmeter-for-jenkins.md)
 * [RESTful及RESTful API设计规范简介](docs/quick-start/guide/spec/restfull-api-design-spec.md)
 * [k82mysql集群](docs/quick-start/guide/mysql-k8s-deploy/Readme.md)
-* [使用 helm chart 部署 boat-house ](docs/quick-start/guide/k8s-helm-deploy-boat-house/README.md)
-* [使用 Flyway 进行数据库持续交付](docs/quick-start/guide/java-flyway-db-pipeline/Readme.md)
-
+* [nGrinder 接口性能测试](docs/quick-start/guide/nGrinder-perf-testing/Readme.md)
+* [TSB JavaAgent 探针安装](docs/quick-start/guide/TSB-Agent-use/Readme.md)
 ## Contribute Guide：
 
 ##### 提交规范？
