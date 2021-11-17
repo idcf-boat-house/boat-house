@@ -169,7 +169,7 @@ https://smartide.dev/zh/docs/quickstart/install/
 ### 01. 使用smartide vm start命令在远程虚拟机上启动开发环境，并克隆代码
 
 ```
-smartide vm start --host <dev-vm-ip> --username  <dev-vm-username> --password <dev-vm-password> --branch master --repourl <boat-house-frontend-repo-url>
+smartide start --host <dev-vm-ip> --username  <dev-vm-username> --password <dev-vm-password> --branch master --repourl <boat-house-frontend-repo-url>
 ```
 
 ### 02. 开发BoatHouse船屋餐厅客户端 
