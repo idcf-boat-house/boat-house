@@ -11,7 +11,9 @@
 - 无需安装IDE（云原生模式的开发模式，开发人员无需在本地安装IDE以及SDK，只需要通过浏览器即可完成应用的开发调试，甚至是代码的托管以及开发状态的维护）
 - 一键启动开发调试（开发人员不需要了解太多的应用开发所依赖的各种SDK，中间件，以及其他依赖。只需要执行一个命令就可以直接开始应用的开发，不管你是前端开发人员还是PHP，Nodejs，C，C++，甚至是JAVA，DOTNET都可以快速进入开发状态）
 
+这里提供了两种模式学员可以根据自己的实际情况选择，如果本地没有安装Docker建议选择VM模式，如果本地已经安装Docker建议选择本地模式。
 
+## 本地开发模式
 
 ### 01. SmartIDE开发客户端安装
 -------------
@@ -141,6 +143,106 @@ npm start
 
 
 ### 06. 修改船屋餐厅管理端（management端）
+-------------
+
+船屋餐厅管理端与客户端使用的同样的技术栈，都是Nodejs+Vue。所以操作方式是一样的。直接按照上面的方式打开对应的管理端目录进行开发调试即可。
+
+打开船屋餐厅客户端代码目录（src/management）, 后面参考04以及05章节即可。：
+
+> 点击File ｜ Open Folder ｜ 选择路径 /home/project/src/management/ ｜ 点击 OK，如下图所示，也可以使用URL的方式快速打开目录：
+
+http://localhost:6800/?folder=vscode-remote%3A%2F%2Flocalhost%3A6800%2Fhome%2Fproject%2Fsrc%2Fmanagement
+
+
+![](images/2021-11-14-20-50-29.png)
+
+
+总结：本加分项我们使用了开源容器化开发工具smartide完成了船屋餐厅前端的开发与调试，开发人员无需安装配置IDE以及SDK即可快速进行开发状态。这其实也是DevOps的最后一公里，云原生开发环境也将是后续的主流趋势。
+
+## 远程虚拟机开发模式
+
+请参考以下安装手册，完成smartide开发客户端的安装（本地无需安装Docker环境）：
+
+https://smartide.dev/zh/docs/quickstart/install/
+
+
+### 01. 使用smartide vm start命令在远程虚拟机上启动开发环境，并克隆代码
+
+```
+smartide vm start --host <dev-vm-ip> --username  <dev-vm-username> --password <dev-vm-password> --branch master --repourl <boat-house-frontend-repo-url>
+```
+
+### 02. 开发BoatHouse船屋餐厅客户端 
+-------------
+
+点击 Terminal ｜ New Terminal，打开命令行工具，如下图所示：
+
+
+![](images/2021-11-14-11-24-43.png)
+
+执行以下命令，完成npm依赖包的安装，如下图所示。
+
+```
+npm install
+```
+
+![](images/2021-11-14-11-26-21.png)
+
+执行以下命令，完成船屋餐厅前端的启动。
+
+```
+npm start
+```
+
+![](images/2021-11-14-11-31-18.png)
+
+启动完成后，如下图所示：
+
+![](images/2021-11-14-11-33-08.png)
+
+使用浏览器打开船屋应用：http://localhost:8080，打开后如下图所示：
+
+
+![](images/2021-11-14-11-34-25.png)
+
+
+
+### 03. 修改并提交代码
+-------------
+
+> 远程虚拟机上默认没有配置git config所以需要执行以下命令完成git的初始化配置：
+
+```
+git config --global user.name "your name"
+git config --global user.email "your email"
+```
+
+
+这里我们演示下，如何添加一个自定义菜单，打开src/components/App.vue文件，如下图所示：
+
+![](images/2021-11-14-20-41-24.png)
+
+修改完成后，键盘使用control+s保存代码
+
+> 注意：代码保存后，应用会自动重新编译，前端代码也会自动展示出对应的变更，无需重新启动调试，如下图所以：
+
+![](images/2021-11-14-20-43-06.png)
+
+切换到船屋客户端网页，如下图所示，界面已经自动更新：
+
+![](images/2021-11-14-20-43-48.png)
+
+点击Source Control ｜ 查看并确认修改的文件内容，点击提交代码，如下图所示：
+
+![](images/2021-11-14-20-46-53.png)
+
+> 注意：如果修改的代码文件，没有自动加载出来，可以通过在Source Control中点击刷新，如下图所示：
+
+![](images/2021-11-14-20-48-02.png)
+
+
+
+### 04. 修改船屋餐厅管理端（management端）
 -------------
 
 船屋餐厅管理端与客户端使用的同样的技术栈，都是Nodejs+Vue。所以操作方式是一样的。直接按照上面的方式打开对应的管理端目录进行开发调试即可。
