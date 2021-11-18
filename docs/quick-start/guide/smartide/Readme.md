@@ -172,7 +172,7 @@ https://smartide.dev/zh/docs/quickstart/install/
 
 > 重要提示：请避免多个团队成员同时进行以下操作，因为大家同时操作一台服务器会造成互相冲突，影响操作体验。
 
-### 01. 使用smartide vm start命令在远程虚拟机上启动开发环境，并克隆代码
+### 01. 使用smartide start命令在远程虚拟机上启动开发环境，并克隆代码
 
 ```shell
 smartide start --host <dev-vm-ip> --username  <dev-vm-username> --password <dev-vm-password> --branch master --repourl <boat-house-frontend-repo-url>
@@ -216,7 +216,7 @@ npm start
 ### 03. 修改并提交代码
 -------------
 
-远程虚拟机上默认没有配置git config所以需要执行以下命令完成git的初始化配置：
+远程虚拟机上如果没有配置git config所以需要执行以下命令完成git的初始化配置：
 
 ```
 git config --global user.name "your name"
