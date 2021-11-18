@@ -11,7 +11,7 @@ workspace:
       git-config: true
       ssh-key: true
   services:
-    boathouse-calculator:
+    boathouse-docs:
       image: registry.cn-hangzhou.aliyuncs.com/smartide/smartide-opvscode:latest
       restart: always
       environment:
