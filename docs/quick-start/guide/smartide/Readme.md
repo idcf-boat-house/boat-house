@@ -1,5 +1,7 @@
 # 使用标准化容器化开发环境，快速进行代码开发调试
 
+![](images/smartide-logo.png)
+
 **背景介绍** ：
 
 > 目前很多团队已经公司都已经完成了运维端的容器化转型，通过Docker以及Kuberntes提供的能力，帮助团队快速完成应用的部署以及回滚。我们能体会到
@@ -30,6 +32,8 @@ https://smartide.dev/zh/docs/quickstart/install/
 -------------
 
 打开小组成员已经Folk到自己团队的BoatHouse船屋餐厅前端的代码，参考下图复制代码仓库地址：
+
+> 注意：请个小组使用自己fork的代码库
 
 ![](images/2021-11-14-11-09-07.png)
 
@@ -109,12 +113,11 @@ npm start
 
 ![](images/2021-11-14-11-33-08.png)
 
-使用浏览器打开船屋应用：http://localhost:8080，打开后如下图所示：
+使用浏览器打开船屋应用：http://localhost:8080
 
+打开后如下图所示：
 
 ![](images/2021-11-14-11-34-25.png)
-
-
 
 ### 05. 修改并提交代码
 -------------
@@ -161,14 +164,17 @@ http://localhost:6800/?folder=vscode-remote%3A%2F%2Flocalhost%3A6800%2Fhome%2Fpr
 
 ## 远程虚拟机开发模式
 
-请参考以下安装手册，完成smartide开发客户端的安装（本地无需安装Docker环境）：
+请参考以下安装手册，完成smartide开发客户端的安装：
 
 https://smartide.dev/zh/docs/quickstart/install/
 
+> 说明：使用SmartIDE远程主机模式，全部的工作都在远程主机（Linux服务器）上完成，开发人员本地环境无需安装docker和docker-compose，但是需要确保所使用的远程主机正确安装了docker和docker-compose。你可以使用黑马环境所提供的Dev服务器作为SmartIDE的远程主机，黑马环境所提供的Dev服务器均已经提供了对应的安装指导，请确保你按照这些文档正确完整了配置。
+
+> 重要提示：请避免多个团队成员同时进行以下操作，因为大家同时操作一台服务器会造成互相冲突，影响操作体验。
 
 ### 01. 使用smartide vm start命令在远程虚拟机上启动开发环境，并克隆代码
 
-```
+```shell
 smartide start --host <dev-vm-ip> --username  <dev-vm-username> --password <dev-vm-password> --branch master --repourl <boat-house-frontend-repo-url>
 ```
 
@@ -210,12 +216,14 @@ npm start
 ### 03. 修改并提交代码
 -------------
 
-> 远程虚拟机上默认没有配置git config所以需要执行以下命令完成git的初始化配置：
+远程虚拟机上默认没有配置git config所以需要执行以下命令完成git的初始化配置：
 
 ```
 git config --global user.name "your name"
 git config --global user.email "your email"
 ```
+
+> 以上设置仅在你本地的开发上也没有设置的情况下才需要在远程主机上设置，SmartIDE会自动完成本地gitconfig到远程主机gitconfig的同步。
 
 
 这里我们演示下，如何添加一个自定义菜单，打开src/components/App.vue文件，如下图所示：
