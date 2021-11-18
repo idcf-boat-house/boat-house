@@ -1,0 +1,27 @@
+version: smartide/v0.2
+orchestrator:
+  type: docker-compose
+  version: 3
+workspace:
+  dev-container:
+    service-name: boathouse-docs
+    webide-port: 6800
+    ide-type: vscode  #vscode/theia
+    volumes: 
+      git-config: true
+      ssh-key: true
+  services:
+    boathouse-calculator:
+      image: registry.cn-hangzhou.aliyuncs.com/smartide/smartide-opvscode:latest
+      restart: always
+      environment:
+        POSTGRES_HOST_AUTH_METHOD: trust
+        ROOT_PASSWORD: root123
+      volumes:
+        - .:/home/project
+      networks:
+        - boathouse-docs-network
+
+  networks:
+    boathouse-docs-network:
+      external: true
