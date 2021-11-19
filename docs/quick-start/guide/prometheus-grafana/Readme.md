@@ -33,32 +33,44 @@ prom/node-exporter \
 --collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
 ```
 
-## 02. 在Jenkins服务器上安装Cadvisor 
 
-> 通过在Jenkins服务器上安装Cadvisor ，可以收集Jenkins服务器的容器运行情况，并通过Grafana监控服务器性能以及问题。
+## 02. 在Dev服务器上安装Node Exporter && Cadvisor 
+
+> 在Dev服务器上安装Node Exporter，可以收集Jenkins服务器的系统运行情况，并通过Grafana监控服务器性能以及问题。
+
+执行一下命令通过容器部署node-exporter
 
 ```
-docker run -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker:/var/lib/docker:ro -p 8080:8080 --detach=true --name=cadvisor --net=host google/cadvisor:latest
+docker run -d -p 9100:9100 \
+-v "/proc:/host/proc" \
+-v "/sys:/host/sys" \
+-v "/:/rootfs" \
+prom/node-exporter \
+--path.procfs /host/proc \
+--path.sysfs /host/sys \
+--collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
 ```
 
-## 03. 在Dev服务器上安装Node Exporter && Cadvisor 
-
-> 按照以上同样的方法在Dev服务器完成以上两个服务的安装。
+执行一下命令通过容器部署Cadvisor
 
 
+```
+docker run -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/docker:/var/lib/docker:ro -p 8081:8080 --detach=true --name=cadvisor google/cadvisor:latest
+```
 
-### 04. 在Dev服务器上安装Promethues主服务器
+
+### 03. 在Jenkins服务器上安装Promethues主服务器
 
 使用容器的方式启动prometheus服务。
 
 ```
-docker run -d -p 9090:9090 --name prometheus --net=host prom/prometheus
+docker run -d -p 9090:9090 --name prometheus prom/prometheus
 ```
 
 复制Prometheus容器中的主配置文件到宿主机本地
 
 ```
-docker run -d -p 9090:9090 --name prometheus --net=host prom/prometheus
+sudo docker cp prometheus:/etc/prometheus/prometheus.yml /root/
 ```
 
 删除临时创建的Prometheus容器
@@ -70,34 +82,87 @@ docker rm -f prometheus
 打开复制出来的配置文件，直接跳转到配置文件的最后一行
 
 ```
-vim prometheus.yml
+sudo vi /root/prometheus.yml 
 ```
 
 修改Tagget服务器, 使用!wq保存更改
 
 ```
-targets: ['jenkins-server:9090','jenkins-server:8080','dev-server:9090','dev-server:8080']
+targets: ['jenkins-server:9100','dev-server:9100','dev-server:8081']
 ```
 
 启动prometheus服务，并使用刚刚修改的配置文件
 
 ```
-docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus --net=host prom/prometheus
+docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.yml --name prometheus prom/prometheus
 ```
 
-重启prometheus服务
 
-```
-docker start prometheus
-```
-
-### 05. 在Dev服务器上安装Grafana服务
+### 04. 在Jenkins服务器上安装Grafana服务
 
 > Grafana可以帮助我们可视化服务器的相关指标。
 
 ```
 mkdir grafana-storage
 chmod 777 -R grafana-storage/
-docker run -d -p 3000:3000 --name grafana -v /root/grafana-storage:/var/lib/grafana -e "GF_SECURITY_ADMIN_PASSWORD=123.com" grafana/grafana
+docker run -d -p 3000:3000 --name grafana -v /root/grafana-storage:/var/lib/grafana -e "GF_SECURITY_ADMIN_PASSWORD=garafana" grafana/grafana
 
 ```
+
+### 05. 查看Prometheus监控目标的情况
+
+打开http://jenkins-server:9090, 点击Status ｜ targets 如下图所示：
+
+> 说明：UP表明服务器正常，Down表示服务器没有监控到
+
+![](images/2021-11-19-10-45-12.png)
+
+
+### 06. 使用Grafana监控服务器性能
+
+
+打开http://jenkins-server:3000, 并登陆Grafana，用户名：admin，密码：grafana
+
+添加数据源，如下图所示：
+
+![](images/2021-11-19-10-48-54.png)
+
+选择Prometheus，如下图所示：
+
+![](images/2021-11-19-10-49-52.png)
+
+添加Prometheus的地址，打开http://jenkins-server:9090，并点击保存。如下图所示：
+
+![](images/2021-11-19-10-51-03.png)
+
+
+打开Grafana官网，https://grafana.com/grafana/dashboards/?dataSource=prometheus，下载监控模版，并导入：
+
+![](images/2021-11-19-10-53-39.png)
+
+点击Download Json，下载监控模版，如下图所示：
+
+![](images/2021-11-19-10-54-14.png)
+
+按下图操作方式，导入监控模版，如下图所示：
+
+![](images/2021-11-19-10-55-09.png)
+
+
+点击Upload Json File，如下图所示：
+
+![](images/2021-11-19-10-55-39.png)
+
+点击Import，如下图所示：
+
+![](images/2021-11-19-10-57-17.png)
+
+监控主机情况，如下图所示：
+
+![](images/2021-11-19-10-58-03.png)
+
+切换监控主机，如下图所示：
+
+![](images/2021-11-19-10-58-36.png)
+
+说明：这样我们就快速完成了服务器的监控，对于windows，容器，kubernetes服务器我们都可以通过安装exporter以及下载grafana监控模版来完成各种监控。
