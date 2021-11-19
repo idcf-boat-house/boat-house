@@ -3,18 +3,20 @@
 
 **背景介绍** ：
 
-> 通过DevOps流水线可以快速完成应用的编译，测试，打包，部署。但是部署只有应用的监控以及服务器的监控，包括容器的监控也是非常重要的。我们需要监控服务器
-的性能指标。避免服务出现down机的问题。
+> 通过DevOps流水线可以快速完成应用的编译，测试，打包，部署。但是应用部署后，实时了解服务器的性能情况也是非常重要的，所以我们需要监控服务器
+，容器，集群的各项性能指标，确保应用处于最佳运行环境。避免服务出现down机等各类问题。
 
-这文档提供了多种环境的监控，包括Windows，Linux，容器，Kubernetes集群等。
+通过Prometheus+Grafana可以监控，包括Windows，Linux，容器，Kubernetes集群等各类资源，这里我们将介绍Linux服务器监控，以及容器监控。
+
 整个部署过程，包括四个组件：Prometheus Server、Node Exporter、cAdvrisor、Grafana。
 
 |  组建名称 | 说明  |
 | ------------ | ------------ |
 |  Prometheus Server | Prometheus服务的主服务器   |
-| Node Exporter  | 收集Host硬件和操作系统的信息  |
+| Node Exporter  | 收集Linux Host硬件和操作系统的信息  |
 | cAdvrisor   |  负责收集Host上运行的容器信息 |
 | Grafana    | 用来展示Prometheus监控操作界面（给我们提供一个友好的web界面）  |
+| Windows Exporter | 收集Windows Host硬件和操作系统的信息  |
 
 ## 01. 在Jenkins服务器上安装Node Exporter
 
