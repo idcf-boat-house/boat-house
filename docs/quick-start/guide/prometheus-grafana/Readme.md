@@ -59,7 +59,7 @@ docker run -v /:/rootfs:ro -v /var/run:/var/run:rw -v /sys:/sys:ro -v /var/lib/d
 ```
 
 
-### 03. 在Jenkins服务器上安装Promethues主服务器
+## 03. 在Jenkins服务器上安装Promethues主服务器
 
 使用容器的方式启动prometheus服务。
 
@@ -98,7 +98,7 @@ docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.ym
 ```
 
 
-### 04. 在Jenkins服务器上安装Grafana服务
+## 04. 在Jenkins服务器上安装Grafana服务
 
 > Grafana可以帮助我们可视化服务器的相关指标。
 
@@ -109,7 +109,7 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 
 ```
 
-### 05. 查看Prometheus监控目标的情况
+## 05. 查看Prometheus监控目标的情况
 
 打开http://jenkins-server:9090, 点击Status ｜ targets 如下图所示：
 
@@ -118,7 +118,7 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 ![](images/2021-11-19-10-45-12.png)
 
 
-### 06. 使用Grafana监控服务器性能
+## 06. 使用Grafana监控服务器性能
 
 
 打开http://jenkins-server:3000, 并登陆Grafana，用户名：admin，密码：grafana
@@ -167,7 +167,7 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 
 ![](images/2021-11-19-11-52-40.png)
 
-### 06. 使用Grafana监控容器运行情况
+## 07. 使用Grafana监控容器运行情况
 
 打开Grafana官网，https://grafana.com/grafana/dashboards/?dataSource=prometheus，下载监控模版，并导入：
 
