@@ -58,9 +58,11 @@
 | 003 | 在流水线中集成基于 Selenium 的自动化UI测试 | 在DEV环境部署Selenium Grid环境，并使用 Selenium Grid 运行文档中提供的测试代码，最终需要在流水线中执行这些测试并且通过 jenkins 的测试结果视图查看到结果。参考文档 [Selenium自动化UI测试](../../quick-start/guide/selenium-ui-testing/Readme.md) [Jenkins调度Selenium](../../quick-start/guide/selenium-for-jenkins/Readme.md) |
 | 004 | 使用 PostMan 进行接口测试 | 安装并使用 PostMan 为Boathouse后台的2个接口添加接口测试用例，导出这些用例并使用 Newman 集成到流水线中。参考文档 [Postman接口测试指南](../../quick-start/guide/postman-api-testing/Readme.md)   |
 | 005 | 使用 Neuxs 管理依赖和制品  | 搭建 Nexus 服务器并使用这台私有制品服务器管理本团队的外部依赖和待发布制品，待发布制品需要通过流水线实现自动上传和版本对其（制品版本与Jenkins构建ID的双向跟踪， 参考文档 [Nexus搭建及使用指南](../../quick-start/guide/nexus/readme.md) |
-| 006 | 进行 Jmeter 自动执行接口/性能测试 | 搭建Jmeter环境，完成JMeter测试用例编写并在流水线中自动执行，可以正确查看JMeter测试报告。参考文档 [JMeter测试用例编写手册](../../quick-start/guide/jmeter-testing/Readme.md) [Jenkins集成Jmeter](../../quick-start/guide/jmeter-testing/jmeter-for-jenkins.md) |
-| 007 | 使用 Flyway 管理结构化数据库的持续交付 | 搭建Flyway环境，并通过Flyway集成流水线完成至少一个数据库字段的结构变更，变更内容需要自动发布到DEV环境。参考文档 [使用 Flyway 进行数据库持续交付](../../quick-start/guide/java-flyway-db-pipeline/Readme.md) |
-| 008 | 标准化容器开发环境 | 开发人员如何使用云原生的开发模式，统一标准化开发环境，快速完成应用的开发以及调试。参考文档 [使用开源工具smartide快速进行开发调试](../../quick-start/guide/smartide/Readme.md) |
+| 006 | 标准化容器开发环境 | 开发人员如何使用云原生的开发模式，统一标准化开发环境，快速完成应用的开发以及调试。参考文档 [使用开源工具smartide快速进行开发调试](../../quick-start/guide/smartide/Readme.md) |
+| 007 | 服务器监控 && 容器监控 | 使用Prometheus+Grafana监控服务器以及容器的性能指标。参考文档 [使用Prometheus+Grafana监控服务器以及容器](../../quick-start/guide/prometheus-grafana/Readme.md) |
+| 008 | 进行 Jmeter 自动执行接口/性能测试 | 搭建Jmeter环境，完成JMeter测试用例编写并在流水线中自动执行，可以正确查看JMeter测试报告。参考文档 [JMeter测试用例编写手册](../../quick-start/guide/jmeter-testing/Readme.md) [Jenkins集成Jmeter](../../quick-start/guide/jmeter-testing/jmeter-for-jenkins.md) |
+| 009 | 使用 Flyway 管理结构化数据库的持续交付 | 搭建Flyway环境，并通过Flyway集成流水线完成至少一个数据库字段的结构变更，变更内容需要自动发布到DEV环境。参考文档 [使用 Flyway 进行数据库持续交付](../../quick-start/guide/java-flyway-db-pipeline/Readme.md) |
+
 参考文档：[Boathouse工具链指导文档列表](../../../README.md?id=工具指导文档) 这里列出了所有相关的工具链指导文档，供参考。
 
 ## 小结
