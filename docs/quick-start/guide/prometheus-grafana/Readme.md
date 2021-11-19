@@ -159,11 +159,12 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 
 监控主机情况，如下图所示：
 
-![](images/2021-11-19-10-58-03.png)
+![](images/2021-11-19-11-48-33.png)
+
+![](images/2021-11-19-11-49-32.png)
 
 切换监控主机，如下图所示：
 
-![](images/2021-11-19-10-58-36.png)
 
 ### 06. 使用Grafana监控容器运行情况
 
@@ -177,6 +178,6 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 
 按照以上同样的方式完成容器监控模版的导入，导入后如下图所示：
 
-![](images/2021-11-19-11-36-42.png)
+![](images/2021-11-19-11-50-16.png)
 
-![](images/2021-11-19-11-37-13.png)
+![](images/2021-11-19-11-51-02.png)
