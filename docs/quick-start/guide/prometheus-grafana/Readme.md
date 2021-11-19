@@ -165,4 +165,18 @@ docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/l
 
 ![](images/2021-11-19-10-58-36.png)
 
-说明：这样我们就快速完成了服务器的监控，对于windows，容器，kubernetes服务器我们都可以通过安装exporter以及下载grafana监控模版来完成各种监控。
+### 06. 使用Grafana监控容器运行情况
+
+打开Grafana官网，https://grafana.com/grafana/dashboards/?dataSource=prometheus，下载监控模版，并导入：
+
+![](images/2021-11-19-11-31-57.png)
+
+点击Download Json，下载监控模版，如下图所示：
+
+![](images/2021-11-19-11-32-15.png)
+
+按照以上同样的方式完成容器监控模版的导入，导入后如下图所示：
+
+![](images/2021-11-19-11-36-42.png)
+
+![](images/2021-11-19-11-37-13.png)
