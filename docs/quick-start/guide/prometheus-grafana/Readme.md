@@ -6,9 +6,7 @@
 > 通过DevOps流水线可以快速完成应用的编译，测试，打包，部署。但是应用部署后，实时了解服务器的性能情况也是非常重要的，所以我们需要监控服务器
 ，容器，集群的各项性能指标，确保应用处于最佳运行环境。避免服务出现down机等各类问题。
 
-通过Prometheus+Grafana可以监控，包括Windows，Linux，容器，Kubernetes集群等各类资源，这里我们将介绍Linux服务器监控，以及容器监控。
-
-整个部署过程，包括四个组件：Prometheus Server、Node Exporter、cAdvrisor、Grafana。
+通过Prometheus+Grafana可以监控，包括Windows，Linux，容器，Kubernetes集群等各类资源，这里我们将介绍Linux服务器监控，以及容器监控。整个部署过程，包括四个组件：Prometheus Server、Node Exporter、cAdvrisor、Grafana。
 
 |  组建名称 | 说明  |
 | ------------ | ------------ |
@@ -36,7 +34,7 @@ prom/node-exporter \
 ```
 
 
-## 02. 在Dev服务器上安装Node Exporter && Cadvisor 
+## 02. 在Dev服务器上安装Node Exporter
 
 > 在Dev服务器上安装Node Exporter，可以收集Jenkins服务器的系统运行情况，并通过Grafana监控服务器性能以及问题。
 
@@ -107,7 +105,7 @@ docker run -d -p 9090:9090 -v /root/prometheus.yml:/etc/prometheus/prometheus.ym
 ```
 mkdir grafana-storage
 chmod 777 -R grafana-storage/
-docker run -d -p 3000:3000 --name grafana -v /root/grafana-storage:/var/lib/grafana -e "GF_SECURITY_ADMIN_PASSWORD=garafana" grafana/grafana
+docker run -d -p 3000:3000 --name grafana -v /home/ghuser/grafana-storage:/var/lib/grafana -e "GF_SECURITY_ADMIN_PASSWORD=grafana" grafana/grafana
 
 ```
 
