@@ -1,4 +1,4 @@
-# IDCF Boat House 快速开发指南
+# IDCF Boat House 快速开发指南（SmartIDE）
 ## IDCF Boat House 项目架构：
 ![boathouse-arch](images/devguide-boathouse-arch.png)
 ## 指南概要
@@ -7,11 +7,6 @@
 * 基于Node Js + Vue 框架开发的后端管理平台 **Management Web** 将为Boat House提供后台数据管理功能。
 
 本指南将以 Product Service 和 Boat House 后端管理平台 Management Web 为例，在接下来的三个章节中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈/IDE情况下如何进行前后端到端的调试。
-
-参考资料： 
-  -  [boathouse架构图](resources/boathouse-arch-design.pptx) 
-  -  [boathouse-本地调试结构图](resources/BoatHouse-dev-guide-design.pptx) 
-  -  [Selenium结构图](resources/Selenium.pptx) 
 
 ## Product Service 快速上手指南
 
@@ -25,14 +20,11 @@ Boat House Product Service 是 ：
 ![](images/devguide-product-service-01.png)
 
 ### 开发环境
-使用SmartIDE容器化开发环境的方式进行开发调试：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
+使用SmartIDE容器化开发环境的方式进行开发调试，通过任何浏览器终端即可：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
+基于SmartIDE容器化开发环境的方式进行开发（推荐）：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
+本地开发环境进行开发：此种方式就是传统的软件开发模式，本地需要安装SDK，开发工具等。
 ### 快速开始
-
-开发模式我们提供了两种方式：
- - 基于SmartIDE容器化开发环境的方式进行开发（推荐）：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
- - 本地开发环境进行开发：此种方式就是传统的软件开发模式，本地需要安装SDK，开发工具等。
-
-### （模式一）SmartIDE容器化开发模式
+1. 
 
 1. 如果本地没有开发环境，请参考以下连接，一步快速启动开发环境：https://gitee.com/idcf-boat-house/boat-house-backend/blob/master/src/product-service/api/.ide/readme.md
 
