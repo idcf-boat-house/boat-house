@@ -13,6 +13,7 @@
 * [IDCF DevOps黑客马拉松操作手册（京东方版）](docs/workshops/hackathon/README-FullEnv.md)
 * [IDCF DevOps黑客马拉松操作手册（云智慧版）](docs/workshops/hackathon/README-cloudwise.md)
 * [IDCF BoatHouse DevOps 实战训练营(开源版)](docs/workshops/boathouse-e2e-opensource/README.md)
+* [IDCF DevOps黑客马拉松操作手册(SmartIDE)](docs/workshops/hackathon-smartide/README.md)
 
 
 **boathouse 一期共创**
