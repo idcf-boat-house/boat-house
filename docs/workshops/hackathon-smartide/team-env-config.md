@@ -89,7 +89,7 @@ ssh smartide@boathouse-pipeline-agent -p 6822
 进入到 boathouse-pipeline-agent 后，我们创建一个 Jenkins的工作目录，/home/smartide/jenkins_workspace
 
 ```
-mkdir -r jenkins_workspace
+mkdir jenkins_workspace
 ```
 ![](images/20221026111904.png)  
 
