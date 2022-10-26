@@ -213,33 +213,33 @@ exit
 
 * **Management Web 前端：用户浏览器（开发者模式）**
 
-3. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
+1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
 
 ![](images/devguide-smartide-debug-12.png)
 
-4. 添加菜品内容后，点击确定，触发调试
+2. 添加菜品内容后，点击确定，触发调试
 
 ![](images/devguide-smartide-debug-13.png)
 
-5. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
+3. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
 
 ![](images/devguide-smartide-debug-14.png)
 
-6. 点击继续运行：
+4. 点击继续运行：
 
 ![](images/devguide-smartide-debug-15.png)
 
-7. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
+5. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
 
 ![](images/devguide-smartide-debug-16.png)
 
-8. 再次点击继续运行，数据添加成功：
+6. 再次点击继续运行，数据添加成功：
 
 ![](images/devguide-smartide-debug-17.png)
 
-9. 至此，我们完成了前后端联调测试。
+7. 至此，我们完成了前后端联调测试。
 
-**下面，任由您继续扩展发挥吧！**
+**下面，任由您继续发挥吧！**
 
 **SmartIDE Up**
 
