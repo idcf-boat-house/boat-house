@@ -75,67 +75,19 @@ Jenkins流水线使用 Kubernetes Continues Deploy 插件完成k8s部署，此�
 
 代码仓库的yaml文件提交完毕，接下来我们开始进行Jenkins流水线的部署。
 
-1. 打开Jenkins流水线，点击分支重新启动流水线
+打开Jenkins流水线，点击分支重新启动流水线
 
 ![image.png](images/k8s-12.png)
 
-2. Dev环境部署完毕后，点击同意部署到测试环境
+Dev环境部署完毕后，点击同意部署到测试环境
 
 ![image.png](images/k8s-05.png)
 
-3. 等待测试环境部署完毕，可以看到该步骤执行成功
+等待测试环境部署完毕，可以看到该步骤执行成功
 
 ![image.png](images/k8s-06.png)
 
-4. 回到工作空间，使用k9s查看部署情况
-    ```
-    k9s
-    ```
+回到工作空间，使用k9s查看部署情况
 
+![](images/20221026173749.png)  
 
-6. 运行以下命令，查看测试环境的 services 列表
-    
-    ```
-    kubectl get services -n boathouse-test
-    ```
-
-    ![image.png](images/k8s-13.png)
-    
-    上图中，我们可以看到 client, management, product-service-api 服务均已经启动，外部 IP 地址和端口号也已经可以看到
-
-7. 访问各服务的 IP地址和端口号对应的网站，可以看到环境已经成功在运行中
-
-Client: http://[client-serivce-ip]:[port]
-
-![image.png](images/k8s-14.png)
-
-Management: http://[management-serivce-ip]:[port]
-
-![image.png](images/k8s-15.png)
-
-Product Service Swagger API: http://[product-serivce-api-ip]:[port]/api/v1.0/swagger-ui.html
-
-![image.png](images/k8s-16.png)
-
-
-### 部署生产环境
-
-1. 打开Jenkins流水线，点击同意部署到生产环境
-![image.png](images/k8s-08.png)
-1. 等待生产环境部署完毕，可以看到该步骤执行成功
-![image.png](images/k8s-09.png)
-1. 回到命令行，查看生产环境命名空间下的 pods
-    ```
-    kubectl get pods -n boathouse-prod
-    ```
-    可以看到生产环境已经部署成功
-    ![image.png](images/k8s-10.png)
-1. 查看生产环境 Services
-    ```
-    kubectl get services -n boathouse-prod
-    ```
-    ![image.png](images/k8s-17.png)
-1. 访问生产环境网站
-![image.png](images/k8s-18.png)
-![image.png](images/k8s-19.png)
-![image.png](images/k8s-20.png)
