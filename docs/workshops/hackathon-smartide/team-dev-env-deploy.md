@@ -69,14 +69,15 @@
 
 ### 查看部署结果
 
-Dev环境部署完毕，打开以下链接，查看部署结果：
-1. Client Web 
-http://{vm-dev ip address}:5000
+Dev环境部署完毕，在SmartIDE工作空间打开以下链接，查看部署结果：
+
+![](images/20221026164722.png)  
+
+BoatHouse Client端，如下图所示：
+
 ![image.png](images/teamguide-cd-12.png)
-1. Management Web
-http://{vm-dev ip address}:5001
+
+BoatHouse Management端，如下图所示：
+
 ![image.png](images/teamguide-cd-13.png)
-1. Product Service AP Swagger UI
-http://{vm-dev ip address}:7001/api/v1.0/swagger-ui.html
-![image.png](images/teamguide-cd-14.png)
 
