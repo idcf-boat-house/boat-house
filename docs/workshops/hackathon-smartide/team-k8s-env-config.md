@@ -1,67 +1,38 @@
 # Boathouse K8S (Test & Prod) 环境部署
 
 在前面的文档中，我们已经部署好 Jenkins 的流水线，并成功的部署了 Boathouse 的 Dev 环境。
-接下来，我们会使用已分配给团队的K8S环境部署 Boathouse 的 Test & Prod 环境.
+接下来，我们会使用已分配给团队的K8S环境部署 Boathouse 的 Test 环境.
 
-## 配置 K8s 集群 & Jenkins 凭据
+## 准备部署环境（快速创建K8S集群）
 
-前提条件：安装Kubectl工具：
+我们将使用 boathouse-pipeline-agent 这个资源作为我们的测试环境 ，会通过在这个资源内运行一个k8s集群。
 
-- 官网下载下载地址: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-- Windows kubectl.exe 下载地址: https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe
-- MacOS/Linux: 下载并解压，执行以下命令完成配置
+执行以下命令快速创建一个K8S集群：
 
-    ```shell
-    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    chmod +x ./kubectl
-    sudo mv ./kubectl /usr/local/bin/kubectl
-    ```
-
-注意：如果以上安装地址出现无法访问的情况，请通过【Boathouse资源网盘】下载kubectl工具，下载方式如下
-
-获取方式：扫描二维码，关注DevOps公众号，输入：boathouse训练营 即可获取网盘连接和密码
-
-![](images/devops-barcode.jpg)
-
-1. 获取k8s密钥文件
-
-此文件包含连接k8s集群的密钥信息，一般讲师会通过 teamXXX.kubeconfig 文件形式发送给各个团队。此文件需要被放置于当前登录用户默认文件夹下面的.kube目录中，如果此目录不存在，可以自行创建
-
-进入 .kube 文件夹中，创建或者使用现有的config文件，默认情况下kubectl工具会读取这个目录下的config文件作为自己的配置文件。
-
-我们需要替换此文件的内容为 teamXXX.kubeconfig 文件的内容
-
-![image.png](images/k8s-22.png)
-
-2. 如果需要使用以上K8s Config登陆集群，可以在安装kubectl的环境中当前用户目录中创建 .kube 文件夹，并在此文件夹下创建 Config 文件，并将以上复制的内容保存到这个文件中
-
-![image.png](images/k8s-21.png)
-
-使用替换文件或修改文件内容的方式修改.kube下的config。
-
-3. 保存完毕后运行命令，查看连接情况：
-
-```shell
-kubectl get pods -n kube-system
+```
+# 使用KIND创建单节点k8s集群
+kind create cluster \
+    --image registry.cn-hangzhou.aliyuncs.com/smartide/nestybox-kindestnode:v1.20.7
 ```
 
-![image.png](images/k8s-01.png)
+k8s集群创建成功后，可以使用k9s工具对集群运行状态进行实时监控。
 
-4. 创建 test & prod 命名空间
+![](images/20221026154426.png)  
 
-- 用于Jenkins流水线部署的命令空间：
+
+
+接下来可以为应用创建一个独立的命名空间，操作如下
+
 
 ```shell
 kubectl create namespace boathouse-test
-kubectl create namespace boathouse-prod
 ```
 
-![image.png](images/k8s-02.png)
     
    
 5. 为命名空间创建 docker-registry-secrets
 
-> 镜像仓库的用户名和密钥可以通过 [DevOps实验室](https://labs.devcloudx.com) 中的环境信息页面获取，或者讲师直接提供。
+> 容器镜像仓库的用户名和密钥联系讲师获取。
 
 - 用于Jenkins流水线部署
 
@@ -70,7 +41,6 @@ kubectl create namespace boathouse-prod
 ## [username] 是容器镜像服务ACR的用户名
 ## [password] 是容器镜像服务ACR的密码
 kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-test
-kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-prod
 ```
     
 6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
@@ -108,13 +78,11 @@ Jenkins流水线使用 Kubernetes Continues Deploy 插件完成k8s部署，此�
 
 ![image.png](images/k8s-06.png)
 
-4. 回到命令行，查看测试环境命名空间下的 pods
+4. 回到工作空间，使用k9s查看部署情况
     ```
-    kubectl get pods -n boathouse-test
+    k9s
     ```
-    可以看到测试环境已经部署成功
 
-    ![image.png](images/k8s-07.png)
 
 6. 运行以下命令，查看测试环境的 services 列表
     
