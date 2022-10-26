@@ -22,14 +22,6 @@
 ![image.png](../.attachments/20200217153130.png)
 
 ## 安装和配置
-> sona 需要的最大虚拟内存为 262144
-```
-# 查看最大虚拟内存
-sysctl -a|grep vm.max_map_count
-# 如果小于 262144，请执行如下命令
-sudo sysctl -w vm.max_map_count=262144 
-```
-![image.png](images/sona-max_map_count.png)
 
 - 将以下yml脚本复制保存为文件：`docker-compose-sonarqube.yml`
 
@@ -38,7 +30,7 @@ version: "2"
 
 services:
   sonarqube:
-    image: sonarqube:8.9.1-community
+    image: sonarqube:7.7-community
     ports:
       - "9000:9000"
     networks:
@@ -311,43 +303,7 @@ sonar.sourceEncoding=UTF-8
 ![image.png](../.attachments/image-5a3a0317-6631-4f03-8f47-f5da8777b464.png)
 
 
-## Sonarqube线上环境配置
-- 通过ssh连接上linux服务器，确保已经安装 docker/docker compose
-- clone 代码库到本地：
 
-```
-mkdir source
-git clone https://github.com/icdps/boat-house-devops.git
-```
-- 进入`tools/sonarqube`目录，直接运行命令：`docker-compose -f docker-compose-sonarqube.yml up -d`
-- 确保 postgres 和 sonarqube 两个容器能运行起来
-![image.png](../.attachments/image-1d26cc34-7147-487d-ae9b-8f93fa3e2e02.png)
-- 如果未运行起来，运行`docker-compose -f docker-compose-sonarqube.yml logs -d -ft`查看日志，分析问题
-- 目前发现azure中的linux会有一个配置问题，在日志中会查到以下错误
-```
-sonarqube_1  | 2020-02-11T01:28:21.354836464Z 2020.02.11 01:28:21 ERROR es[][o.e.b.Bootstrap] node validation exception
-sonarqube_1  | 2020-02-11T01:28:21.354839364Z [1] bootstrap checks failed
-sonarqube_1  | 2020-02-11T01:28:21.354841964Z [1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
-```
-- 如果出现以上错误，按下面的方法修复
-
-临时解决办法：
-```
-修改参数：
-sudo sysctl -w vm.max_map_count=262144
-查看修改好的参数：
-sudo sysctl -a|grep vm.max_map_count
-```
-
-永远生效的办法
-```
-1 切换到root用户修改配置sysctl.conf
-2 执行：vi /etc/sysctl.conf 
-3 添加下面配置：vm.max_map_count=655360
-4 并执行命令：sysctl -p
-```
-
-- 成功运行后，运行 `curl http://localhost:9000/` 以验证是否正常运行.
 
 ## 与流水线集成
 
