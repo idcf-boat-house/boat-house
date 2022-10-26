@@ -157,11 +157,11 @@ sudo apt install maven
 
 然后点击 **Add**
 
-![image.png](.attachments/image-d235d0cf-666a-456c-bad0-ee0a1ac81b4b.png)
+![](images/20221026165715.png)  
 
 返回节点编辑界面后，选择刚才新建的认证
 
-![image.png](.attachments/image-030ed7e1-3465-45a5-804a-d77d7f5d16a2.png)
+![](images/20221026165729.png)  
 
 点击 "Advanced..", 将端口改为6822
 
