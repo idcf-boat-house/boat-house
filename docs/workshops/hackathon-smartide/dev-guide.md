@@ -20,11 +20,11 @@ Boat House Product Service 是 ：
 ![](images/devguide-product-service-01.png)
 
 ### 开发环境
-使用SmartIDE容器化开发环境的方式进行开发调试，通过任何浏览器终端即可：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
-基于SmartIDE容器化开发环境的方式进行开发（推荐）：使用这种方式开发人员本地只需要安装docker，以及smartide命令行工具，不需要依赖开发所依赖的SDK, 甚至开发工具，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，并开始你的开发调试。
-本地开发环境进行开发：此种方式就是传统的软件开发模式，本地需要安装SDK，开发工具等。
+使用SmartIDE容器化开发环境的方式，通过任何浏览器均可进行开发调试，环境中配置好对应的SDK以及docker等工具，不需要在本地安装SDK，开发工具等，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，就可以开始你的开发调试。
 ### 快速开始
-1. 
+1. 访问SmartIDE网站，完成登录
+![](images/devguide-smartide-login.png)
+2. 配置工作区策略
 
 1. 如果本地没有开发环境，请参考以下连接，一步快速启动开发环境：https://gitee.com/idcf-boat-house/boat-house-backend/blob/master/src/product-service/api/.ide/readme.md
 
