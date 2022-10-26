@@ -42,7 +42,8 @@ Boathouse流水线为了适配不同团队环境，使用了大量环境变量�
 ## Jenkins添加Docker Registry的连接密钥
 
 管理员提供给本组的镜像仓库的用户名以及密码，ID需'creds-github-registry’。
-![image.png](images/teamguide-cd-06-v2.png)
+
+![](images/20221026173216.png)  
 
 ## Jenkins添加SonarQube链接Token（类型：Secret Text）
 
