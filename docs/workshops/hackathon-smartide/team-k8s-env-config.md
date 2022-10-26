@@ -91,3 +91,21 @@ Dev环境部署完毕后，点击同意部署到测试环境
 
 ![](images/20221026173749.png)  
 
+
+等待应用容器都启动完毕后，如下图所示：
+
+![](images/20221026202950.png)  
+
+
+执行以下命令，将部署在k8s的应用端口映射出来
+
+```
+nohup kubectl --namespace boathouse-test port-forward svc/client 5000:5000 --address 0.0.0.0 > kubectl-port-forward.log &
+nohup kubectl --namespace boathouse-test port-forward svc/management 5001:5001 --address 0.0.0.0 > kubectl-port-forward.log &
+nohup kubectl --namespace boathouse-test port-forward svc/product-service-api 8080:8080 --address 0.0.0.0 > kubectl-port-forward.log &
+```
+
+
+通过工作区打开应用，如下图所示：
+
+![](images/20221026203157.png)  
