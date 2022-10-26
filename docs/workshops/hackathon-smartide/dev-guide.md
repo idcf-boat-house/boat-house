@@ -190,7 +190,22 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 ![](images/devguide-smartide-debug-10.png)
 
 * **Management Web 后端：VS Code Debugging Mode**
-1. 在 server.js 要调试的后台函数中打断点
+1. 初始化设置
+前端在调用到后端时，引用的名称为product-service-api，为避免开发的配置引入到集成环境，首先我们在本地环境需要配置host：
+```
+## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
+sudo passwd root
+## 切换到root用户
+su
+## 在root用户下执行
+## 添加product-service-api 映射到 127.0.0.1
+echo "127.0.0.1 product-service-api" >> /etc/hosts
+## 检查是否添加成功
+cat /etc/hosts
+## 退出 root 用户模式
+exit
+```
+2. 在 server.js 要调试的后台函数中打断点
 
 文件路径：src/boat-house-frontend/src/management/server.js
 
@@ -198,33 +213,35 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 
 * **Management Web 前端：用户浏览器（开发者模式）**
 
-1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
+3. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
 
 ![](images/devguide-smartide-debug-12.png)
 
-1. 添加菜品内容后，点击确定，触发调试
+4. 添加菜品内容后，点击确定，触发调试
 
 ![](images/devguide-smartide-debug-13.png)
 
-1. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
+5. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
 
 ![](images/devguide-smartide-debug-14.png)
 
-1. 点击继续运行：
+6. 点击继续运行：
 
 ![](images/devguide-smartide-debug-15.png)
 
-1. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
+7. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
 
 ![](images/devguide-smartide-debug-16.png)
 
-1. 再次点击继续运行，数据添加成功：
+8. 再次点击继续运行，数据添加成功：
 
 ![](images/devguide-smartide-debug-17.png)
 
-至此，我们完成了前后端联调测试。
-下面，任由您在进行扩展发挥吧！
-SmartIDE Up！
+9. 至此，我们完成了前后端联调测试。
+
+**下面，任由您继续扩展发挥吧！**
+
+**SmartIDE Up**
 
 
 
