@@ -132,7 +132,9 @@ sudo apt install maven
 
 ![image.png](.attachments/image-ace3ea5f-52f2-4013-b065-84419feb7e46.png)
 
-在创建节点界面输入参数:
+在创建节点界面输入以下参数:
+
+
     | 参数名 | 参数值 |
     |--|--|
     | # of executors | 1 |
@@ -141,6 +143,8 @@ sudo apt install maven
     | Launch method | Launch agents via SSH |
     | Host | boathouse-pipeline-agent |
     | Host Key Verification Strategy | Non verifying Verification Strategy |
+
+
 
 创建链接到salve的认证
 
