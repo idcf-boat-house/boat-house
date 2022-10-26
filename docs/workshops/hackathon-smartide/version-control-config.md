@@ -28,10 +28,10 @@
 
 ![](images/20221026110214.png)  
 
-4. Folk完成后，如下图所示：
+4. Fork完成后，如下图所示：
 
 ![](images/20221026110243.png)  
 
 5. 按照以上同样的方式BoatHouse流水线代码库的Folk：
 
-https://gitee.com/idcf-boat-house/boathouse-shop-pipeline
+    https://gitee.com/idcf-boat-house/boathouse-shop-pipeline
