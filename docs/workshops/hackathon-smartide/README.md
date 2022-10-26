@@ -24,7 +24,7 @@
 
 ### 2.2 团队环境配置
 
-- [示例代码导入](version-control-config.md): 按照此文档完成Gitee上面的代码库复制（Fork）。
+- [业务代码以及流水线代码仓库导入](version-control-config.md): 按照此文档完成Gitee上面的代码库复制（Fork）。
 
 - [Jenkins服务器搭建](team-env-config.md)：按照此文档完成Jenkins服务器搭建，添加节点并安装插件。
 
