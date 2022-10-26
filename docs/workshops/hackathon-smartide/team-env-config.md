@@ -135,14 +135,15 @@ sudo apt install maven
 在创建节点界面输入以下参数:
 
 
-    | 参数名 | 参数值 |
-    |--|--|
-    | # of executors | 1 |
-    | Remote root directory	 | /home/smartide/jenkins_workspace |
-    | Labels | vm-slave (此处很关键，后面JenkinFile流水线文件中会根据此label选取代理机) |
-    | Launch method | Launch agents via SSH |
-    | Host | boathouse-pipeline-agent |
-    | Host Key Verification Strategy | Non verifying Verification Strategy |
+
+| 参数名 | 参数值 |
+|--|--|
+| # of executors | 1 |
+| Remote root directory	 | /home/smartide/jenkins_workspace |
+| Labels | vm-slave (此处很关键，后面JenkinFile流水线文件中会根据此label选取代理机) |
+| Launch method | Launch agents via SSH |
+| Host | boathouse-pipeline-agent |
+| Host Key Verification Strategy | Non verifying Verification Strategy |
 
 
 
@@ -152,12 +153,13 @@ sudo apt install maven
 ![image.png](.attachments/image-85931b08-91f1-42f1-97f6-1ba1d681eeeb.png)
 
 在认证编辑界面输入参数：
-    | 参数名 | 参数值 |
-    |--|--|
-    | Username | smartide |
-    | Password | root123 |
-    | ID | vm-slave |
-    | Description | vm-slave |
+
+| 参数名 | 参数值 |
+|--|--|
+| Username | smartide |
+| Password | root123 |
+| ID | vm-slave |
+| Description | vm-slave |
 
 然后点击 **Add**
 
