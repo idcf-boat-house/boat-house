@@ -20,7 +20,9 @@ Boat House Product Service 是 ：
 ![](images/devguide-product-service-01.png)
 
 ### 开发环境
+
 使用SmartIDE容器化开发环境的方式，通过任何浏览器均可进行开发调试，环境中配置好对应的SDK以及docker等工具，不需要在本地安装SDK，开发工具等，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，就可以开始你的开发调试。
+
 ### 快速开始
 1. 访问SmartIDE网站，完成登录
 ![](images/devguide-smartide-login.png)
@@ -73,7 +75,7 @@ Boat House Product Service 是 ：
 
 ![](images/devguide-smartide-workspace-03.png)
 
-4. 打开工作区进行调试开发
+4. 打开工作区，并完成开发环境自动初始化准备
 
 点击工作区详情页中的VSCode图标，打开WebIDE：
 
@@ -83,41 +85,57 @@ WebIDE启动后，工具将自动触发以下动作：
 - 执行后端代码的mvn package构建
 - 安装需要的java扩展包以及docker扩展
 - 执行前端代码的npm install以及build
-- 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具mysqladmin
+- 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具phpmyadmin
 
 初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
 
 ![](images/devguide-smartide-vscode-02.png)
 
-点击[ JAVA PROJECTS ]中的[重新构建工作空间]按钮，完成工作空间的构建
+通过查看Docker扩展，也可以看到已经启动了mysql及phpmyadmin容器：
+
 ![](images/devguide-smartide-vscode-03.png)
 
+点击工作区详情页面中的phpmyadmin图标，打开phpmyadmin进行查看：
 
-1. 如果本地没有开发环境，请参考以下连接，一步快速启动开发环境：https://gitee.com/idcf-boat-house/boat-house-backend/blob/master/src/product-service/api/.ide/readme.md
+![](images/devguide-smartide-vscode-04.png)
 
-### （模式二）传统开发模式
+在打开的phpmyadmin页面中，完成登录：
 
-1. 安装 [Itellij IDEA](https://www.jetbrains.com/idea/)
-1. 使用 IDEA 打开 Product Service Api 代码
-![](images/devguide-product-service-02.png)
-1. 点击 pom.xml 查看外部引用项，并点击加载
-![](images/devguide-product-service-03.png)
-1. Docker启动MySql本地数据库
-    ```bash
-    docker pull mysql
-    docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=[Your Password] -d mysql
-    docker ps
-    ```
-    ![](images/devguide-product-service-04.png)
-    ![](images/devguide-product-service-05.png)
-    ![](images/devguide-product-service-06.png)
-1. 修改 application.properties 文件数据库连接字符串
-![](images/devguide-product-service-07.png)
-1. 运行 Product Service 站点
-![](images/devguide-product-service-08.png)
-1. 浏览器打开 Swagger UI 地址（http://localhost:8080/api/v1.0/swagger-ui.html）
-![](images/devguide-product-service-09.png)
+![](images/devguide-smartide-vscode-05.png)
 
+其中填写信息来源于配置文件.ide/docker-compose-debug.yml，如图所示：
+
+![](images/devguide-smartide-vscode-06.png)
+
+这里可以看到BoatHouse数据库已经建立，并已经完成数据库初始化：
+
+![](images/devguide-smartide-vscode-07.png)
+
+经过查看，开发环境已准备就绪，下面我们来进行开发调试。
+
+5. 后端调试启动
+
+修改后端Boat House Product Service的启动配置，修改profile为dev。
+
+文件路径为：src/product-service/api/src/main/resources/application.properties
+
+![](images/devguide-smartide-debug-01.png)
+
+点击[ JAVA PROJECTS ]中的[ 重新构建工作空间 ]按钮，完成工作空间的构建
+
+![](images/devguide-smartide-debug-02.png)
+
+运行后端Product Service
+
+![](images/devguide-smartide-debug-03.png)
+
+点击工作区详情页面中的后端访问地址：
+
+![](images/devguide-smartide-debug-04.png)
+
+这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：/api/v1.0/swagger-ui.html）：
+
+![](images/devguide-smartide-debug-05.png)
 
 ## Management Web 快速上手指南
 
@@ -134,24 +152,29 @@ Boat House Management Web 是：
 
 ### 开发环境
 
-* Windows/Mac OS
-* [VS Code](https://code.visualstudio.com/) IDE
-* [nodejs](https://nodejs.org/)
+SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无须进行任何安装配置，在之前打开的浏览器中使用即可。
 
 ### 快速开始
-1. 安装 [VS Code](https://www.jetbrains.com/idea/), [nodejs](https://nodejs.org/)
-1. 使用 VS Code 打开 Management Web 代码
-![](images/devguide-management-web-02.png)
-1. 点击 package.json 查看外部引用项，并运行 npm install 加载
-![](images/devguide-management-web-03.png)
-1. 修改 server.js 文件product service api 地址
-![](images/devguide-management-web-04.png)
-1. 运行 npm run build 进行应用打包
-![](images/devguide-management-web-05.png)
-1. 点击左侧 Debug 工具栏，启动 Debug
-![](images/devguide-debugging-08.png)
-1. 浏览器打开网站地址（http://localhost:4000）
-![](images/devguide-management-web-06.png)
+
+工作区环境启动后，前端的npm install 及 build应用打包 操作已自动执行，现在，我们无须任何配置，只需要点击调试，即可打开前端工程的开发调试。
+
+前端代码所在路径为：src/boat-house-frontend
+
+点击左侧Debug工具栏，启动Debug：
+
+![](images/devguide-smartide-debug-06.png)
+
+点击工作区详情页面中的前端访问地址：
+
+![](images/devguide-smartide-debug-07.png)
+
+这时，可以查看到前端页面已经可以访问了：
+
+![](images/devguide-smartide-debug-08.png)
+
+至此，我们将前后端项目都打开了调试模式：
+
+![](images/devguide-smartide-debug-09.png)
 
 ## Product Service & Management Web 跨技术栈/IDE连调指南
 ### 整体架构图：
@@ -159,35 +182,49 @@ Boat House Management Web 是：
 
 ### 具体步骤
 * **Product Service ： IDEA Debugging Mode**
-1. IDEA中打开Product Service api 项目目录
-![](images/devguide-debugging-01.png)
-1. 加载 Pom 文件中所需要的外部引用包
-![](images/devguide-debugging-02.png)
-1. 点击右上角 Debug 键
-![](images/devguide-debugging-03.png)
-1. Debug 已启动，端口号（默认8080）如下
-![](images/devguide-debugging-04.png)
-1. 打开 Swagger UI(http://localhost:8080/), 确认服务已经可以被访问
-![](images/devguide-debugging-05.png)
-1. 在要调试的方法上打断点
-![](images/devguide-debugging-06.png)
+
+1. 在要调试的方法BoatHouseController.AddFoodCategory()上打断点
+
+文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java
+
+![](images/devguide-smartide-debug-10.png)
 
 * **Management Web 后端：VS Code Debugging Mode**
-1. VS Code中选中项目中的 server.js 文件，修改 product service 地址为 http://localhost:8080
-![](images/devguide-debugging-07.png)
-1. 点击左侧 Debug 工具栏，启动 Debug
-![](images/devguide-debugging-08.png)
-1. Debug 已启动，端口号（默认4000）如下
-![](images/devguide-debugging-09.png)
 1. 在 server.js 要调试的后台函数中打断点
-![](images/devguide-debugging-10.png)
+
+文件路径：src/boat-house-frontend/src/management/server.js
+
+![](images/devguide-smartide-debug-11.png)
 
 * **Management Web 前端：用户浏览器（开发者模式）**
-1. 打开 Boat House 后台管理网站
-![](images/devguide-debugging-11.png)
-1. F12开启浏览器开发者模式，点击Source找到要调试的.vue文件，在要调试的 js 函数中打断点
-![](images/devguide-debugging-12.png)
-1. 开始连调，浏览器页面触发JS方法，监控 Http Request/Response 流转过程
-![](images/devguide-debugging-13.png)
-![](images/devguide-debugging-14.png)
-![](images/devguide-debugging-15.png)
+
+1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
+
+![](images/devguide-smartide-debug-12.png)
+
+1. 添加菜品内容后，点击确定，触发调试
+
+![](images/devguide-smartide-debug-13.png)
+
+1. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
+
+![](images/devguide-smartide-debug-14.png)
+
+1. 点击继续运行：
+
+![](images/devguide-smartide-debug-15.png)
+
+1. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
+
+![](images/devguide-smartide-debug-16.png)
+
+1. 再次点击继续运行，数据添加成功：
+
+![](images/devguide-smartide-debug-17.png)
+
+至此，我们完成了前后端联调测试。
+下面，任由您在进行扩展发挥吧！
+SmartIDE Up！
+
+
+
