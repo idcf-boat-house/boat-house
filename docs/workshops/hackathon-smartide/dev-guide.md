@@ -85,7 +85,12 @@ WebIDE启动后，工具将自动触发以下动作：
 - 执行前端代码的npm install以及build
 - 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具mysqladmin
 
+初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
 
+![](images/devguide-smartide-vscode-02.png)
+
+点击[ JAVA PROJECTS ]中的[重新构建工作空间]按钮，完成工作空间的构建
+![](images/devguide-smartide-vscode-03.png)
 
 
 1. 如果本地没有开发环境，请参考以下连接，一步快速启动开发环境：https://gitee.com/idcf-boat-house/boat-house-backend/blob/master/src/product-service/api/.ide/readme.md
