@@ -75,9 +75,9 @@ Dev环境部署完毕，在SmartIDE工作空间打开以下链接，查看部署
 
 BoatHouse Client端，如下图所示：
 
-![image.png](images/teamguide-cd-12.png)
+![](images/20221026172718.png)  
 
 BoatHouse Management端，如下图所示：
 
-![image.png](images/teamguide-cd-13.png)
+![](images/20221026172807.png)  
 

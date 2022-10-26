@@ -10,6 +10,9 @@
 执行以下命令快速创建一个K8S集群：
 
 ```
+# 首先进入到boathouse-pipeline-agent资源空间，密码root123
+ssh smartide@boathouse-pipeline-agent -p 6822
+
 # 使用KIND创建单节点k8s集群
 kind create cluster \
     --image registry.cn-hangzhou.aliyuncs.com/smartide/nestybox-kindestnode:v1.20.7
@@ -21,7 +24,7 @@ k8s集群创建成功后，可以使用k9s工具对集群运行状态进行实�
 
 
 
-接下来可以为应用创建一个独立的命名空间，操作如下
+接下来可以为应用创建一个独立的命名空间，执行如下命令：
 
 
 ```shell
@@ -30,7 +33,7 @@ kubectl create namespace boathouse-test
 
     
    
-5. 为命名空间创建 docker-registry-secrets
+为命名空间创建 docker-registry-secrets
 
 > 容器镜像仓库的用户名和密钥联系讲师获取。
 
@@ -43,7 +46,7 @@ kubectl create namespace boathouse-test
 kubectl create secret docker-registry regcred --docker-server=[docker registry url] --docker-username=[username] --docker-password=[password] --docker-email=info@idcf.io -n boathouse-test
 ```
     
-6. Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
+Jenkins 添加 Kubeconfig 凭据,ID需为'creds-test-k8s'，找到kube config文件，将里面的所有内容复制到content中
 
 Jenkins流水线使用 Kubernetes Continues Deploy 插件完成k8s部署，此插件需要一个叫做 creds-test-k8s 的凭据以便可以获取k8s的访问密钥。
     
