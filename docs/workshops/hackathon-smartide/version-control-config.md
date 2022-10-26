@@ -16,7 +16,7 @@
 
 ![image.png](images/gitee03.png)
 
-## 1.2 Folk Boathouse示例代码
+## 1.2 Fork Boathouse示例代码
 
 1. 打开代码仓库：https://gitee.com/idcf-boat-house/boathouse-shop
 
