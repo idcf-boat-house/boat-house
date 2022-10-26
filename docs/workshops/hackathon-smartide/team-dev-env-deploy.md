@@ -4,7 +4,7 @@
 我们将会在boathouse-pipeline-vmlc资源上部署团队自己的Dev环境：
 
 
-## 导入Boathouse前后端代码流水线配置
+## 导入Boathouse后端代码流水线配置
 
 进入jenkins首页，点击进入左侧菜单栏中 **open blue ocean** 的菜单
 
@@ -50,6 +50,8 @@
 
 ![](images/20221026153257.png)  
 
+## 导入Boathouse前端代码流水线配置
+
 按照同样的方式完成boathouse前端代码的流水线创建（前端代码以及后端代码都在boathouse-shop仓库，是通过不同的文件夹目录区分的）。
 
 点击 New Pipeline
@@ -78,4 +80,3 @@ http://{vm-dev ip address}:5001
 http://{vm-dev ip address}:7001/api/v1.0/swagger-ui.html
 ![image.png](images/teamguide-cd-14.png)
 
-**注意：暂时没有提供k8s集群环境，所以大家暂时不要部署测试以及生产环境**
