@@ -20,7 +20,7 @@
 
 1. 打开代码仓库：https://gitee.com/idcf-boat-house/boathouse-shop
 
-2. 点击Folk，如下图所示：
+2. 点击Fork，如下图所示：
 
 ![](images/20221026110057.png)  
 
