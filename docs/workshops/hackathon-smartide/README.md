@@ -2,24 +2,23 @@
 
 ## 1. 环境概述
 
-为了能让团队更好的进行开发调试包括对整个DevOps工具链进行搭建以及测试，我们为每个团队提供了以下配套环境
+为了能让团队更好的进行开发调试包括对整个DevOps工具链进行搭建以及测试，我们为每个团队提供了以下配套资源：
 
 ![Boathouse Environment](images/boathouse-env-architecture.png)
 
-环境配置如下：
+资源配置如下：
 
-- 2台 Linux 虚拟机（团队自行分配2台VM的用途）
-  - VM#1: VM-Tools（用于搭建工具链） （CPU: 2 Core MEM: 8G）
-  - VM#2: VM-Dev（用于搭建测试环境） （CPU: 2 Core MEM: 4G）
+- 1个流水线工作区（每个团队拥有一套）
+  - 资源#1: boathouse-pipeline-vmlc（用于搭建工具链） （CPU: 2 Core MEM: 8G）
+  - 资源#2: boathouse-pipeline-agent（用于搭建开发测试环境，以及K8s集群） （CPU: 2 Core MEM: 4G）
 - 1个 容器镜像仓库 （使用微软Azure云的Azure Container Registry)
-- 1个 k8s 集群（使用微软Azure云的Azure Kubernetes Services）
-  - k8s 总会通过 命名空间（NS）划分成 Test/Prod 两个环境
+
 
 ### 获取团队云资源
 
-黑客马拉松的环境通过 [DevOps实验室](https://labs.devcloudx.com) 提供，讲师会在现场发放环境激活码给各团队的负责人。
+黑客马拉松的工作区通过 [SmartIDE提供](http://dev.smartide.cn) 提供，讲师会在现场发放环境相关账号信息。
 
-**注意：每一个团队只有一套环境! 大家注意做好分工。**
+**注意：每一个团队只有一套流水线工作区! 大家注意做好分工。**
 
 ## 2. 基础流水线搭建和dev环境部署
 
