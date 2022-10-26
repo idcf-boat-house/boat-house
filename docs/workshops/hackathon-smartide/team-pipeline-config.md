@@ -17,22 +17,26 @@ Boathouse流水线为了适配不同团队环境，使用了大量环境变量�
 | BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 支持团队提供的容器镜像仓库地址 |
 | CREDS_GITHUB_REGISTRY_USR  | 容器镜像仓库用户名|支持团队提供的容器镜像仓库用户名|
 | CREDS_GITHUB_REGISTRY_PSW  | 容器镜像仓库密码| 支持团队提供的容器镜像仓库密码|
-| BOATHOUSE_DEV_HOST  | 请使用实际 | Dev环境IP地址  |
+| BOATHOUSE_DEV_HOST  | boathouse-pipeline-vmlc  |
 | BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称 |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
 | DEPLOY_K8S_NAMESPACE_PROD | boathouse-prod | k8s命名空间，即boathouse生产环境部署的命名空间 |
 
 添加完成后如下图所示：
+
 ![image.png](images/jenkins-add-envs.png)
 
 ## Jenkins添加Docker VM的连接密钥
 
-1. 打开Jenkins流水线，进入凭据配置界面，点击添加凭证
+打开Jenkins流水线，进入凭据配置界面，点击添加凭证
+
 ![image.png](images/2021-10-14_9-13-09.png)
 ![image.png](images/2021-10-14_10-34-30.png)
 
-2. 添加vm-dev的连接密钥
-用户名密码为登陆vm-dev的用户名密码，ID需为‘creds-dev-server’。
+添加boathouse-pipeline-vmlc的连接密钥
+
+用户名密码为登陆vm-dev的用户名:smartide 密码:root123，ID需为‘creds-dev-server’。
+
 ![image.png](images/teamguide-cd-02.png)
 
 ## Jenkins添加Docker Registry的连接密钥
