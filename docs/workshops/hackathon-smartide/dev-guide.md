@@ -59,7 +59,9 @@
 
     ![](images/devguide-smartide-workspace-02.png)
 
-    ***注：其中资源为已为大家分配好的K8S集群，代码库地址为fork的boathouse-shop代码库的**SSH URL** ***
+    ***注意：***
+    - 资源为已为大家分配好的K8S集群
+    - 代码库地址为fork的boathouse-shop代码库的**SSH URL**
 
     工作区创建以后，进入到工作区详情页面，待启动完毕后，进入到工作区详情页面中：
 
