@@ -213,47 +213,47 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 ### 具体步骤
 * **Product Service ：Debugging Mode**
 
-在要调试的方法BoatHouseController.AddFoodCategory()上打断点
+    在要调试的方法BoatHouseController.AddFoodCategory()上打断点
 
-![](images/devguide-smartide-debug-10.png)
+    ![](images/devguide-smartide-debug-10.png)
 
-***注：文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java***
+    ***注：文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java***
 
 * **Management Web 后端：Debugging Mode**
 
-在 server.js 要调试的后台函数中打断点
+    在 server.js 要调试的后台函数中打断点
 
-![](images/devguide-smartide-debug-11.png)
+    ![](images/devguide-smartide-debug-11.png)
 
-***注：文件路径：src/boat-house-frontend/src/management/server.js***
+    ***注：文件路径：src/boat-house-frontend/src/management/server.js***
 
 * **Management Web 前端：浏览器触发调试**
 
-1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
+    1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
 
-![](images/devguide-smartide-debug-12.png)
+    ![](images/devguide-smartide-debug-12.png)
 
-2. 添加菜品内容后，点击确定，触发调试
+    2. 添加菜品内容后，点击确定，触发调试
 
-![](images/devguide-smartide-debug-13.png)
+    ![](images/devguide-smartide-debug-13.png)
 
-3. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
+    3. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
 
-![](images/devguide-smartide-debug-14.png)
+    ![](images/devguide-smartide-debug-14.png)
 
-4. 点击继续运行：
+    4. 点击继续运行：
 
-![](images/devguide-smartide-debug-15.png)
+    ![](images/devguide-smartide-debug-15.png)
 
-5. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
+    5. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
 
-![](images/devguide-smartide-debug-16.png)
+    ![](images/devguide-smartide-debug-16.png)
 
-6. 再次点击继续运行，数据添加成功：
+    6. 再次点击继续运行，数据添加成功：
 
-![](images/devguide-smartide-debug-17.png)
+    ![](images/devguide-smartide-debug-17.png)
 
-7. 至此，我们完成了前后端联调测试。
+    7. 至此，我们完成了前后端联调测试。
 
 **下面，任由您继续创造发挥吧！**
 
