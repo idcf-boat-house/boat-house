@@ -25,13 +25,13 @@
 
 通过配置工作区策略，设置工作区的git config、ssh key、工作区密码、工作区用户密码。
 
-**进入工作区策略配置：**
+-> 进入工作区策略配置：
 
 ![](images/devguide-smartide-policy-01.png)
 
-**开始工作区策略配置：**
+-> 开始工作区策略配置：
 
-点击[新增]创建工作区策略：
+    点击[新增]创建工作区策略：
 
 ![](images/devguide-smartide-policy-02.png)
 
@@ -63,7 +63,7 @@
 
 ![](images/devguide-smartide-workspace-02.png)
 
-***注：其中资源为已为大家分配好的K8S集群，代码库地址为fork的代码库地址***
+***注：其中资源为已为大家分配好的K8S集群，代码库地址为fork的boathouse-shop代码库的**SSH URL** ***
 
 工作区创建以后，进入到工作区详情页面，待启动完毕后，进入到工作区详情页面中：
 
