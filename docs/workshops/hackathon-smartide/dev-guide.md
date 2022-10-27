@@ -27,8 +27,6 @@
 
     ![](images/devguide-smartide-policy-01.png)
 
-    -> 开始工作区策略配置：
-
     点击[新增]创建工作区策略：
 
     ![](images/devguide-smartide-policy-02.png)
@@ -53,33 +51,33 @@
 
 3. 创建开发工作区
 
-下面，我们来创建实验的开发工作区环境，点击左侧[ 工作区管理 ]，然后点击 [ 新增工作区 ]
+    下面，我们来创建实验的开发工作区环境，点击左侧[ 工作区管理 ]，然后点击 [ 新增工作区 ]
 
-![](images/devguide-smartide-workspace-01.png)
+    ![](images/devguide-smartide-workspace-01.png)
 
-进入新增工作区页面后，选择资源以及添加代码库地址：
+    进入新增工作区页面后，选择资源以及添加代码库地址：
 
-![](images/devguide-smartide-workspace-02.png)
+    ![](images/devguide-smartide-workspace-02.png)
 
-***注：其中资源为已为大家分配好的K8S集群，代码库地址为fork的boathouse-shop代码库的**SSH URL** ***
+    ***注：其中资源为已为大家分配好的K8S集群，代码库地址为fork的boathouse-shop代码库的**SSH URL** ***
 
-工作区创建以后，进入到工作区详情页面，待启动完毕后，进入到工作区详情页面中：
+    工作区创建以后，进入到工作区详情页面，待启动完毕后，进入到工作区详情页面中：
 
-![](images/devguide-smartide-workspace-03.png)
+    ![](images/devguide-smartide-workspace-03.png)
 
 4. 打开工作区，并完成开发环境自动初始化准备
 
-点击工作区详情页中的VSCode图标，打开WebIDE：
+    点击工作区详情页中的VSCode图标，打开WebIDE：
 
-![](images/devguide-smartide-vscode-01.png)
+    ![](images/devguide-smartide-vscode-01.png)
 
-WebIDE启动后，工具将自动触发以下动作：
-- 执行后端代码的mvn package构建
-- 安装需要的java扩展包以及docker扩展
-- 执行前端代码的npm install以及build
-- 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具phpmyadmin
+    WebIDE启动后，工具将自动触发以下动作：
+    - 执行后端代码的mvn package构建
+    - 安装需要的java扩展包以及docker扩展
+    - 执行前端代码的npm install以及build
+    - 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具phpmyadmin
 
-至此，我们完成了工作区的创建，并在打开的工作区中，系统自动为我们完成了环境的初始化。
+    至此，我们完成了工作区的创建，并在打开的工作区中，系统自动为我们完成了环境的初始化。
 
 ## Product Service 快速上手指南
 
@@ -100,72 +98,72 @@ SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完
 
 1. 初始化环境检查
 
-通过SmartIDE建立的工作区初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
+    通过SmartIDE建立的工作区初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
 
-![](images/devguide-smartide-vscode-02.png)
+    ![](images/devguide-smartide-vscode-02.png)
 
-通过查看Docker扩展，也可以看到已经启动了mysql及phpmyadmin容器：
+    通过查看Docker扩展，也可以看到已经启动了mysql及phpmyadmin容器：
 
-![](images/devguide-smartide-vscode-03.png)
+    ![](images/devguide-smartide-vscode-03.png)
 
-点击工作区详情页面中的phpmyadmin图标，打开phpmyadmin进行查看：
+    点击工作区详情页面中的phpmyadmin图标，打开phpmyadmin进行查看：
 
-![](images/devguide-smartide-vscode-04.png)
+    ![](images/devguide-smartide-vscode-04.png)
 
-在打开的phpmyadmin页面中，完成登录：
+    在打开的phpmyadmin页面中，完成登录：
 
-![](images/devguide-smartide-vscode-05.png)
+    ![](images/devguide-smartide-vscode-05.png)
 
-其中填写信息来源于配置文件.ide/docker-compose-debug.yml，如图所示：
+    其中填写信息来源于配置文件.ide/docker-compose-debug.yml，如图所示：
 
-![](images/devguide-smartide-vscode-06.png)
+    ![](images/devguide-smartide-vscode-06.png)
 
-这里可以看到BoatHouse数据库已经建立，并已经完成数据库初始化：
+    这里可以看到BoatHouse数据库已经建立，并已经完成数据库初始化：
 
-![](images/devguide-smartide-vscode-07.png)
+    ![](images/devguide-smartide-vscode-07.png)
 
-经过查看，开发环境已准备就绪，下面我们来进行开发调试。
+    经过查看，开发环境已准备就绪，下面我们来进行开发调试。
 
 2. 后端调试启动
 
-首先，进行数据库host配置：
-```
-## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
-sudo passwd root
-## 切换到root用户
-su
-## 在root用户下执行
-## 添加product-service-db 映射到 127.0.0.1
-echo "127.0.0.1 product-service-db" >> /etc/hosts
-## 检查是否添加成功
-cat /etc/hosts
-## 退出 root 用户模式
-exit
-```
-***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
+    首先，进行后端访问的数据库host配置：
+    ```
+    ## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
+    sudo passwd root
+    ## 切换到root用户
+    su
+    ## 在root用户下执行
+    ## 添加product-service-db 映射到 127.0.0.1
+    echo "127.0.0.1 product-service-db" >> /etc/hosts
+    ## 检查是否添加成功
+    cat /etc/hosts
+    ## 退出 root 用户模式
+    exit
+    ```
+    ***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
 
-其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
-***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
-***注：后端代码所在路径为：product-service***
+    其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
+    ***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
+    ***注：后端代码所在路径为：product-service***
 
 
-![](images/devguide-smartide-debug-01.png)
+    ![](images/devguide-smartide-debug-01.png)
 
-然后，点击[JAVA PROJECTS]中的[重新构建工作空间]按钮，完成工作空间的构建
+    然后，点击[JAVA PROJECTS]中的[重新构建工作空间]按钮，完成工作空间的构建
 
-![](images/devguide-smartide-debug-02.png)
+    ![](images/devguide-smartide-debug-02.png)
 
-运行后端Product Service，打开后端调试模式
+    运行后端Product Service，打开后端调试模式
 
-![](images/devguide-smartide-debug-03.png)
+    ![](images/devguide-smartide-debug-03.png)
 
-返回工作区详情页面，点击后端访问地址：
+    返回工作区详情页面，点击后端访问地址：
 
-![](images/devguide-smartide-debug-04.png)
+    ![](images/devguide-smartide-debug-04.png)
 
-这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：{boathouse-backend url}/api/v1.0/swagger-ui.html）：
+    这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：{boathouse-backend url}/api/v1.0/swagger-ui.html）：
 
-![](images/devguide-smartide-debug-05.png)
+    ![](images/devguide-smartide-debug-05.png)
 
 ## Management Web 快速上手指南
 
@@ -211,48 +209,47 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 ![](images/devguide-debugging-arch.png)
 
 ### 具体步骤
-* **Product Service ： IDEA Debugging Mode**
-
-1. 在要调试的方法BoatHouseController.AddFoodCategory()上打断点
-
-文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java
+* **Product Service ：Debugging Mode**
+在要调试的方法BoatHouseController.AddFoodCategory()上打断点
 
 ![](images/devguide-smartide-debug-10.png)
 
-* **Management Web 后端：VS Code Debugging Mode**
-1. 在 server.js 要调试的后台函数中打断点
+***注：文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java***
 
-***注：文件路径：src/boat-house-frontend/src/management/server.js***
+* **Management Web 后端：Debugging Mode**
+在 server.js 要调试的后台函数中打断点
 
 ![](images/devguide-smartide-debug-11.png)
 
-* **Management Web 前端：用户浏览器（开发者模式）**
+***注：文件路径：src/boat-house-frontend/src/management/server.js***
 
-2. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
+* **Management Web 前端：用户浏览器触发调试**
+
+1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
 
 ![](images/devguide-smartide-debug-12.png)
 
-3. 添加菜品内容后，点击确定，触发调试
+2. 添加菜品内容后，点击确定，触发调试
 
 ![](images/devguide-smartide-debug-13.png)
 
-4. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
+3. 首先，调试会先进入我们的前端调试断点，这时我们可以查看堆栈信息以及变量信息：
 
 ![](images/devguide-smartide-debug-14.png)
 
-5. 点击继续运行：
+4. 点击继续运行：
 
 ![](images/devguide-smartide-debug-15.png)
 
-6. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
+5. 调试会进入我们的后端调试断点，同时我们依然可以查看堆栈信息以及变量信息
 
 ![](images/devguide-smartide-debug-16.png)
 
-7. 再次点击继续运行，数据添加成功：
+6. 再次点击继续运行，数据添加成功：
 
 ![](images/devguide-smartide-debug-17.png)
 
-8. 至此，我们完成了前后端联调测试。
+7. 至此，我们完成了前后端联调测试。
 
 **下面，任由您继续创造发挥吧！**
 
