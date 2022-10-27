@@ -158,11 +158,11 @@ exit
 
 ![](images/devguide-smartide-debug-03.png)
 
-返回工作区详情页面，点击后端访问地址：
+返回工作区详情页面，点击后端访问地址（{boathouse-backend url}/api/v1.0/swagger-ui.html）：
 
 ![](images/devguide-smartide-debug-04.png)
 
-这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：{boathouse-backend url}/api/v1.0/swagger-ui.html）：
+这时，后端服务的Swagger UI中可以查看到服务接口信息：
 
 ![](images/devguide-smartide-debug-05.png)
 
