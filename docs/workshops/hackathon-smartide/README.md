@@ -6,11 +6,12 @@
 
 ![Boathouse Environment](images/boathouse-env-architecture.png)
 
-资源配置如下：
+资源配置如下（每个团队拥有一套）：
 
-- 1个流水线工作区（每个团队拥有一套）
-  - 资源#1: boathouse-pipeline-vmlc（用于搭建工具链，以及应用的环境部署） （CPU: 2 Core MEM: 8G）
-  - 资源#2: boathouse-pipeline-agent（用于搭建开发测试环境，以及K8s集群） （CPU: 2 Core MEM: 4G）
+- 1个流水线工作区
+  - 资源#1: boathouse-pipeline-vmlc（用于搭建工具链） （CPU: 4 Core MEM: 8G）
+  - 资源#2: boathouse-pipeline-agent（用于搭建开发测试环境，以及K8s集群） （CPU: 4 Core MEM: 8G）
+- 2个开发工作区（用于用户进行BoatHouse业务系统的开发工作，CPU: 2 Core MEM: 4G）
 - 1个 容器镜像仓库 （使用微软Azure云的Azure Container Registry)
 
 
