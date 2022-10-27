@@ -6,7 +6,7 @@
 * 基于 Spring Boot 框架开发的 **Product Service** 将为Boat House提供 REST API 数据支持；
 * 基于Node Js + Vue 框架开发的后端管理平台 **Management Web** 将为Boat House提供后台数据管理功能。
 
-本指南以 Product Service 和 Boat House 后端管理平台 Management Web 为例，在接下来的三个章节中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈的前后端的调试。
+本指南以 Product Service 和 Boat House 后端管理平台 Management Web 为例，在接下来的内容中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈的前后端的调试。
 
 ## 使用说明
 
@@ -25,31 +25,29 @@
 
     通过配置工作区策略，设置工作区的git config、ssh key、工作区密码、工作区用户密码。
 
-    -> 进入工作区策略配置：
-
-![](images/devguide-smartide-policy-01.png)
+    ![](images/devguide-smartide-policy-01.png)
 
     -> 开始工作区策略配置：
 
     点击[新增]创建工作区策略：
 
-![](images/devguide-smartide-policy-02.png)
+    ![](images/devguide-smartide-policy-02.png)
 
-  - git-config：该配置为工作区git提交时的用户信息设置，系统会根据登录用户信息自动设置
+    - git-config：该配置为工作区git提交时的用户信息设置，系统会根据登录用户信息自动设置
 
-![](images/devguide-smartide-policy-03.png)
+    ![](images/devguide-smartide-policy-03.png)
 
-  - ssh-key：该配置为工作区中生成的ssh秘钥信息，其中的公钥信息可配置到任意仓库ssh公钥中，从而实现通过ssh方式拉取代码创建工作区.系统会自动生成秘钥对，用户也可以将本地秘钥进行粘贴修改。
+    - ssh-key：该配置为工作区中生成的ssh秘钥信息，其中的公钥信息可配置到任意仓库ssh公钥中，从而实现通过ssh方式拉取代码创建工作区.系统会自动生成秘钥对，用户也可以将本地秘钥进行粘贴修改。
 
-![](images/devguide-smartide-policy-04.png)
+    ![](images/devguide-smartide-policy-04.png)
 
-  - credentials：密码将作为访问工作区的密码或工作区smartide用户密码
+    - credentials：密码将作为访问工作区的密码或工作区smartide用户密码
 
-![](images/devguide-smartide-policy-05.png)
+    ![](images/devguide-smartide-policy-05.png)
 
     下面，我们复制刚刚配置好的ssh-key中的rsa-pub信息到源代码仓库服务中，
 
-![](images/devguide-smartide-policy-06.png)
+    ![](images/devguide-smartide-policy-06.png)
 
     完成以上的基础配置后，下面我们来创建开发环境。
 
