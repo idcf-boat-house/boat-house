@@ -63,11 +63,11 @@
     - 资源为已为大家分配好的K8S集群
     - 代码库地址为fork的boathouse-shop代码库的**SSH URL**
 
-    工作区创建以后，进入到工作区详情页面，待启动完毕后，进入到工作区详情页面中：
+    工作区创建以后，进入到工作区详情页面，工作区启动完毕后，页面如下：
 
     ![](images/devguide-smartide-workspace-03.png)
 
-4. 打开工作区，并完成开发环境自动初始化准备
+4. 打开工作区，完成开发环境自动初始化
 
     点击工作区详情页中的VSCode图标，打开WebIDE：
 
@@ -81,24 +81,7 @@
 
     至此，我们完成了工作区的创建，并在打开的工作区中，系统自动为我们完成了环境的初始化。
 
-## Product Service 快速上手指南
-
-### 简介
-
-Boat House Product Service 是 ：
-* Boat House 的产品后台数据服务
-* 基于Spring Boot 框架开发的 RESTFUL API
-* 对 Boat House 各网站提供产品数据接口，使用MySql数据库进行数据存储
-
-![](images/devguide-product-service-01.png)
-
-### 开发环境
-
-SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完成了初始化操作，无须进行任何安装配置，打开VSCode，浏览器中使用即可。
-
-### 快速开始
-
-1. 初始化环境检查
+5. 环境检查
 
     通过SmartIDE建立的工作区初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
 
@@ -126,46 +109,60 @@ SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完
 
     经过查看，开发环境已准备就绪，下面我们来进行开发调试。
 
-2. 后端调试启动
+## Product Service 快速上手指南
 
-    首先，进行后端访问的数据库host配置：
-    ```
-    ## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
-    sudo passwd root
-    ## 切换到root用户
-    su
-    ## 在root用户下执行
-    ## 添加product-service-db 映射到 127.0.0.1
-    echo "127.0.0.1 product-service-db" >> /etc/hosts
-    ## 检查是否添加成功
-    cat /etc/hosts
-    ## 退出 root 用户模式
-    exit
-    ```
-    ***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
+### 简介
 
-    其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
-    ***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
-    ***注：后端代码所在路径为：product-service***
+Boat House Product Service 是 ：
+* Boat House 的产品后台数据服务
+* 基于Spring Boot 框架开发的 RESTFUL API
+* 对 Boat House 各网站提供产品数据接口，使用MySql数据库进行数据存储
 
+![](images/devguide-product-service-01.png)
 
-    ![](images/devguide-smartide-debug-01.png)
+### 开发环境
 
-    然后，点击[JAVA PROJECTS]中的[重新构建工作空间]按钮，完成工作空间的构建
+SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完成了初始化操作，无须进行任何安装配置，打开VSCode，浏览器中使用即可。
 
-    ![](images/devguide-smartide-debug-02.png)
+### 快速开始
 
-    运行后端Product Service，打开后端调试模式
+首先，进行后端访问的数据库host配置：
+```
+## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
+sudo passwd root
+## 切换到root用户
+su
+## 在root用户下执行
+## 添加product-service-db 映射到 127.0.0.1
+echo "127.0.0.1 product-service-db" >> /etc/hosts
+## 检查是否添加成功
+cat /etc/hosts
+## 退出 root 用户模式
+exit
+```
+***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
 
-    ![](images/devguide-smartide-debug-03.png)
+其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
+***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
+***注：后端代码所在路径为：product-service***
 
-    返回工作区详情页面，点击后端访问地址：
+![](images/devguide-smartide-debug-01.png)
 
-    ![](images/devguide-smartide-debug-04.png)
+然后，点击[JAVA PROJECTS]中的[重新构建工作空间]按钮，完成工作空间的构建
 
-    这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：{boathouse-backend url}/api/v1.0/swagger-ui.html）：
+![](images/devguide-smartide-debug-02.png)
 
-    ![](images/devguide-smartide-debug-05.png)
+运行后端Product Service，打开后端调试模式
+
+![](images/devguide-smartide-debug-03.png)
+
+返回工作区详情页面，点击后端访问地址：
+
+![](images/devguide-smartide-debug-04.png)
+
+这时，可以查看到后端服务的Swagger UI（需要在打开的链接地址后输入：{boathouse-backend url}/api/v1.0/swagger-ui.html）：
+
+![](images/devguide-smartide-debug-05.png)
 
 ## Management Web 快速上手指南
 
