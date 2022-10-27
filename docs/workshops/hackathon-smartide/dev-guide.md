@@ -140,13 +140,13 @@ cat /etc/hosts
 ## 退出 root 用户模式
 exit
 ```
-***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
+- ***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
 
 其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
 
-***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
+- ***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
 
-***注：后端代码所在路径为：product-service***
+- ***注：后端代码所在路径为：src/product-service***
 
 ![](images/devguide-smartide-debug-01.png)
 
