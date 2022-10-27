@@ -100,8 +100,8 @@ Dev环境部署完毕后，点击同意部署到测试环境
 执行以下命令，将部署在k8s的应用端口映射出来
 
 ```
-nohup kubectl --namespace boathouse-test port-forward svc/client 5002:5000 --address 0.0.0.0 > kubectl-port-forward.log &
-nohup kubectl --namespace boathouse-test port-forward svc/management 5003:5001 --address 0.0.0.0 > kubectl-port-forward.log &
+nohup kubectl --namespace boathouse-test port-forward svc/client 5000:5000 --address 0.0.0.0 > kubectl-port-forward.log &
+nohup kubectl --namespace boathouse-test port-forward svc/management 5001:5001 --address 0.0.0.0 > kubectl-port-forward.log &
 ```
 
 
