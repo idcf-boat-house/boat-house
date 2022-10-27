@@ -2,29 +2,23 @@
 ## IDCF Boat House 项目架构：
 ![boathouse-arch](images/devguide-boathouse-arch.png)
 ## 指南概要
-如上Boat House项目架构图所示:
+如上方Boat House项目架构图所示:
 * 基于 Spring Boot 框架开发的 **Product Service** 将为Boat House提供 REST API 数据支持；
 * 基于Node Js + Vue 框架开发的后端管理平台 **Management Web** 将为Boat House提供后台数据管理功能。
 
-本指南将以 Product Service 和 Boat House 后端管理平台 Management Web 为例，在接下来的三个章节中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈/IDE情况下如何进行前后端到端的调试。
+本指南以 Product Service 和 Boat House 后端管理平台 Management Web 为例，在接下来的三个章节中介绍如何快速上手进行 管理网站 和 后台服务 的开发，以及跨技术栈的前后端的调试。
 
-## Product Service 快速上手指南
+## 使用说明
 
-### 简介
+本实验中，将使用[SmartIDE](https://smartide.cn)来完成实验过程。通过使用SmartIDE，无须在本地安装任何开发工具，仅使用浏览器即可打开一个完整的前后端开发环境。
 
-Boat House Product Service 是 ：
-* Boat House 的产品后台数据服务
-* 基于Spring Boot 框架开发的 RESTFUL API
-* 向前对 Boat House 各网站提供产品数据接口，向后使用MySql数据库进行数据存储
+在启动的环境中，已为开发者完成了依赖环境（对应的SDK以及docker）、插件等的初始化和预配置，打开浏览器即可快速开始动手开发！
 
-![](images/devguide-product-service-01.png)
+那么首先，我们先在SmartIDE中进行一些基本设置，用以完成实现中git代码的拉取、提交的基础设置，并创建开发工作区。
 
-### 开发环境
+## 通过SmartIDE创建开发工作区
 
-使用SmartIDE容器化开发环境的方式，通过任何浏览器均可进行开发调试，环境中配置好对应的SDK以及docker等工具，不需要在本地安装SDK，开发工具等，所有的这些开发依赖都已经帮您在容器中配置好，你只需要一键启动开发环境，就可以开始你的开发调试。
-
-### 快速开始
-1. 访问SmartIDE网站，完成登录
+1. 访问SmartIDE网站，完成登录（支持团队会为每组分配登录账号）
 ![](images/devguide-smartide-login.png)
 
 2. 配置工作区策略
@@ -87,7 +81,28 @@ WebIDE启动后，工具将自动触发以下动作：
 - 执行前端代码的npm install以及build
 - 启动项目依赖的mysql数据库，并完成初始化。并且，建立网页版的mysql客户端工具phpmyadmin
 
-初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
+至此，我们完成了工作区的创建，并在打开的工作区中，系统自动为我们完成了环境的初始化。
+
+## Product Service 快速上手指南
+
+### 简介
+
+Boat House Product Service 是 ：
+* Boat House 的产品后台数据服务
+* 基于Spring Boot 框架开发的 RESTFUL API
+* 对 Boat House 各网站提供产品数据接口，使用MySql数据库进行数据存储
+
+![](images/devguide-product-service-01.png)
+
+### 开发环境
+
+SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完成了初始化操作，无须进行任何安装配置，打开VSCode，浏览器中使用即可。
+
+### 快速开始
+
+1. 初始化环境检查
+
+通过SmartIDE建立的工作区初始化动作执行完毕后，会识别出JAVA PROJECTS以及MAVEN项目情况：
 
 ![](images/devguide-smartide-vscode-02.png)
 
@@ -113,11 +128,9 @@ WebIDE启动后，工具将自动触发以下动作：
 
 经过查看，开发环境已准备就绪，下面我们来进行开发调试。
 
-5. 后端调试启动
+2. 后端调试启动
 
-
-
-数据库地址映射配置：后端在调用数据库时，引用的名称为product-service-db，为避免开发配置引入到集成环境，我们在远程的本地环境中配置host：
+首先，进行数据库host配置：
 ```
 ## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
 sudo passwd root
@@ -131,22 +144,24 @@ cat /etc/hosts
 ## 退出 root 用户模式
 exit
 ```
+***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
 
-修改后端Boat House Product Service的启动配置，修改profile为dev。
+其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
+***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
+***注：后端代码所在路径为：product-service***
 
-文件路径为：src/product-service/api/src/main/resources/application.properties
 
 ![](images/devguide-smartide-debug-01.png)
 
-点击[ JAVA PROJECTS ]中的[ 重新构建工作空间 ]按钮，完成工作空间的构建
+然后，点击[JAVA PROJECTS]中的[重新构建工作空间]按钮，完成工作空间的构建
 
 ![](images/devguide-smartide-debug-02.png)
 
-运行后端Product Service
+运行后端Product Service，打开后端调试模式
 
 ![](images/devguide-smartide-debug-03.png)
 
-点击工作区详情页面中的后端访问地址：
+返回工作区详情页面，点击后端访问地址：
 
 ![](images/devguide-smartide-debug-04.png)
 
@@ -175,7 +190,7 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 
 工作区环境启动后，前端的npm install 及 build应用打包 操作已自动执行，现在，我们无须任何配置，只需要点击调试，即可打开前端工程的开发调试。
 
-前端代码所在路径为：src/boat-house-frontend
+***注：前端代码所在路径为：src/boat-house-frontend***
 
 点击左侧Debug工具栏，启动Debug：
 
@@ -209,7 +224,7 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 * **Management Web 后端：VS Code Debugging Mode**
 1. 在 server.js 要调试的后台函数中打断点
 
-文件路径：src/boat-house-frontend/src/management/server.js
+***注：文件路径：src/boat-house-frontend/src/management/server.js***
 
 ![](images/devguide-smartide-debug-11.png)
 
