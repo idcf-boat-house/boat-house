@@ -25,33 +25,33 @@
 
     通过配置工作区策略，设置工作区的git config、ssh key、工作区密码、工作区用户密码。
 
--> 进入工作区策略配置：
+    -> 进入工作区策略配置：
 
 ![](images/devguide-smartide-policy-01.png)
 
--> 开始工作区策略配置：
+    -> 开始工作区策略配置：
 
     点击[新增]创建工作区策略：
 
 ![](images/devguide-smartide-policy-02.png)
 
-- git-config：该配置为工作区git提交时的用户信息设置，系统会根据登录用户信息自动设置
+  - git-config：该配置为工作区git提交时的用户信息设置，系统会根据登录用户信息自动设置
 
 ![](images/devguide-smartide-policy-03.png)
 
-- ssh-key：该配置为工作区中生成的ssh秘钥信息，其中的公钥信息可配置到任意仓库ssh公钥中，从而实现通过ssh方式拉取代码创建工作区.系统会自动生成秘钥对，用户也可以将本地秘钥进行粘贴修改。
+  - ssh-key：该配置为工作区中生成的ssh秘钥信息，其中的公钥信息可配置到任意仓库ssh公钥中，从而实现通过ssh方式拉取代码创建工作区.系统会自动生成秘钥对，用户也可以将本地秘钥进行粘贴修改。
 
 ![](images/devguide-smartide-policy-04.png)
 
-- credentials：密码将作为访问工作区的密码或工作区smartide用户密码
+  - credentials：密码将作为访问工作区的密码或工作区smartide用户密码
 
 ![](images/devguide-smartide-policy-05.png)
 
-下面，我们复制刚刚配置好的ssh-key中的rsa-pub信息到源代码仓库服务中，
+    下面，我们复制刚刚配置好的ssh-key中的rsa-pub信息到源代码仓库服务中，
 
 ![](images/devguide-smartide-policy-06.png)
 
-完成以上的基础配置后，下面我们来创建开发环境。
+    完成以上的基础配置后，下面我们来创建开发环境。
 
 3. 创建开发工作区
 
