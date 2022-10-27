@@ -143,7 +143,9 @@ exit
 ***注：后端访问数据库，引用了product-service-db的名称，通过配置host指向已初始化的本地mysql数据库***
 
 其次，修改后端Boat House Product Service的启动配置，修改profile为dev。
+
 ***注：配置文件路径为：src/product-service/api/src/main/resources/application.properties***
+
 ***注：后端代码所在路径为：product-service***
 
 ![](images/devguide-smartide-debug-01.png)
@@ -203,7 +205,8 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 
 ![](images/devguide-smartide-debug-09.png)
 
-## Product Service & Management Web 跨技术栈/IDE连调指南
+## Product Service & Management Web 跨技术栈联调指南
+
 ### 整体架构图：
 ![](images/devguide-debugging-arch.png)
 
@@ -222,7 +225,7 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 
 ***注：文件路径：src/boat-house-frontend/src/management/server.js***
 
-* **Management Web 前端：用户浏览器触发调试**
+* **Management Web 前端：浏览器触发调试**
 
 1. 打开 Boat House 后台管理网站，并打开[ 菜品分类管理 ]，点击[ 添加菜品分类 ]：
 
