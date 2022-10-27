@@ -212,6 +212,7 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 
 ### 具体步骤
 * **Product Service ：Debugging Mode**
+
 在要调试的方法BoatHouseController.AddFoodCategory()上打断点
 
 ![](images/devguide-smartide-debug-10.png)
@@ -219,6 +220,7 @@ SmartIDE中已内置了nodeJs，npm等工具，前端的代码调试开发也无
 ***注：文件路径：src/product-service/api/src/main/java/com/idcf/boathouse/product/controller/BoatHouseController.java***
 
 * **Management Web 后端：Debugging Mode**
+
 在 server.js 要调试的后台函数中打断点
 
 ![](images/devguide-smartide-debug-11.png)
