@@ -81,3 +81,7 @@ BoatHouse Management端，如下图所示：
 
 ![](images/20221026172807.png)  
 
+产品服务接口地址，如下图所示（打开7001端口地址，并添加以下URL路径）
+/api/v1.0/swagger-ui.html
+
+![](images/20221027121722.png)  
