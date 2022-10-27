@@ -25,13 +25,13 @@
 
 通过配置工作区策略，设置工作区的git config、ssh key、工作区密码、工作区用户密码。
 
-进入工作区策略配置：
+**进入工作区策略配置：**
 
 ![](images/devguide-smartide-policy-01.png)
 
-开始工作区策略配置：
+**开始工作区策略配置：**
 
-点击新增创建工作区策略：
+点击[新增]创建工作区策略：
 
 ![](images/devguide-smartide-policy-02.png)
 
