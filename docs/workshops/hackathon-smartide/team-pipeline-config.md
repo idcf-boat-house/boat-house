@@ -1,6 +1,37 @@
 # Jenkins环境变量配置
 
-## 前置说明：
+## 前置准备
+
+
+
+> 注意：后面的操作需要使用容器镜像仓库来存储容器镜像，可以参考以下方式注册阿里云账号，并开通容器镜像仓库服务。
+
+通过浏览器打开 https://www.aliyun.com/ 并完成新账号注册，注册完成后进入 【容器镜像服务】首页
+
+
+https://cr.console.aliyun.com/
+
+点击创建 【个人版实例】
+
+![](images/20221028222918.png)  
+
+按照提示 【设置Registry登录秘密】
+
+![](images/20221028222931.png)  
+
+创建 【命名空间】
+
+![](images/20221028222944.png)  
+
+注意保持新创建的命名空间的【自动创建仓库】保持开启状态，并记录你自己的命名空间名字
+
+![](images/20221028223002.png)  
+
+点击访问凭证，获取你的登录命令
+
+![](images/20221028223030.png)  
+
+## 说明：
 
 Boathouse流水线为了适配不同团队环境，使用了大量环境变量和凭据变量分离不同团队的流水线环境，比如：镜像仓库地址，DEV/TEST/PROD环境地址和访问密钥，容器镜像仓库地址等。
 
@@ -12,15 +43,17 @@ Boathouse流水线为了适配不同团队环境，使用了大量环境变量�
 
 添加如下环境变量（注意复制环境变量以及值的时候避免多复制了空格）：
 
+
 | 变量名称 | 值 | 说明  |
 | ------------ | --------- | --------- |
-| BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 支持团队提供的容器镜像仓库地址 |
-| CREDS_GITHUB_REGISTRY_USR  | 容器镜像仓库用户名|支持团队提供的容器镜像仓库用户名|
-| CREDS_GITHUB_REGISTRY_PSW  | 容器镜像仓库密码| 支持团队提供的容器镜像仓库密码|
+| BOATHOUSE_CONTAINER_REGISTRY  | 容器镜像仓库地址 | 输入自己的容器镜像仓库地址，建议使用阿里云 |
+| CREDS_GITHUB_REGISTRY_USR  | 容器镜像仓库用户名|输入自己的容器镜像仓库地址，建议使用阿里云 |
+| CREDS_GITHUB_REGISTRY_PSW  | 容器镜像仓库密码| 输入自己的容器镜像仓库地址，建议使用阿里云 |
 | BOATHOUSE_DEV_HOST  | boathouse-pipeline-vmlc  |
 | BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称 |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
 | DEPLOY_K8S_NAMESPACE_PROD | boathouse-prod | k8s命名空间，即boathouse生产环境部署的命名空间 |
+
 
 添加完成后如下图所示：
 
