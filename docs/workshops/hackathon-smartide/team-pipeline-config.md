@@ -50,7 +50,7 @@ Boathouse流水线为了适配不同团队环境，使用了大量环境变量�
 | CREDS_GITHUB_REGISTRY_USR  | 容器镜像仓库用户名|输入自己的容器镜像仓库地址，建议使用阿里云 |
 | CREDS_GITHUB_REGISTRY_PSW  | 容器镜像仓库密码| 输入自己的容器镜像仓库地址，建议使用阿里云 |
 | BOATHOUSE_DEV_HOST  | boathouse-pipeline-vmlc  |
-| BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称 |
+| BOATHOUSE_ORG_NAME | idcf-boat-house  | 团队镜像仓库组织名称/命名空间 |
 | DEPLOY_K8S_NAMESPACE_TEST | boathouse-test | k8s命名空间，即boathouse测试环境部署的命名空间 |
 | DEPLOY_K8S_NAMESPACE_PROD | boathouse-prod | k8s命名空间，即boathouse生产环境部署的命名空间 |
 
