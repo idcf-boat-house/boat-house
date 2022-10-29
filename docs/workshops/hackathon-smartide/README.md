@@ -62,6 +62,7 @@
 | 007 | 服务器监控 && 容器监控 | 使用Prometheus+Grafana监控服务器以及容器的性能指标。参考文档 [使用Prometheus+Grafana监控服务器以及容器](../../quick-start/guide/prometheus-grafana/Readme.md) |
 | 008 | 进行 Jmeter 自动执行接口/性能测试 | 搭建Jmeter环境，完成JMeter测试用例编写并在流水线中自动执行，可以正确查看JMeter测试报告。参考文档 [JMeter测试用例编写手册](../../quick-start/guide/jmeter-testing/Readme.md) [Jenkins集成Jmeter](../../quick-start/guide/jmeter-testing/jmeter-for-jenkins.md) |
 | 009 | 使用 Flyway 管理结构化数据库的持续交付 | 搭建Flyway环境，并通过Flyway集成流水线完成至少一个数据库字段的结构变更，变更内容需要自动发布到DEV环境。参考文档 [使用 Flyway 进行数据库持续交付](../../quick-start/guide/java-flyway-db-pipeline/Readme.md) |
+|010| 创新加分项 | 可以在整个研发流程补充的技术或环节，比如通过ELK收集并分析应用日志 |
 
 参考文档：[Boathouse工具链指导文档列表](../../../README.md?id=工具指导文档) 这里列出了所有相关的工具链指导文档，供参考。
 
