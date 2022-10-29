@@ -128,10 +128,8 @@ SmartIDE中已内置了JDK、MySQL、PhpMyAdmin等环境依赖或工具，并完
 
 首先，进行后端访问的数据库host配置：
 ```
-## 设置root用户密码，自行设置即可，请记住此密码，建议设置为 root123
-sudo passwd root
 ## 切换到root用户
-su
+sudo -i
 ## 在root用户下执行
 ## 添加product-service-db 映射到 127.0.0.1
 echo "127.0.0.1 product-service-db" >> /etc/hosts
