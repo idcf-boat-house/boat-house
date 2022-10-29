@@ -3,7 +3,7 @@
 Jenkins作为Boathouse流水线的底层工具，需要通过容器来托管环境。本文档描述了如何通过SmartIDE快速搭建一套Jenkins的运行环境。
 
 
-## 1. 创建Boathouse流水线工作区
+## 1. （环境已创建，请跳过此步骤）创建Boathouse流水线工作区
 
 登录到 SmartIDE Sever - http://hackathon.smartide.cn
 
