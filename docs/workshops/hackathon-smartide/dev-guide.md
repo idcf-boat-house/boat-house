@@ -133,7 +133,8 @@ sudo passwd root
 ## 切换到root用户
 su
 ## 在root用户下执行
-## 添加product-service-db 映射到 127.0.0.1
+## 添加 product-service-db、product-service-db 映射到 127.0.0.1，保证前端到后端的访问别名，后端到数据库的访问别名
+echo "127.0.0.1 product-service-api" >> /etc/hosts
 echo "127.0.0.1 product-service-db" >> /etc/hosts
 ## 检查是否添加成功
 cat /etc/hosts
