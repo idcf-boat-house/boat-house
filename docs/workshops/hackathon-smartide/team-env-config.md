@@ -5,7 +5,7 @@ Jenkins作为Boathouse流水线的底层工具，需要通过容器来托管环�
 
 ## 1. 创建Boathouse流水线工作区
 
-登录到 SmartIDE Sever - http://dev.smartide.cn
+登录到 SmartIDE Sever - http://hackathon.smartide.cn
 
 点击工作区 ｜ 工作区管理 ｜ 新增工作区，并输入Fork的boathouse-shop-pipeline代码库地址，如下图所示：
 
