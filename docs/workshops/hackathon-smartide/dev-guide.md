@@ -1,4 +1,4 @@
-# IDCF Boat House 快速开发指南（SmartIDE）
+# IDCF Boat House 快速开发指南
 ## IDCF Boat House 项目架构：
 ![boathouse-arch](images/devguide-boathouse-arch.png)
 ## 指南概要
